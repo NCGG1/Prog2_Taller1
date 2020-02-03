@@ -7,5 +7,6 @@ public abstract class Personal {
 	
 	
 	
-	//preba GitHub
+	//preba GitHub 2
+	
 }
