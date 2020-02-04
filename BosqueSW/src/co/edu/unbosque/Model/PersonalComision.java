@@ -33,7 +33,7 @@ public class PersonalComision extends PersonalFijo {
 
 	@Override
 	public String toString() {
-		return "IngenieroSenior clientes: " + clientes;
+		return "Clientes: " + clientes;
 	}
 
 	@Override

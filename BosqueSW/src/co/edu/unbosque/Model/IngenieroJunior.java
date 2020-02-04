@@ -22,7 +22,7 @@ public class IngenieroJunior extends PersonalFijo {
 	@Override
 	public String toString() {
 
-		return super.toString() + "IngenieroJunior nivel: " + nivel;
+		return super.toString() + "Nivel: " + nivel;
 	}
 
 	@Override

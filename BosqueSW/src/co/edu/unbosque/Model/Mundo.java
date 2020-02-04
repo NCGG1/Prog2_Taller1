@@ -7,5 +7,5 @@ public class Mundo {
 	private ArrayList <Personal> empleados;
 	
 	
-	//	private //
+	
 }
