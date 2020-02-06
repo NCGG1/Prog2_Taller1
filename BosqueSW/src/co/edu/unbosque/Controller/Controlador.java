@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import co.edu.unbosque.View.VentanaJunior;
 import co.edu.unbosque.View.VentanaLista;
 import co.edu.unbosque.View.VentanaSenior;
 
@@ -14,6 +15,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 	
 	VentanaLista ventanaLista;
 	VentanaSenior ventanaSenior;
+	VentanaJunior ventanaJunior;
 	
 	public Controlador() {
 		// TODO Auto-generated constructor stub
@@ -23,6 +25,9 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 		
 		ventanaSenior = new VentanaSenior(this);
 		ventanaSenior.setVisible(true);
+		
+		ventanaJunior = new VentanaJunior(this);
+		ventanaJunior.setVisible(true);
 	}
 
 	@Override

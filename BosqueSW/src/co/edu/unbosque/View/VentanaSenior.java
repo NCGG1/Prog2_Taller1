@@ -12,7 +12,7 @@ public class VentanaSenior extends JFrame {
 
 	public VentanaSenior(Controlador control) {
 		
-		setTitle("Registrar Hombre");
+		setTitle("Registrar Empleado Senior");
 		
 		setSize(400,460);
 		setResizable(false);
