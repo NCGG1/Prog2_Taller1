@@ -29,6 +29,8 @@ public class IngenieroSenior extends PersonalFijo{
 	@Override
 	public void calcularSalario() {
 		// TODO Auto-generated method stub
+
+			
 		
 	}
 
