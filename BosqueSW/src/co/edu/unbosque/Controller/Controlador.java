@@ -8,16 +8,21 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import co.edu.unbosque.View.VentanaLista;
+import co.edu.unbosque.View.VentanaSenior;
 
 public class Controlador implements ActionListener, KeyListener, MouseListener{
 	
 	VentanaLista ventanaLista;
+	VentanaSenior ventanaSenior;
 	
 	public Controlador() {
 		// TODO Auto-generated constructor stub
 		
 		ventanaLista = new VentanaLista(this);
 		ventanaLista.setVisible(true);
+		
+		ventanaSenior = new VentanaSenior(this);
+		ventanaSenior.setVisible(true);
 	}
 
 	@Override
