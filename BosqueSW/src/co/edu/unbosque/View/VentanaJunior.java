@@ -29,12 +29,12 @@ public class VentanaJunior extends JFrame {
 		panelregistrarJunior.getVolverFlecha().addActionListener(control);
 		panelregistrarJunior.getBotonRegistrar().addActionListener(control);
 		//Texto
-		panelregistrarJunior.getNombreSenior().addKeyListener(control);
-		panelregistrarJunior.getApellidoSenior().addKeyListener(control);
-		panelregistrarJunior.getTelefonoSenior().addKeyListener(control);
-		panelregistrarJunior.getCorreoSenior().addKeyListener(control);
-		panelregistrarJunior.getDireccionSenior().addKeyListener(control);
-		panelregistrarJunior.getCedulaSenior().addKeyListener(control);
+		panelregistrarJunior.getNombreJunior().addKeyListener(control);
+		panelregistrarJunior.getApellidoJunior().addKeyListener(control);
+		panelregistrarJunior.getTelefonoJunior().addKeyListener(control);
+		panelregistrarJunior.getCorreoJunior().addKeyListener(control);
+		panelregistrarJunior.getDireccionJunior().addKeyListener(control);
+		panelregistrarJunior.getCedulaJunior().addKeyListener(control);
 		panelregistrarJunior.getNumeroVentas().addKeyListener(control);
 		
 		
