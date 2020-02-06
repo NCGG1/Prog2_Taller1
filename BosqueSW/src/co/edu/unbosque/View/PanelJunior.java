@@ -204,52 +204,52 @@ public class PanelJunior extends JPanel {
 		this.volverFlecha = volverFlecha;
 	}
 
-	public JTextField getNombreSenior() {
+	public JTextField getNombreJunior() {
 		return nombreJunior;
 	}
 
-	public void setNombreSenior(JTextField nombreSenior) {
-		this.nombreJunior = nombreSenior;
+	public void setNombreJunior(JTextField nombreJunior) {
+		this.nombreJunior = nombreJunior;
 	}
 
-	public JTextField getApellidoSenior() {
+	public JTextField getApellidoJunior() {
 		return apellidoJunior;
 	}
 
-	public void setApellidoSenior(JTextField apellidoSenior) {
-		this.apellidoJunior = apellidoSenior;
+	public void setApellidoJunior(JTextField apellidoJunior) {
+		this.apellidoJunior = apellidoJunior;
 	}
 
-	public JTextField getTelefonoSenior() {
+	public JTextField getTelefonoJunior() {
 		return telefonoJunior;
 	}
 
-	public void setTelefonoSenior(JTextField telefonoSenior) {
-		this.telefonoJunior = telefonoSenior;
+	public void setTelefonoJunior(JTextField telefonoJunior) {
+		this.telefonoJunior = telefonoJunior;
 	}
 
-	public JTextField getCorreoSenior() {
+	public JTextField getCorreoJunior() {
 		return correoJunior;
 	}
 
-	public void setCorreoSenior(JTextField correoSenior) {
-		this.correoJunior = correoSenior;
+	public void setCorreoJunior(JTextField correoJunior) {
+		this.correoJunior = correoJunior;
 	}
 
-	public JTextField getDireccionSenior() {
+	public JTextField getDireccionJunior() {
 		return direccionJunior;
 	}
 
-	public void setDireccionSenior(JTextField direccionSenior) {
-		this.direccionJunior = direccionSenior;
+	public void setDireccionJunior(JTextField direccionJunior) {
+		this.direccionJunior = direccionJunior;
 	}
 
-	public JTextField getCedulaSenior() {
+	public JTextField getCedulaJunior() {
 		return cedulaJunior;
 	}
 
-	public void setCedulaSenior(JTextField cedulaSenior) {
-		this.cedulaJunior = cedulaSenior;
+	public void setCedulaJunior(JTextField cedulaJunior) {
+		this.cedulaJunior = cedulaJunior;
 	}
 
 	public JTextField getNumeroVentas() {
@@ -260,12 +260,12 @@ public class PanelJunior extends JPanel {
 		this.nivelJunior = numeroVentas;
 	}
 
-	public JComboBox getPrefijoTelefonoSenior() {
+	public JComboBox getPrefijoTelefonoJunior() {
 		return prefijoTelefonoJunior;
 	}
 
-	public void setPrefijoTelefonoSenior(JComboBox prefijoTelefonoSenior) {
-		this.prefijoTelefonoJunior = prefijoTelefonoSenior;
+	public void setPrefijoTelefonoJunior(JComboBox prefijoTelefonoJunior) {
+		this.prefijoTelefonoJunior = prefijoTelefonoJunior;
 	}
 
 
