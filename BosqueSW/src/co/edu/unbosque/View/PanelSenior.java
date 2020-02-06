@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
+import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,7 +25,7 @@ public class PanelSenior extends JPanel {
 	private JTextField nombreSenior, apellidoSenior, telefonoSenior, correoSenior, direccionSenior, cedulaSenior, numeroVentas;
 	private JComboBox prefijoTelefonoSenior;
 	private JRadioButton rbtnHombre, rbtnMujer;
-	
+	private ButtonGroup generos;
 	public static final String REGISTRARSENIOR = "REGISTRAR SENIOR";
 
 	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
@@ -42,6 +43,7 @@ public class PanelSenior extends JPanel {
 		
 		//ruta = "src/co/edu/unbosque/Util/Fondo.jpg";         Falta buscar el fondo de las ventanas_________________
 
+		
 		//BOTON CON TEXTO
 		botonRegistrar = new JButton("REGISTRAR");
 		botonRegistrar.setActionCommand(REGISTRARSENIOR);
@@ -58,8 +60,10 @@ public class PanelSenior extends JPanel {
 		volverFlecha.setOpaque(false);
 		volverFlecha.setContentAreaFilled(false);
 		volverFlecha.setBorderPainted(false);
+		generos = new ButtonGroup();
+		
 		//Radio Buttons
-		rbtnHombre = new JRadioButton("Hombre", false);
+		rbtnHombre = new JRadioButton("Hombre", true);
 		rbtnHombre.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		rbtnHombre.setForeground(Color.BLUE);
 		rbtnHombre.setBackground(Color.WHITE);
@@ -68,6 +72,8 @@ public class PanelSenior extends JPanel {
 		rbtnMujer.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		rbtnMujer.setForeground(Color.PINK);
 		rbtnMujer.setBackground(Color.WHITE);
+		generos.add(rbtnHombre);
+		generos.add(rbtnMujer);
 		//CURSOR
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 
