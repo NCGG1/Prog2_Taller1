@@ -73,19 +73,29 @@ public class PanelLista extends JPanel{
 				new ImageIcon("src/co/edu/unbosque/Util/borrar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		
 		eliminar = new JButton(eliminarIcon);
-		eliminar.setActionCommand(VOLVER_LISTA);
+		eliminar.setActionCommand(ELIMINAR);
 		eliminar.setOpaque(false);
 		eliminar.setContentAreaFilled(false);
 		eliminar.setBorderPainted(false);
 		
 		actualizarIcon = new ImageIcon(
-				new ImageIcon("src/co/edu/unbosque/Util/borrar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+				new ImageIcon("src/co/edu/unbosque/Util/actualizar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		
 		actualizar = new JButton(actualizarIcon);
-		actualizar.setActionCommand(VOLVER_LISTA);
+		actualizar.setActionCommand(ACTUALIZAR);
 		actualizar.setOpaque(false);
 		actualizar.setContentAreaFilled(false);
 		actualizar.setBorderPainted(false);
+		
+		
+		buscarIcon = new ImageIcon(
+				new ImageIcon("src/co/edu/unbosque/Util/buscar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		
+		buscar = new JButton(buscarIcon);
+		buscar.setActionCommand(BUSCAR_PRIN);
+		buscar.setOpaque(false);
+		buscar.setContentAreaFilled(false);
+		buscar.setBorderPainted(false);
 		
 		
 		volverListaIcon = new ImageIcon(
@@ -102,12 +112,27 @@ public class PanelLista extends JPanel{
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 		
 		seleccion = new JTextField();
-		seleccion.setToolTipText("Cedula del usuario selecionado");
+		seleccion.setToolTipText("Cedula del empleado selecionado");
 		volverLista.setToolTipText("Regresar al menu administrador");
+		buscar.setToolTipText("Buscar al empleado selecionado");
+		actualizar.setToolTipText("Actualizar al empleado selecionado");
+		eliminar.setToolTipText("ELiminar al empleado selecionado");
+		
+		buscar.setCursor(cursor);
+		eliminar.setCursor(cursor);
+		actualizar.setCursor(cursor);
 		volverLista.setCursor(cursor);
+		listaEmpleados.setCursor(cursor);
 		barrita.setBounds(12, 20, 1320, 530);
 		volverLista.setBounds(6, 560, 40, 40);
-		seleccion.setBounds(280, 568, 124, 24);
+		seleccion.setBounds(480, 568, 124, 24);
+		buscar.setBounds(620, 560, 40, 40);
+		eliminar.setBounds(670, 560, 40, 40);
+		actualizar.setBounds(720, 560, 40, 40);
+		
+		add(buscar);
+		add(eliminar);
+		add(actualizar);
 		add(barrita);
 		add(volverLista);
 		add(seleccion);
@@ -132,7 +157,7 @@ public class PanelLista extends JPanel{
 
 			g2.setColor(Color.BLACK);
 
-			g2.drawString("Usuario Selecionado:", 100, 586);
+			g2.drawString("Usuario Selecionado:", 300, 586);
 
 		
 		super.paintComponent(g);

@@ -154,9 +154,9 @@ public class PanelJunior extends JPanel {
 				rbtnMujer.setToolTipText("Genero Femenino.");
 		nivelJunior.setBounds(210, 310, 60, 25);
 				nivelJunior.setToolTipText("Nivel del empleado a registrar.");
-
+				
 				choser.setBounds(176, 277, 130, 24);
-		
+				choser.setToolTipText("Fecha en la cual ingreso a la empresa");
 		volverFlecha.setBounds(320, 365, 40, 45);
 		botonRegistrar.setBounds(125,380,130,10);
 		
