@@ -31,7 +31,7 @@ public class PanelPrincipal extends JPanel {
 
 		ruta = "src/co/edu/unbosque/Util/fondo.jpg";
 
-		registrarIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
+		registrarIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/registar.png").getImage()
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		// BOTON CON EL ICON
 		register = new JButton(registrarIcon);
@@ -40,6 +40,22 @@ public class PanelPrincipal extends JPanel {
 		register.setContentAreaFilled(false);
 		register.setBorderPainted(false);
 
+			//x,y, lados,alto
+		lista.setBounds(20, 90, 100, 40);
+		add(lista);
+		
+		ListaIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/registar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		// BOTON CON EL ICON
+		lista = new JButton(ListaIcon);
+		lista.setActionCommand(LISTA);
+		lista.setOpaque(false);
+		lista.setContentAreaFilled(false);
+		lista.setBorderPainted(false);
+
+			//x,y, lados,alto
+		lista.setBounds(20, 90, 100, 40);
+		add(lista);
 	}
 
 	// METODO 1 NECESARIO
