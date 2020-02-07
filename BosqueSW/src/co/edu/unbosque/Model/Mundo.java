@@ -10,7 +10,7 @@ public class Mundo {
 		// TODO Auto-generated constructor stub
 		empleados = new ArrayList<>();
 	}
-	
+
 //	
 //	public String registrarPersonal(String nombre, String apellido, String genero, long telefono, String correo,
 //			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int variable,
@@ -65,13 +65,6 @@ public class Mundo {
 //			return ag;
 //
 //			}
-	
-	
-	
-	
-	
-	
-
 
 	public String actualizarPersona(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String anoIngreso, long cedula) {
@@ -136,7 +129,6 @@ public class Mundo {
 		return actualizar;
 	}
 
-
 	/**
 	 * 
 	 * @param cedula
@@ -179,17 +171,17 @@ public class Mundo {
 	public String borrarPersona(long cedula) {
 
 		String oo = "";
-		
-		if(existePersonal(cedula)) {
-		if (buscarPersona(cedula) != null) {
-			empleados.remove(buscarPersona(cedula));
-			oo = "Se eliminó a la persona correctamente ";
-		} else {
-			oo = "No se eliminó a la persona correctamente ";
 
-		}
-		}else {
-		oo = "No se encontró a la persona, por lo tanto no se eliminó ";
+		if (existePersonal(cedula)) {
+			if (buscarPersona(cedula) != null) {
+				empleados.remove(buscarPersona(cedula));
+				oo = "Se eliminó a la persona correctamente ";
+			} else {
+				oo = "No se eliminó a la persona correctamente ";
+
+			}
+		} else {
+			oo = "No se encontró a la persona, por lo tanto no se eliminó ";
 
 		}
 		return oo;
