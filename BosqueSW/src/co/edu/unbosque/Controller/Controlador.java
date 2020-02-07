@@ -24,10 +24,10 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 		ventanaLista.setVisible(true);
 		
 		ventanaSenior = new VentanaSenior(this);
-		ventanaSenior.setVisible(true);
+	//	ventanaSenior.setVisible(true);
 		
 		ventanaJunior = new VentanaJunior(this);
-		ventanaJunior.setVisible(true);
+	//	ventanaJunior.setVisible(true);
 	}
 
 	@Override

@@ -14,18 +14,25 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
+
+import com.toedter.calendar.JDateChooser;
 
 public class PanelJunior extends JPanel {
 
 	private String ruta;
 	private Image fondo;
 	private JButton botonRegistrar, volverFlecha;
-	private JTextField nombreJunior, apellidoJunior, telefonoJunior, correoJunior, direccionJunior, cedulaJunior, nivelJunior;
-	private JComboBox prefijoTelefonoJunior;
+	private JTextField nombreJunior, apellidoJunior, telefonoJunior, correoJunior, direccionJunior, cedulaJunior;
+	private JSpinner nivelJunior;
+	private JComboBox<String> prefijoTelefonoJunior;
 	private JRadioButton rbtnHombre, rbtnMujer;
 	private ButtonGroup generos;
+	private JDateChooser choser;
+
 	public static final String REGISTRARSENIOR = "REGISTRAR JUNIOR";
 
 	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
@@ -61,17 +68,24 @@ public class PanelJunior extends JPanel {
 		volverFlecha.setContentAreaFilled(false);
 		volverFlecha.setBorderPainted(false);
 		generos = new ButtonGroup();
-		
+		choser = new JDateChooser();
 		//Radio Buttons
 		rbtnHombre = new JRadioButton("Hombre", true);
 		rbtnHombre.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		rbtnHombre.setForeground(Color.BLUE);
 		rbtnHombre.setBackground(Color.WHITE);
-
+		rbtnHombre.setOpaque(false);
+		rbtnHombre.setContentAreaFilled(false);
+		rbtnHombre.setBorderPainted(false);
+		
 		rbtnMujer = new JRadioButton("Mujer", false);
 		rbtnMujer.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		rbtnMujer.setForeground(Color.PINK);
 		rbtnMujer.setBackground(Color.WHITE);
+		rbtnMujer.setOpaque(false);
+		rbtnMujer.setContentAreaFilled(false);
+		rbtnMujer.setBorderPainted(false);
+		
 		generos.add(rbtnHombre);
 		generos.add(rbtnMujer);
 		//CURSOR
@@ -85,8 +99,32 @@ public class PanelJunior extends JPanel {
 		correoJunior = new JTextField();
 		direccionJunior = new JTextField();
 		cedulaJunior = new JTextField();
-		nivelJunior = new JTextField();
+		nivelJunior = new JSpinner(new SpinnerNumberModel(1, 1, 5, 1));
 		prefijoTelefonoJunior = new JComboBox();
+		
+		prefijoTelefonoJunior.addItem("300");
+		prefijoTelefonoJunior.addItem("301");
+		prefijoTelefonoJunior.addItem("302");
+		prefijoTelefonoJunior.addItem("303");
+		prefijoTelefonoJunior.addItem("304");
+		prefijoTelefonoJunior.addItem("305");
+		prefijoTelefonoJunior.addItem("310");
+		prefijoTelefonoJunior.addItem("311");
+		prefijoTelefonoJunior.addItem("312");
+		prefijoTelefonoJunior.addItem("313");
+		prefijoTelefonoJunior.addItem("314");
+		prefijoTelefonoJunior.addItem("315");
+		prefijoTelefonoJunior.addItem("316");
+		prefijoTelefonoJunior.addItem("317");
+		prefijoTelefonoJunior.addItem("318");
+		prefijoTelefonoJunior.addItem("319");
+		prefijoTelefonoJunior.addItem("320");
+		prefijoTelefonoJunior.addItem("321");
+		prefijoTelefonoJunior.addItem("322");
+		prefijoTelefonoJunior.addItem("323");
+		prefijoTelefonoJunior.addItem("350");
+		prefijoTelefonoJunior.addItem("351");
+	
 		
 		//CAMBIAR CURSO DE FLECHA POR MANO
 		botonRegistrar.setCursor(cursor);
@@ -114,8 +152,10 @@ public class PanelJunior extends JPanel {
 				rbtnHombre.setToolTipText("Genero Masculino.");
 		rbtnMujer.setBounds(270, 245, 90, 25);
 				rbtnMujer.setToolTipText("Genero Femenino.");
-		nivelJunior.setBounds(210, 310, 160, 25);
+		nivelJunior.setBounds(210, 310, 60, 25);
 				nivelJunior.setToolTipText("Nivel del empleado a registrar.");
+
+				choser.setBounds(176, 277, 130, 24);
 		
 		volverFlecha.setBounds(320, 365, 40, 45);
 		botonRegistrar.setBounds(125,380,130,10);
@@ -138,6 +178,7 @@ public class PanelJunior extends JPanel {
 		add(rbtnHombre);
 		add(rbtnMujer);
 
+		add(choser);
 	}
 	 
 //METODO 1 NECESARIO
@@ -157,7 +198,7 @@ public class PanelJunior extends JPanel {
 		Graphics2D g2 = (Graphics2D)g;
 
 
-		Font miFuente7 = new Font("Arial", Font.ITALIC, 20);
+		Font miFuente7 = new Font("Arial", Font.BOLD, 20);
 
 		g2.setFont(miFuente7);
 
@@ -252,11 +293,11 @@ public class PanelJunior extends JPanel {
 		this.cedulaJunior = cedulaJunior;
 	}
 
-	public JTextField getNumeroVentas() {
+	public JSpinner getNumeroVentas() {
 		return nivelJunior;
 	}
 
-	public void setNumeroVentas(JTextField numeroVentas) {
+	public void setNumeroVentas(JSpinner numeroVentas) {
 		this.nivelJunior = numeroVentas;
 	}
 

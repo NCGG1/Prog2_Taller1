@@ -8,6 +8,11 @@ public class Mundo {
 
 	private ArrayList <Personal> empleados;
 	
+	public Mundo() {
+		// TODO Auto-generated constructor stub
+		empleados = new ArrayList<>();
+	}
+	
 	/**
 	 * 
 	 * @param cedula
@@ -41,8 +46,13 @@ public class Mundo {
 		
 		return existePersona;
 	}
+
 	
-	
+	/**
+	 * 
+	 * @param cedula
+	 * @return
+	 */
 	public String borrarPersona (long cedula) {
 		
 		String oo = "";
