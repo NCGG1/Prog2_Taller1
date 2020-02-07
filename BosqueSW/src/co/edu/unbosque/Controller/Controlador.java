@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 
 import co.edu.unbosque.View.VentanaActualizarCheck;
 import co.edu.unbosque.View.VentanaActualizarPrincipal;
+import co.edu.unbosque.View.VentanaComision;
 import co.edu.unbosque.View.VentanaJunior;
 import co.edu.unbosque.View.VentanaLista;
 import co.edu.unbosque.View.VentanaSenior;
@@ -18,6 +19,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 	private VentanaLista ventanaLista;
 	private VentanaSenior ventanaSenior;
 	private VentanaJunior ventanaJunior;
+	private VentanaComision ventanaComision;
 	private VentanaActualizarPrincipal ventanaActualizarPrincipal;
 	private VentanaActualizarCheck ventanaActualizarCheck;
 	public Controlador() {
@@ -32,7 +34,8 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 		
 		ventanaActualizarCheck.setVisible(true);
 		ventanaLista.setVisible(true);
-		
+		ventanaComision = new VentanaComision(this);
+		ventanaComision.setVisible(true);
 	//	ventanaSenior.setVisible(true);
 		
 	//	ventanaJunior.setVisible(true);
