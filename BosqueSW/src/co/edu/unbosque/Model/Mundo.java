@@ -109,8 +109,8 @@ public class Mundo {
 			
 			PersonalComision comision = (PersonalComision)persona;
 			
-			int[] clientesViejos = comision.getSalarios();
-			int[] clientesNuevos = new int[clientesViejos.length+1];
+			double[] clientesViejos = comision.getSalarios();
+			double[] clientesNuevos = new double[clientesViejos.length+1];
 
 			for (int i = 0; i < clientesViejos.length; i++) {
 				
