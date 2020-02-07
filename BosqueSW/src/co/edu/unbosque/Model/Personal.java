@@ -56,7 +56,8 @@ public abstract class Personal {
 		return telefono;
 	}
 
-	public void setTelefono(long telefono) {
+	public void setTelefono(l
+			ong telefono) {
 		this.telefono = telefono;
 	}
 
