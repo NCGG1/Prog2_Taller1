@@ -116,20 +116,19 @@ public class Mundo {
 	public String borrarPersona(long cedula) {
 
 		String oo = "";
-
+		
+		if(existePersonal(cedula)) {
 		if (buscarPersona(cedula) != null) {
 			empleados.remove(buscarPersona(cedula));
 			oo = "Se eliminó a la persona correctamente ";
-<<<<<<< HEAD
 		} else {
 			oo = "No se eliminó a la persona correctamente ";
-=======
-		}
-		else {
-			oo = "No se encontró a la persona, por lo tanto no se eliminó ";
->>>>>>> bf1dcc702f478dd43bdc417dd925a56c4fe0ca8c
-		}
 
+		}
+		}else {
+		oo = "No se encontró a la persona, por lo tanto no se eliminó ";
+
+		}
 		return oo;
 	}
 
