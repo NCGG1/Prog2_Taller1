@@ -6,10 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/co/edu/unbosque/Util/Librerias/jcalendar-1.4 (1).jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="src/co/edu/unbosque/Util/Librerias/jcalendar-1.4 (1).jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
