@@ -10,13 +10,15 @@ import java.awt.event.MouseListener;
 import co.edu.unbosque.View.VentanaActualizarCheck;
 import co.edu.unbosque.View.VentanaActualizarPrincipal;
 import co.edu.unbosque.View.VentanaComision;
+import co.edu.unbosque.View.VentanaEmpleados;
 import co.edu.unbosque.View.VentanaJunior;
 import co.edu.unbosque.View.VentanaLista;
 import co.edu.unbosque.View.VentanaPrincipal;
 import co.edu.unbosque.View.VentanaSenior;
 
 public class Controlador implements ActionListener, KeyListener, MouseListener{
-	
+
+	private VentanaEmpleados ventanaEmpleados;
 	private VentanaLista ventanaLista;
 	private VentanaSenior ventanaSenior;
 	private VentanaJunior ventanaJunior;
