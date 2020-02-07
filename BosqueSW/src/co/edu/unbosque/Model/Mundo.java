@@ -8,18 +8,59 @@ public class Mundo {
 
 	private ArrayList <Personal> empleados;
 	
-	
+	/**
+	 * 
+	 * @param cedula
+	 * @return
+	 */
 	public Personal buscarPersona(long cedula) {
 		
-		
-		return null;
+	 Personal persona1 = null;
+	 
+	 for (int i = 0; i < empleados.size(); i++) {
+		if (empleados.get(i).getCedula()== cedula) {
+			persona1 = empleados.get(i);
+		}
 	}
 	
+		return persona1;
+	}
+	
+	/**
+	 * 
+	 * @param cedula
+	 * @return
+	 */
 	public boolean existePersonal(long cedula) {
 		
+		boolean existePersona = false;
 		
-		return true;
+			if(buscarPersona(cedula) != null) {
+				existePersona = true;
+			}
+		
+		return existePersona;
 	}
+	
+	
+	public String borrarPersona (long cedula) {
+		
+		String oo = "";
+		
+		if (buscarPersona(cedula) != null) {
+			empleados.remove(buscarPersona(cedula));
+			oo = "Se eliminó a la persona correctamente ";
+		}
+		else {
+			oo = "No se eliminó a la persona correctamente ";
+		}
+		
+		
+		
+		return oo ;
+	}
+	
+	
 	
 	/**
 	 * 
