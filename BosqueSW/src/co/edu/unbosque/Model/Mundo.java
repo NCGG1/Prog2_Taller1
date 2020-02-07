@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 
 public class Mundo {
- 
-	
+
 	private ArrayList <Personal> empleados;
 	
 	public Mundo() {
