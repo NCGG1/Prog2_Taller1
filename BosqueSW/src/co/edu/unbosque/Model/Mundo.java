@@ -12,6 +12,31 @@ public class Mundo {
 	}
 
 //	
+<<<<<<< HEAD
+	public String registrarPersonal(String nombre, String apellido, String genero, long telefono, String correo,
+			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int variable,
+			double[] salarios) throws Exception {
+			
+			int contaArroba = 0;
+
+			for (int i = 0; i < correo.length(); i++) {
+
+			if (correo.charAt(i) == '@') {
+
+			contaArroba++;
+
+			}
+			}
+			if (contaArroba != 1) {
+
+			throw new Exception("El correo que ingreso no es valido");
+
+			}
+
+			if (correo.charAt(0) == '@') {
+
+			throw new Exception("El correo que ingreso no es valido");
+=======
 //	public String registrarPersonal(String nombre, String apellido, String genero, long telefono, String correo,
 //			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int variable,
 //			double[] salarios) throws Exception {
@@ -65,7 +90,47 @@ public class Mundo {
 //			return ag;
 //
 //			}
+>>>>>>> b590b26353df95bd5161c6458d9eb2e7557da458
 
+			}
+
+			if(correo.charAt(correo.length()-1) == '@') {
+
+			throw new Exception("El correo que ingreso no es valido");
+
+			}
+
+
+			String ag = "";
+
+			try {
+
+			if (existePersonal(cedula) == false) {
+				if (tipoIngeniero.equalsIgnoreCase("Ingeniero Junior")) {
+			IngenieroJunior junior = new IngenieroJunior(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario, (short)variable);
+			empleados.add(junior);
+			ag = "Registrado, bienvenido a BosqueSW";
+			}else if(tipoIngeniero.equalsIgnoreCase("Ingeniero Senior")) {
+				IngenieroSenior senior = new IngenieroSenior(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario, variable);
+				empleados.add(senior);
+				ag = "Registrado, bienvenido a BosqueSW";
+			}else if(tipoIngeniero.equalsIgnoreCase("Ingeniero Comision")){
+				PersonalComision comision = new PersonalComision(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario, variable, salarios);
+				empleados.add(comision);
+				ag = "Registrado, bienvenido a BosqueSW";
+			}
+			} else {
+			ag = "El usuario ya existe\n" + buscarPersona(cedula).toString();
+			}
+			} catch (Exception e) {
+			e = new Exception("Error al agregar la persona");
+			e.printStackTrace();
+			}
+			return ag;
+
+			}
+	
+	
 	public String actualizarPersona(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String anoIngreso, long cedula) {
 

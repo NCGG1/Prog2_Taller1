@@ -300,12 +300,12 @@ public class PanelJunior extends JPanel {
 		this.cedulaJunior = cedulaJunior;
 	}
 
-	public JSpinner getNumeroVentas() {
+	public JSpinner getnivelJunior() {
 		return nivelJunior;
 	}
 
-	public void setNumeroVentas(JSpinner numeroVentas) {
-		this.nivelJunior = numeroVentas;
+	public void setnivelJunior(JSpinner nivelJunior) {
+		this.nivelJunior = nivelJunior;
 	}
 
 	public JComboBox getPrefijoTelefonoJunior() {

@@ -7,9 +7,10 @@ import java.time.format.DateTimeFormatter;
 public class IngenieroJunior extends PersonalFijo {
 
 	public IngenieroJunior(String nombre, String apellido, String genero, long telefono, String correo,
-			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario) {
+			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, short nivel) {
 		super(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario);
 		// TODO Auto-generated constructor stub
+		this.nivel = nivel;
 	}
 
 	private short nivel;
