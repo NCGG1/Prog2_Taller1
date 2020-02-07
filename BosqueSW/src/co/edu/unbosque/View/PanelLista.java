@@ -45,7 +45,7 @@ public class PanelLista extends JPanel{
 		border.setTitleColor(Color.BLACK);
 		setLayout(null);
 		//FONDO FALTA
-		ruta = "src/FondoTinder.jpg";
+		ruta = "src/fondo.jpg";
 
 
 		titulos = new String[13];

@@ -48,11 +48,11 @@ public class PanelJunior extends JPanel {
 		setLayout(null);
 		//RUTA DE LA IMAGEN DEL FONDO DEL PANEL
 		
-		//ruta = "src/co/edu/unbosque/Util/Fondo.jpg";         Falta buscar el fondo de las ventanas_________________
+		ruta = "src/co/edu/unbosque/Util/fondo.jpg";   
 
 		
 		//BOTON CON TEXTO
-		botonRegistrar = new JButton("REGISTRAR");
+		botonRegistrar = new JButton("Registrar");
 		botonRegistrar.setActionCommand(REGISTRARSENIOR);
 		botonRegistrar.setOpaque(false);
 		botonRegistrar.setContentAreaFilled(false);
@@ -60,7 +60,7 @@ public class PanelJunior extends JPanel {
 		
 		//ICON DESCARGADO DE ICONFINDER
 		iconVolver = new ImageIcon(
-			new ImageIcon("src/co/edu/unbosque/Util/Flecha_Regreso.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+			new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		//BOTON CON EL ICON
 		volverFlecha = new JButton(iconVolver);
 		volverFlecha.setActionCommand(VOLVER_PRINCIPAL);
@@ -90,6 +90,12 @@ public class PanelJunior extends JPanel {
 		generos.add(rbtnMujer);
 		//CURSOR
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+
+
+		Font Fuente_Boton = new Font("ARIAL",Font.BOLD,22);
+		
+		botonRegistrar.setFont(Fuente_Boton);
+		botonRegistrar.setForeground(Color.BLACK);
 
 		
 		//Panel captar datos ________________________________
@@ -158,8 +164,9 @@ public class PanelJunior extends JPanel {
 				choser.setBounds(176, 277, 130, 24);
 				choser.setToolTipText("Fecha en la cual ingreso a la empresa");
 		volverFlecha.setBounds(320, 365, 40, 45);
-		botonRegistrar.setBounds(125,380,130,10);
 		
+		botonRegistrar.setBounds(110, 360, 170, 24);
+
 		//TextFields
 		add(nombreJunior);
 		add(apellidoJunior);

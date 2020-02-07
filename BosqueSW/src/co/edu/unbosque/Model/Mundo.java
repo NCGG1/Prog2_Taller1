@@ -80,6 +80,7 @@ public class Mundo {
 	 */
 	public String incrementarDatosVarios(long cedula) {
 		
+		
 		String respuesta = "";
 		
 		if(existePersonal(cedula)) {

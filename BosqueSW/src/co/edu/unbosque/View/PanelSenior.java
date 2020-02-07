@@ -48,20 +48,20 @@ public class PanelSenior extends JPanel {
 		setLayout(null);
 		// RUTA DE LA IMAGEN DEL FONDO DEL PANEL
 
-		// ruta = "src/co/edu/unbosque/Util/Fondo.jpg"; Falta buscar el fondo de las
+	 ruta = "src/co/edu/unbosque/Util/fondo.jpg"; 
 		// ventanas_________________
 
 		choser = new JDateChooser();
 
 		// BOTON CON TEXTO
-		botonRegistrar = new JButton("REGISTRAR");
+		botonRegistrar = new JButton("Registrar");
 		botonRegistrar.setActionCommand(REGISTRARSENIOR);
 		botonRegistrar.setOpaque(false);
 		botonRegistrar.setContentAreaFilled(false);
 		botonRegistrar.setBorderPainted(false);
 
 		// ICON DESCARGADO DE ICONFINDER
-		iconVolver = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/Flecha_Regreso.png").getImage()
+		iconVolver = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		// BOTON CON EL ICON
 		volverFlecha = new JButton(iconVolver);
@@ -105,6 +105,10 @@ public class PanelSenior extends JPanel {
 	
 		// CAMBIAR CURSO DE FLECHA POR MANO
 		botonRegistrar.setCursor(cursor);
+		Font Fuente_Boton = new Font("ARIAL",Font.BOLD,22);
+		
+		botonRegistrar.setFont(Fuente_Boton);
+		botonRegistrar.setForeground(Color.BLACK);
 
 		// MENSAJE SOBRE EL BOTON
 		botonRegistrar.setToolTipText("Registrar nuevo usuario");
@@ -156,8 +160,9 @@ public class PanelSenior extends JPanel {
 		prefijoTelefonoSenior.addItem("351");
 		
 		volverFlecha.setBounds(320, 365, 40, 45);
-		botonRegistrar.setBounds(125, 380, 130, 10);
+		botonRegistrar.setBounds(110, 360, 170, 24);
 
+		
 		// TextFields
 		add(nombreSenior);
 		add(apellidoSenior);

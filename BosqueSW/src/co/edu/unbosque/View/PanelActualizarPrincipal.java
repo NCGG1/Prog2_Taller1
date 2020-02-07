@@ -28,7 +28,7 @@ public class PanelActualizarPrincipal extends JPanel {
 	private Image fondo;
 	private JButton actualizar, volverActualizar;
 	private Icon iconVolverActualizar;
-	private JTextField nombreTxt, apellidoTxt, telefonoTxt, generoTxt, correoTxt, direccionTxt;
+	private JTextField nombreTxt, apellidoTxt, telefonoTxt, correoTxt, direccionTxt;
 	private JLabel cedulaTxt;
 	private JComboBox<String> prefijoTelefono;
 	private JDateChooser añoIngresoTxt;
@@ -42,14 +42,14 @@ public class PanelActualizarPrincipal extends JPanel {
 	public PanelActualizarPrincipal() {
 		// TODO Auto-generated constructor stub
 
-		TitledBorder border = new TitledBorder("Registrar Empleado Junior");
+		TitledBorder border = new TitledBorder("Actualizar Empleado");
 		setBorder(border);
 		border.setTitleJustification(TitledBorder.CENTER);
 		border.setTitleColor(Color.BLACK);
 		setLayout(null);
 		// RUTA DE LA IMAGEN DEL FONDO DEL PANEL
 
-		// ruta = "src/co/edu/unbosque/Util/Fondo.jpg"; Falta buscar el fondo de las
+		 ruta = "src/co/edu/unbosque/Util/fondo.jpg";
 		// ventanas_________________
 
 		
@@ -60,8 +60,12 @@ public class PanelActualizarPrincipal extends JPanel {
 		actualizar.setContentAreaFilled(false);
 		actualizar.setBorderPainted(false);
 
+		Font Fuente_Boton = new Font("ARIAL",Font.BOLD,22);
+		
+		actualizar.setFont(Fuente_Boton);
+		actualizar.setForeground(Color.BLACK);
 		// ICON DESCARGADO DE ICONFINDER
-		iconVolverActualizar = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/Flecha_Regreso.png").getImage()
+		iconVolverActualizar = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		// BOTON CON EL ICON
 		volverActualizar = new JButton(iconVolverActualizar);
@@ -103,8 +107,7 @@ public class PanelActualizarPrincipal extends JPanel {
 		correoTxt = new JTextField();
 		direccionTxt = new JTextField();
 		cedulaTxt = new JLabel("----");
-		generoTxt = new JTextField();
-		prefijoTelefono = new JComboBox();
+		prefijoTelefono = new JComboBox<String>();
 		
 		prefijoTelefono.addItem("300");
 		prefijoTelefono.addItem("301");
@@ -135,6 +138,8 @@ public class PanelActualizarPrincipal extends JPanel {
 		volverActualizar.setCursor(cursor);
 		actualizar.setToolTipText("Actualizar empleado");
 		actualizar.setCursor(cursor);
+		rbtnHombre.setCursor(cursor);
+		rbtnMujer.setCursor(cursor);
 		nombreTxt.setBounds(150, 65, 220, 25);
 		nombreTxt.setToolTipText("Nombre del empleado a actualizar.");
 		apellidoTxt.setBounds(150, 100, 220, 25);
@@ -154,9 +159,9 @@ public class PanelActualizarPrincipal extends JPanel {
 		rbtnMujer.setBounds(270, 240, 90, 25);
 		rbtnMujer.setToolTipText("Genero Femenino.");
 		añoIngresoTxt.setBounds(176, 277, 130, 24);
-
-		actualizar.setBounds(80, 200, 160, 65);
-		volverActualizar.setBounds(320, 365, 40, 45);
+		
+		actualizar.setBounds(116, 310, 160, 65);
+		volverActualizar.setBounds(320, 325, 40, 45);
 
 		// TextFields
 		add(nombreTxt);

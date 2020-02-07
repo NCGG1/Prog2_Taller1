@@ -4,22 +4,22 @@ import javax.swing.JFrame;
 
 import co.edu.unbosque.Controller.Controlador;
 
-public class VentanaActualizarPrincipal extends JFrame{
+public class VentanaActualizarCheck extends JFrame{
 
-	private PanelActualizarPrincipal panelActualizarPrincipal;
+	private PanelActualizarCheck panelActualizarCheck;
 
-	public VentanaActualizarPrincipal(Controlador control) {
+	public VentanaActualizarCheck(Controlador control) {
 		
-		setTitle("Actualizar Empleado");
+		setTitle("Datos Empleado");
 		
-		setSize(400,420);
+		setSize(240,240);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		panelActualizarPrincipal = new PanelActualizarPrincipal();
+		panelActualizarCheck = new PanelActualizarCheck();
 		//Agrega el panel al frame
-		getContentPane().add(panelActualizarPrincipal);
+		getContentPane().add(panelActualizarCheck);
 		iniciarComponentes(control);
 	}
 
