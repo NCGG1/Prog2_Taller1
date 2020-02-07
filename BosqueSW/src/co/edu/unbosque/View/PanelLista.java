@@ -69,7 +69,6 @@ public class PanelLista extends JPanel{
 		listaEmpleados = new JTable();
 		listaEmpleados.setModel(dtm);
 		barrita.setViewportView(listaEmpleados);
-		
 		eliminarIcon = new ImageIcon(
 				new ImageIcon("src/co/edu/unbosque/Util/borrar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		
@@ -113,6 +112,7 @@ public class PanelLista extends JPanel{
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 		
 		seleccion = new JTextField();
+		seleccion.setEditable(false);
 		seleccion.setToolTipText("Cedula del empleado selecionado");
 		volverLista.setToolTipText("Regresar al menu administrador");
 		buscar.setToolTipText("Buscar al empleado selecionado");
