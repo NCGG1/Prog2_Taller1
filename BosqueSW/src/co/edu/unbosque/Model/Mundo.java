@@ -12,7 +12,6 @@ public class Mundo {
 	}
 
 //	
-<<<<<<< HEAD
 	public String registrarPersonal(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int variable,
 			double[] salarios) throws Exception {
