@@ -10,8 +10,9 @@ public class Mundo {
 		// TODO Auto-generated constructor stub
 		empleados = new ArrayList<>();
 	}
-	
+
 //	
+<<<<<<< HEAD
 	public String registrarPersonal(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int variable,
 			double[] salarios) throws Exception {
@@ -35,6 +36,61 @@ public class Mundo {
 			if (correo.charAt(0) == '@') {
 
 			throw new Exception("El correo que ingreso no es valido");
+=======
+//	public String registrarPersonal(String nombre, String apellido, String genero, long telefono, String correo,
+//			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int variable,
+//			double[] salarios) throws Exception {
+//			
+//			int contaArroba = 0;
+//
+//			for (int i = 0; i < correo.length(); i++) {
+//
+//			if (correo.charAt(i) == '@') {
+//
+//			contaArroba++;
+//
+//			}
+//			}
+//			if (contaArroba != 1) {
+//
+//			throw new Exception("El correo que ingreso no es valido");
+//
+//			}
+//
+//			if (correo.charAt(0) == '@') {
+//
+//			throw new Exception("El correo que ingreso no es valido");
+//
+//			}
+//
+//			if(correo.charAt(correo.length()-1) == '@') {
+//
+//			throw new Exception("El correo que ingreso no es valido");
+//
+//			}
+//
+//
+//			String ag = "";
+//
+//			try {
+//
+//			if (existePersonal(cedula) == false) {
+//
+//			Personal persona = new Personal( nombre,  apellido,  genero,  telefono,  correo,
+//					 direccion,  tipoIngeniero,  anoIngreso,  cedula,  salario,  variable, salarios);
+//			persona.add(persona);
+//			ag = "Registrado, bienvenido a BosTinder";
+//			} else {
+//			ag = "El usuario ya existe\n" + buscarPersona(cedula);
+//			}
+//			} catch (Exception e) {
+//			e = new Exception("Error al agregar la persona");
+//			e.printStackTrace();
+//			}
+//			return ag;
+//
+//			}
+>>>>>>> b590b26353df95bd5161c6458d9eb2e7557da458
 
 			}
 
@@ -138,7 +194,6 @@ public class Mundo {
 		return actualizar;
 	}
 
-
 	/**
 	 * 
 	 * @param cedula
@@ -181,17 +236,17 @@ public class Mundo {
 	public String borrarPersona(long cedula) {
 
 		String oo = "";
-		
-		if(existePersonal(cedula)) {
-		if (buscarPersona(cedula) != null) {
-			empleados.remove(buscarPersona(cedula));
-			oo = "Se eliminó a la persona correctamente ";
-		} else {
-			oo = "No se eliminó a la persona correctamente ";
 
-		}
-		}else {
-		oo = "No se encontró a la persona, por lo tanto no se eliminó ";
+		if (existePersonal(cedula)) {
+			if (buscarPersona(cedula) != null) {
+				empleados.remove(buscarPersona(cedula));
+				oo = "Se eliminó a la persona correctamente ";
+			} else {
+				oo = "No se eliminó a la persona correctamente ";
+
+			}
+		} else {
+			oo = "No se encontró a la persona, por lo tanto no se eliminó ";
 
 		}
 		return oo;

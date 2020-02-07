@@ -1,16 +1,80 @@
 package co.edu.unbosque.View;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 
-public class PanelPrincipal {
+public class PanelPrincipal extends JPanel {
 
 	private String ruta;
 	private Image fondo;
-    private JButton register, lista;
-    private Icon registrarIcon, ListaIcon;
-    private final String REGISTRAR = "REGISTRAR";
-    
+	private JButton register, lista;
+	private Icon registrarIcon, ListaIcon;
+	public final String REGISTRAR = "REGISTRAR";
+	public final String LISTA = "LISTA";
+
+	public PanelPrincipal() {
+
+		TitledBorder border = new TitledBorder("Panel Principal");
+		setBorder(border);
+		border.setTitleJustification(TitledBorder.CENTER);
+		border.setTitleColor(Color.BLACK);
+		setLayout(null);
+
+		ruta = "src/co/edu/unbosque/Util/fondo.jpg";
+
+		registrarIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		// BOTON CON EL ICON
+		register = new JButton(registrarIcon);
+		register.setActionCommand(REGISTRAR);
+		register.setOpaque(false);
+		register.setContentAreaFilled(false);
+		register.setBorderPainted(false);
+
+	}
+
+	// METODO 1 NECESARIO
+	public void paintComponent(Graphics g) {
+
+		int width = this.getSize().width;
+		int height = this.getSize().height;
+
+		setBackground(ruta);
+
+		if (this.fondo != null) {
+			g.drawImage(this.fondo, 0, 0, width, height, null);
+		}
+
+		// CREAMOS NOSOTROS
+		Graphics2D g2 = (Graphics2D) g;
+
+		Font miFuente7 = new Font("Arial", Font.BOLD, 20);
+
+		g2.setFont(miFuente7);
+
+		g2.setColor(Color.BLACK);
+
+		g2.drawString("BosqueSW", 94, 50);
+
+		super.paintComponent(g);
+
+	}
+
+	// METODO 2 NECESARIO
+	public void setBackground(String imagePath) {
+
+		this.setOpaque(false);
+		this.fondo = new ImageIcon(imagePath).getImage();
+		repaint();
+	}
+
 }
