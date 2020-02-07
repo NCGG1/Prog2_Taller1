@@ -52,7 +52,7 @@ public class Mundo {
 			oo = "Se eliminó a la persona correctamente ";
 		}
 		else {
-			oo = "No se eliminó a la persona correctamente ";
+			oo = "No se encontró a la persona, por lo tanto no se eliminó ";
 		}
 		
 		
