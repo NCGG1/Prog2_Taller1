@@ -62,7 +62,7 @@ public class Mundo {
 
 			if (existePersonal(cedula) == false) {
 
-			Personal persona = new Perso( nombre, apellido, genero, telefono, correo,
+			Personal persona = new Personal( nombre, apellido, genero, telefono, correo,
 					direccion, tipoIngeniero, anoIngreso, cedula, salario, variable, salarios);
 			persona.add(persona);
 			ag = "Registrado, bienvenido a BosTinder";
