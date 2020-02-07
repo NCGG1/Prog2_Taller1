@@ -33,19 +33,16 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 		ventanaActualizarCheck = new VentanaActualizarCheck(this);
 		ventanaJunior = new VentanaJunior(this);
 		ventanaSenior = new VentanaSenior(this);
-<<<<<<< HEAD
 		
 		ventanaActualizarCheck.setVisible(true);
 		ventanaLista.setVisible(true);
 		ventanaComision = new VentanaComision(this);
 		ventanaComision.setVisible(true);
-=======
 		ventanaPrincipal = new VentanaPrincipal(this);
 		ventanaPrincipal.setVisible(true);
 	//	ventanaActualizarCheck.setVisible(true);
 	//	ventanaLista.setVisible(true);
 		
->>>>>>> b590b26353df95bd5161c6458d9eb2e7557da458
 	//	ventanaSenior.setVisible(true);
 		
 	//	ventanaJunior.setVisible(true);
