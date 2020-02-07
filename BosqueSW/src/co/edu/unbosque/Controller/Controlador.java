@@ -7,27 +7,35 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import co.edu.unbosque.View.VentanaActualizarCheck;
+import co.edu.unbosque.View.VentanaActualizarPrincipal;
 import co.edu.unbosque.View.VentanaJunior;
 import co.edu.unbosque.View.VentanaLista;
 import co.edu.unbosque.View.VentanaSenior;
 
 public class Controlador implements ActionListener, KeyListener, MouseListener{
 	
-	VentanaLista ventanaLista;
-	VentanaSenior ventanaSenior;
-	VentanaJunior ventanaJunior;
-	
+	private VentanaLista ventanaLista;
+	private VentanaSenior ventanaSenior;
+	private VentanaJunior ventanaJunior;
+	private VentanaActualizarPrincipal ventanaActualizarPrincipal;
+	private VentanaActualizarCheck ventanaActualizarCheck;
 	public Controlador() {
 		// TODO Auto-generated constructor stub
 		
+		ventanaActualizarPrincipal = new VentanaActualizarPrincipal(this);
+		ventanaActualizarPrincipal.setVisible(true);
 		ventanaLista = new VentanaLista(this);
+		ventanaActualizarCheck = new VentanaActualizarCheck(this);
+		ventanaJunior = new VentanaJunior(this);
+		ventanaSenior = new VentanaSenior(this);
+		
+		ventanaActualizarCheck.setVisible(true);
 		ventanaLista.setVisible(true);
 		
-		ventanaSenior = new VentanaSenior(this);
-		ventanaSenior.setVisible(true);
+	//	ventanaSenior.setVisible(true);
 		
-		ventanaJunior = new VentanaJunior(this);
-		ventanaJunior.setVisible(true);
+	//	ventanaJunior.setVisible(true);
 	}
 
 	@Override

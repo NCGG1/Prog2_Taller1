@@ -1,18 +1,17 @@
 package co.edu.unbosque.Model;
 
-public class PersonalComision extends PersonalFijo {
-	
+public class PersonalComision extends Personal {
+
 	private int clientes;
-	private int[] salarios;
+	private double[] salarios;
 
 	public PersonalComision(String nombre, String apellido, String genero, long telefono, String correo,
-			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int cliente,int  []salarios) {
+			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int clientes,
+			double[] salarios) {
 		super(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario);
-		
-		
-		this.clientes = cliente;
-		this.salarios = salarios;
 		// TODO Auto-generated constructor stub
+		this.clientes = clientes;
+		this.salarios = salarios;
 	}
 
 	public int getClientes() {
@@ -23,11 +22,11 @@ public class PersonalComision extends PersonalFijo {
 		this.clientes = clientes;
 	}
 
-	public int[] getSalarios() {
+	public double[] getSalarios() {
 		return salarios;
 	}
 
-	public void setSalarios(int[] salarios) {
+	public void setSalarios(double[] salarios) {
 		this.salarios = salarios;
 	}
 
@@ -40,7 +39,23 @@ public class PersonalComision extends PersonalFijo {
 	public void calcularSalario() {
 		// TODO Auto-generated method stub
 
+		double salario = 1100000;
+
+		double[] salarios = getSalarios();
+
+		double Suma_Salario = 0;
+
+		for (int i = 0; i < salarios.length; i++) {
+
+			Suma_Salario += salarios[i];
+
+		}
+		if (salario < 1100000) {
+			setSalario(Suma_Salario + salario);
+		} else {
+
+			setSalario(Suma_Salario);
+		}
 	}
 
-	
 }

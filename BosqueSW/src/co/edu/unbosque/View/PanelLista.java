@@ -2,6 +2,7 @@ package co.edu.unbosque.View;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -44,7 +45,8 @@ public class PanelLista extends JPanel{
 		border.setTitleColor(Color.BLACK);
 		setLayout(null);
 		//FONDO FALTA
-		ruta = "src/FondoTinder.jpg";
+		
+		 ruta = "src/co/edu/unbosque/Util/fondo.jpg";
 
 
 		titulos = new String[13];
@@ -66,18 +68,36 @@ public class PanelLista extends JPanel{
 		barrita = new JScrollPane();
 		listaEmpleados = new JTable();
 		listaEmpleados.setModel(dtm);
-//		listaEmpleados.setEnabled(false);
-//		barrita.setOpaque(false);
-//		barrita.getViewport().setOpaque(false);
-//		listaEmpleados.setOpaque(false);
-//		listaEmpleados.setShowVerticalLines(false);
-//		listaEmpleados.setShowHorizontalLines(false);
-//		listaEmpleados.setDefaultRenderer(Object.class, new CeldalRenderer());
-//		listaEmpleados.getTableHeader().setDefaultRenderer(new EncabezadoRenderer());
-//		listaEmpleados.setForeground(Color.BLACK);
 		barrita.setViewportView(listaEmpleados);
+		eliminarIcon = new ImageIcon(
+				new ImageIcon("src/co/edu/unbosque/Util/borrar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		
-
+		eliminar = new JButton(eliminarIcon);
+		eliminar.setActionCommand(ELIMINAR);
+		eliminar.setOpaque(false);
+		eliminar.setContentAreaFilled(false);
+		eliminar.setBorderPainted(false);
+		
+		actualizarIcon = new ImageIcon(
+				new ImageIcon("src/co/edu/unbosque/Util/actualizar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		
+		actualizar = new JButton(actualizarIcon);
+		actualizar.setActionCommand(ACTUALIZAR);
+		actualizar.setOpaque(false);
+		actualizar.setContentAreaFilled(false);
+		actualizar.setBorderPainted(false);
+		
+		
+		buscarIcon = new ImageIcon(
+				new ImageIcon("src/co/edu/unbosque/Util/buscar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		
+		buscar = new JButton(buscarIcon);
+		buscar.setActionCommand(BUSCAR_PRIN);
+		buscar.setOpaque(false);
+		buscar.setContentAreaFilled(false);
+		buscar.setBorderPainted(false);
+		
+		
 		volverListaIcon = new ImageIcon(
 				new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		
@@ -87,15 +107,36 @@ public class PanelLista extends JPanel{
 		volverLista.setContentAreaFilled(false);
 		volverLista.setBorderPainted(false);
 
+		
+		
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 		
+		seleccion = new JTextField();
+		seleccion.setEditable(false);
+		seleccion.setToolTipText("Cedula del empleado selecionado");
 		volverLista.setToolTipText("Regresar al menu administrador");
+		buscar.setToolTipText("Buscar al empleado selecionado");
+		actualizar.setToolTipText("Actualizar al empleado selecionado");
+		eliminar.setToolTipText("ELiminar al empleado selecionado");
+		
+		buscar.setCursor(cursor);
+		eliminar.setCursor(cursor);
+		actualizar.setCursor(cursor);
 		volverLista.setCursor(cursor);
-		barrita.setBounds(12, 20, 1320, 550);
-		volverLista.setBounds(6, 576, 40, 40);
-	
+		listaEmpleados.setCursor(cursor);
+		barrita.setBounds(12, 20, 1320, 530);
+		volverLista.setBounds(6, 560, 40, 40);
+		seleccion.setBounds(480, 568, 124, 24);
+		buscar.setBounds(620, 560, 40, 40);
+		eliminar.setBounds(670, 560, 40, 40);
+		actualizar.setBounds(720, 560, 40, 40);
+		
+		add(buscar);
+		add(eliminar);
+		add(actualizar);
 		add(barrita);
 		add(volverLista);
+		add(seleccion);
 
 	}
 	
@@ -111,6 +152,15 @@ public class PanelLista extends JPanel{
 			g.drawImage(this.fondo, 0, 0, width, height, null);
 		}
 
+			Font miFuente7 = new Font("Arial", Font.BOLD, 16);
+			
+			g2.setFont(miFuente7);
+
+			g2.setColor(Color.BLACK);
+
+			g2.drawString("Usuario Selecionado:", 300, 586);
+
+		
 		super.paintComponent(g);
 
 	}

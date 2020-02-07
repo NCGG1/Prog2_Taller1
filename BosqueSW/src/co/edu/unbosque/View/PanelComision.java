@@ -21,27 +21,27 @@ import javax.swing.border.TitledBorder;
 
 import com.toedter.calendar.JDateChooser;
 
-public class PanelJunior extends JPanel {
+public class PanelComision extends JPanel {
 
 	private String ruta;
 	private Image fondo;
 	private JButton botonRegistrar, volverFlecha;
-	private JTextField nombreJunior, apellidoJunior, telefonoJunior, correoJunior, direccionJunior, cedulaJunior;
-	private JSpinner nivelJunior;
-	private JComboBox<String> prefijoTelefonoJunior;
+	private JTextField nombreComision, apellidoComision, telefonoComision, correoComision, direccionComision, cedulaComision;
+	private JSpinner clientesComision;
+	private JComboBox<String> prefijoTelefonoComision;
 	private JRadioButton rbtnHombre, rbtnMujer;
 	private ButtonGroup generos;
 	private JDateChooser choser;
 
-	public static final String REGISTRARSENIOR = "REGISTRAR JUNIOR";
+	public static final String REGISTRARSENIOR = "REGISTRAR COMISION";
 
 	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
 
 	private Icon iconVolver;
 	
-	public PanelJunior() {
+	public PanelComision() {
 	
-		TitledBorder border = new TitledBorder("Registrar Empleado Junior");
+		TitledBorder border = new TitledBorder("Registrar Empleado por Comision");
 		setBorder(border);
 		border.setTitleJustification(TitledBorder.CENTER);
 		border.setTitleColor(Color.BLACK);
@@ -99,37 +99,37 @@ public class PanelJunior extends JPanel {
 
 		
 		//Panel captar datos ________________________________
-		nombreJunior = new JTextField();
-		apellidoJunior = new JTextField();
-		telefonoJunior = new JTextField();
-		correoJunior = new JTextField();
-		direccionJunior = new JTextField();
-		cedulaJunior = new JTextField();
-		nivelJunior = new JSpinner(new SpinnerNumberModel(1, 1, 5, 1));
-		prefijoTelefonoJunior = new JComboBox();
+		nombreComision = new JTextField();
+		apellidoComision = new JTextField();
+		telefonoComision = new JTextField();
+		correoComision = new JTextField();
+		direccionComision = new JTextField();
+		cedulaComision = new JTextField();
+		clientesComision = new JSpinner(new SpinnerNumberModel(1, 1, 5, 1));
+		prefijoTelefonoComision = new JComboBox();
 		
-		prefijoTelefonoJunior.addItem("300");
-		prefijoTelefonoJunior.addItem("301");
-		prefijoTelefonoJunior.addItem("302");
-		prefijoTelefonoJunior.addItem("303");
-		prefijoTelefonoJunior.addItem("304");
-		prefijoTelefonoJunior.addItem("305");
-		prefijoTelefonoJunior.addItem("310");
-		prefijoTelefonoJunior.addItem("311");
-		prefijoTelefonoJunior.addItem("312");
-		prefijoTelefonoJunior.addItem("313");
-		prefijoTelefonoJunior.addItem("314");
-		prefijoTelefonoJunior.addItem("315");
-		prefijoTelefonoJunior.addItem("316");
-		prefijoTelefonoJunior.addItem("317");
-		prefijoTelefonoJunior.addItem("318");
-		prefijoTelefonoJunior.addItem("319");
-		prefijoTelefonoJunior.addItem("320");
-		prefijoTelefonoJunior.addItem("321");
-		prefijoTelefonoJunior.addItem("322");
-		prefijoTelefonoJunior.addItem("323");
-		prefijoTelefonoJunior.addItem("350");
-		prefijoTelefonoJunior.addItem("351");
+		prefijoTelefonoComision.addItem("300");
+		prefijoTelefonoComision.addItem("301");
+		prefijoTelefonoComision.addItem("302");
+		prefijoTelefonoComision.addItem("303");
+		prefijoTelefonoComision.addItem("304");
+		prefijoTelefonoComision.addItem("305");
+		prefijoTelefonoComision.addItem("310");
+		prefijoTelefonoComision.addItem("311");
+		prefijoTelefonoComision.addItem("312");
+		prefijoTelefonoComision.addItem("313");
+		prefijoTelefonoComision.addItem("314");
+		prefijoTelefonoComision.addItem("315");
+		prefijoTelefonoComision.addItem("316");
+		prefijoTelefonoComision.addItem("317");
+		prefijoTelefonoComision.addItem("318");
+		prefijoTelefonoComision.addItem("319");
+		prefijoTelefonoComision.addItem("320");
+		prefijoTelefonoComision.addItem("321");
+		prefijoTelefonoComision.addItem("322");
+		prefijoTelefonoComision.addItem("323");
+		prefijoTelefonoComision.addItem("350");
+		prefijoTelefonoComision.addItem("351");
 	
 		
 		//CAMBIAR CURSO DE FLECHA POR MANO
@@ -140,26 +140,26 @@ public class PanelJunior extends JPanel {
 		volverFlecha.setToolTipText("Regresar al menu principal");
 		volverFlecha.setCursor(cursor);
 		
-		nombreJunior.setBounds(150, 30, 220, 25);
-				nombreJunior.setToolTipText("Nombre del empleado a registrar.");
-		apellidoJunior.setBounds(150, 65, 220, 25);
-				apellidoJunior.setToolTipText("Apellido del empleado a registrar.");
-		prefijoTelefonoJunior.setBounds(150, 100, 60, 25);
-				prefijoTelefonoJunior.setToolTipText("Prefijo del numero de telefono.");
-		telefonoJunior.setBounds(210, 100, 160, 25);
-				telefonoJunior.setToolTipText("Telefono del empleado a registrar.");
-		correoJunior.setBounds(150, 135, 220, 25);
-				correoJunior.setToolTipText("Correo del empleado a registrar.");
-		direccionJunior.setBounds(150, 170, 220, 25);
-				direccionJunior.setToolTipText("Direccion del empleado a registrar.");
-		cedulaJunior.setBounds(150, 205, 220, 25);
-				cedulaJunior.setToolTipText("Cedula del empleado a registrar.");
+		nombreComision.setBounds(150, 30, 220, 25);
+				nombreComision.setToolTipText("Nombre del empleado a registrar.");
+		apellidoComision.setBounds(150, 65, 220, 25);
+				apellidoComision.setToolTipText("Apellido del empleado a registrar.");
+		prefijoTelefonoComision.setBounds(150, 100, 60, 25);
+				prefijoTelefonoComision.setToolTipText("Prefijo del numero de telefono.");
+		telefonoComision.setBounds(210, 100, 160, 25);
+				telefonoComision.setToolTipText("Telefono del empleado a registrar.");
+		correoComision.setBounds(150, 135, 220, 25);
+				correoComision.setToolTipText("Correo del empleado a registrar.");
+		direccionComision.setBounds(150, 170, 220, 25);
+				direccionComision.setToolTipText("Direccion del empleado a registrar.");
+		cedulaComision.setBounds(150, 205, 220, 25);
+				cedulaComision.setToolTipText("Cedula del empleado a registrar.");
 		rbtnHombre.setBounds(160, 245, 90, 25);
 				rbtnHombre.setToolTipText("Genero Masculino.");
 		rbtnMujer.setBounds(270, 245, 90, 25);
 				rbtnMujer.setToolTipText("Genero Femenino.");
-		nivelJunior.setBounds(210, 310, 60, 25);
-				nivelJunior.setToolTipText("Nivel del empleado a registrar.");
+		clientesComision.setBounds(210, 310, 60, 25);
+				clientesComision.setToolTipText("Numero de clientes del empleado a registrar.");
 				
 				choser.setBounds(176, 277, 130, 24);
 				choser.setToolTipText("Fecha en la cual ingreso a la empresa");
@@ -168,14 +168,14 @@ public class PanelJunior extends JPanel {
 		botonRegistrar.setBounds(110, 360, 170, 24);
 
 		//TextFields
-		add(nombreJunior);
-		add(apellidoJunior);
-		add(prefijoTelefonoJunior);
-		add(telefonoJunior);
-		add(correoJunior);
-		add(direccionJunior);
-		add(cedulaJunior);
-		add(nivelJunior);
+		add(nombreComision);
+		add(apellidoComision);
+		add(prefijoTelefonoComision);
+		add(telefonoComision);
+		add(correoComision);
+		add(direccionComision);
+		add(cedulaComision);
+		add(clientesComision);
 
 		//Botones
 		add(botonRegistrar);
@@ -218,7 +218,7 @@ public class PanelJunior extends JPanel {
 		g2.drawString("Direccion:", 20, 190);
 		g2.drawString("Cedula:", 20, 225);
 		g2.drawString("Genero:", 20, 260);
-		g2.drawString("Año de Ingreso:", 20, 295);
+		g2.drawString("Numero de Clientes", 20, 295);
 		g2.drawString("Nivel de Jerarquia:", 20, 330);
 
 
@@ -252,68 +252,68 @@ public class PanelJunior extends JPanel {
 		this.volverFlecha = volverFlecha;
 	}
 
-	public JTextField getNombreJunior() {
-		return nombreJunior;
+	public JTextField getNombreComision() {
+		return nombreComision;
 	}
 
-	public void setNombreJunior(JTextField nombreJunior) {
-		this.nombreJunior = nombreJunior;
+	public void setNombreComision(JTextField nombreComision) {
+		this.nombreComision = nombreComision;
 	}
 
-	public JTextField getApellidoJunior() {
-		return apellidoJunior;
+	public JTextField getApellidoComision() {
+		return apellidoComision;
 	}
 
-	public void setApellidoJunior(JTextField apellidoJunior) {
-		this.apellidoJunior = apellidoJunior;
+	public void setApellidoComision(JTextField apellidoComision) {
+		this.apellidoComision = apellidoComision;
 	}
 
-	public JTextField getTelefonoJunior() {
-		return telefonoJunior;
+	public JTextField getTelefonoComision() {
+		return telefonoComision;
 	}
 
-	public void setTelefonoJunior(JTextField telefonoJunior) {
-		this.telefonoJunior = telefonoJunior;
+	public void setTelefonoComision(JTextField telefonoComision) {
+		this.telefonoComision = telefonoComision;
 	}
 
-	public JTextField getCorreoJunior() {
-		return correoJunior;
+	public JTextField getCorreoComision() {
+		return correoComision;
 	}
 
-	public void setCorreoJunior(JTextField correoJunior) {
-		this.correoJunior = correoJunior;
+	public void setCorreoComision(JTextField correoComision) {
+		this.correoComision = correoComision;
 	}
 
-	public JTextField getDireccionJunior() {
-		return direccionJunior;
+	public JTextField getDireccionComision() {
+		return direccionComision;
 	}
 
-	public void setDireccionJunior(JTextField direccionJunior) {
-		this.direccionJunior = direccionJunior;
+	public void setDireccionComision(JTextField direccionComision) {
+		this.direccionComision = direccionComision;
 	}
 
-	public JTextField getCedulaJunior() {
-		return cedulaJunior;
+	public JTextField getCedulaComision() {
+		return cedulaComision;
 	}
 
-	public void setCedulaJunior(JTextField cedulaJunior) {
-		this.cedulaJunior = cedulaJunior;
+	public void setCedulaComision(JTextField cedulaComision) {
+		this.cedulaComision = cedulaComision;
 	}
 
 	public JSpinner getNumeroVentas() {
-		return nivelJunior;
+		return clientesComision;
 	}
 
 	public void setNumeroVentas(JSpinner numeroVentas) {
-		this.nivelJunior = numeroVentas;
+		this.clientesComision = numeroVentas;
 	}
 
-	public JComboBox getPrefijoTelefonoJunior() {
-		return prefijoTelefonoJunior;
+	public JComboBox getPrefijoTelefonoComision() {
+		return prefijoTelefonoComision;
 	}
 
-	public void setPrefijoTelefonoJunior(JComboBox prefijoTelefonoJunior) {
-		this.prefijoTelefonoJunior = prefijoTelefonoJunior;
+	public void setPrefijoTelefonoComision(JComboBox prefijoTelefonoComision) {
+		this.prefijoTelefonoComision = prefijoTelefonoComision;
 	}
 
 
