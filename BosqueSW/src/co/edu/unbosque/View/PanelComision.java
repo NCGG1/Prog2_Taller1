@@ -33,7 +33,7 @@ public class PanelComision extends JPanel {
 	private ButtonGroup generos;
 	private JDateChooser choser;
 
-	public static final String REGISTRARSENIOR = "REGISTRAR COMISION";
+	public static final String REGISTRARCOMISION = "REGISTRAR COMISION";
 
 	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
 
@@ -53,7 +53,7 @@ public class PanelComision extends JPanel {
 		
 		//BOTON CON TEXTO
 		botonRegistrar = new JButton("Registrar");
-		botonRegistrar.setActionCommand(REGISTRARSENIOR);
+		botonRegistrar.setActionCommand(REGISTRARCOMISION);
 		botonRegistrar.setOpaque(false);
 		botonRegistrar.setContentAreaFilled(false);
 		botonRegistrar.setBorderPainted(false);
@@ -136,7 +136,7 @@ public class PanelComision extends JPanel {
 		botonRegistrar.setCursor(cursor);
 
 		//MENSAJE SOBRE EL BOTON
-		botonRegistrar.setToolTipText("Registrar nuevo usuario");
+		botonRegistrar.setToolTipText("Registrar nuevo Empleado");
 		volverFlecha.setToolTipText("Regresar al menu principal");
 		volverFlecha.setCursor(cursor);
 		

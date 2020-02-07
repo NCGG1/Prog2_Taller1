@@ -136,7 +136,7 @@ public class PanelJunior extends JPanel {
 		botonRegistrar.setCursor(cursor);
 
 		//MENSAJE SOBRE EL BOTON
-		botonRegistrar.setToolTipText("Registrar nuevo usuario");
+		botonRegistrar.setToolTipText("Registrar nuevo Empleado");
 		volverFlecha.setToolTipText("Regresar al menu principal");
 		volverFlecha.setCursor(cursor);
 		
