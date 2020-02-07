@@ -124,7 +124,7 @@ public class PanelActualizarCheck extends JPanel {
 		generoCheck.setCursor(cursor);
 		añoCheck.setCursor(cursor);
 		
-		nombreCheck.setBounds(10, 60, 100, 20);
+		nombreCheck.setBounds(10, 60, 80, 20);
 		apellidoCheck.setBounds(100, 60, 100, 20);
 		telefonoCheck.setBounds(10, 86, 100, 20);
 		correoCheck.setBounds(100, 86, 100, 20);

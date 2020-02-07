@@ -2,7 +2,6 @@ package co.edu.unbosque.Model;
 
 import java.util.ArrayList;
 
-import sun.util.logging.resources.logging;
 
 public class Mundo {
 
