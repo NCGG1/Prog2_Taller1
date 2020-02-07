@@ -1,6 +1,7 @@
 package co.edu.unbosque.View;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
 
 public class PanelPrincipal extends JPanel {
 
@@ -41,10 +43,10 @@ public class PanelPrincipal extends JPanel {
 		register.setBorderPainted(false);
 
 			//x,y, lados,alto
-		lista.setBounds(20, 90, 100, 40);
-		add(lista);
+		register.setBounds(20, 90, 100, 40);
+		add(register);
 		
-		ListaIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/registar.png").getImage()
+		ListaIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/lista.png").getImage()
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		// BOTON CON EL ICON
 		lista = new JButton(ListaIcon);
@@ -52,9 +54,16 @@ public class PanelPrincipal extends JPanel {
 		lista.setOpaque(false);
 		lista.setContentAreaFilled(false);
 		lista.setBorderPainted(false);
-
+		
+		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+		lista.setCursor(cursor);
+		lista.setToolTipText("Lista empleados");
+		
+		register.setCursor(cursor);
+		register.setToolTipText("Registrar empleado");
+		
 			//x,y, lados,alto
-		lista.setBounds(20, 90, 100, 40);
+		lista.setBounds(180, 90, 100, 40);
 		add(lista);
 	}
 
