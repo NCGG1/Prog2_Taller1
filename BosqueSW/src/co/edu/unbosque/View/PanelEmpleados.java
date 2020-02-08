@@ -58,12 +58,29 @@ public class PanelEmpleados extends JPanel {
 
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 		fijoE.setCursor(cursor);
-		fijoE.setToolTipText("Lista empleados");
+		fijoE.setToolTipText("Empleado Fijo");
+
+		comisionE.setCursor(cursor);
+		comisionE.setToolTipText("Empleado por Comisión");
 
 		// x,y, lados,alto
 		fijoE.setBounds(160, 45, 100, 40);
 		add(fijoE);
 
+
+		volverEmpleadosIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		// BOTON CON EL ICON
+
+		volverEmpleados = new JButton(volverEmpleadosIcon);
+		volverEmpleados.setActionCommand(VOLVER_EMPLEADO);
+		volverEmpleados.setOpaque(false);
+		volverEmpleados.setContentAreaFilled(false);
+		volverEmpleados.setBorderPainted(false);
+
+		// x,y, lados,alto
+		volverEmpleados.setBounds(5, 10, 47, 40);
+		add(volverEmpleados);
 	}
 
 	public void paintComponent(Graphics g) {
