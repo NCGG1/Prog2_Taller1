@@ -1731,6 +1731,13 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			ventanaLista.setVisible(true);
 
 		}
+		
+		if(Command.getActionCommand().equalsIgnoreCase(ventanaLista.getPanelLista().VOLVER_LISTA)) {
+			
+			ventanaLista.setVisible(false);
+			ventanaLista.dispose();
+			ventanaPrincipal.setVisible(true);
+		}
 
 	}
 

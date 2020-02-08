@@ -31,6 +31,7 @@ public class VentanaLista extends JFrame {
 		panelLista.getEliminar().addActionListener(control);
 		panelLista.getBuscar().addActionListener(control);
 		panelLista.getActualizar().addActionListener(control);
+		panelLista.getVolverLista().addActionListener(control);
 		
 	}
 
