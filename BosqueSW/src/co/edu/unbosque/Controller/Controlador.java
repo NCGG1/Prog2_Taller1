@@ -12,6 +12,7 @@ import co.edu.unbosque.View.VentanaActualizarPrincipal;
 import co.edu.unbosque.View.VentanaBuscar;
 import co.edu.unbosque.View.VentanaComision;
 import co.edu.unbosque.View.VentanaEmpleados;
+import co.edu.unbosque.View.VentanaEmpleadosFijos;
 import co.edu.unbosque.View.VentanaJunior;
 import co.edu.unbosque.View.VentanaLista;
 import co.edu.unbosque.View.VentanaPrincipal;
@@ -28,9 +29,11 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 	private VentanaActualizarPrincipal ventanaActualizarPrincipal;
 	private VentanaActualizarCheck ventanaActualizarCheck;
 	private VentanaPrincipal ventanaPrincipal;
+	private VentanaEmpleadosFijos ventanaEmpleadosFijos;
 	public Controlador() {
 		
 		// TODO Auto-generated constructor stub
+		ventanaEmpleadosFijos = new VentanaEmpleadosFijos(this);
 		ventanaEmpleados = new VentanaEmpleados(this);
 		ventanaEmpleados.setVisible(true);
 		ventanaActualizarPrincipal = new VentanaActualizarPrincipal(this);
@@ -50,6 +53,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 		
 		ventanaBuscar = new VentanaBuscar(this);
 		ventanaBuscar.setVisible(true);
+		ventanaEmpleadosFijos.setVisible(true);
 	//	ventanaActualizarCheck.setVisible(true);
 	//	ventanaLista.setVisible(true);
 		
