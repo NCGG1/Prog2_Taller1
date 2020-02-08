@@ -165,11 +165,6 @@ public class Mundo {
 		return actualizar;
 	}
 
-	/**
-	 * 
-	 * @param cedula
-	 * @return
-	 */
 	public Personal buscarPersona(long cedula) {
 
 		Personal persona1 = null;
@@ -183,10 +178,15 @@ public class Mundo {
 		return persona1;
 	}
 
-	/**
+
+	/**NO SE A TERMINADO
+	 * Este metodo comprueba si existe un empleado en bosqueSW
+	 * <b> pre </b> La lista de empleados debe estar inicializada(no es null). <br>
+	 * <b>post</b> Se ha <br>
 	 * 
-	 * @param cedula
-	 * @return
+	 * @param cedula Esta es la cedula del empleado a eliminar.
+	 * 
+	 * @return String con la respuesta si se elimino el empleado
 	 */
 	public boolean existePersonal(long cedula) {
 
@@ -200,9 +200,13 @@ public class Mundo {
 	}
 
 	/**
+	 * Este metodo borrar a un empleado de bosqueSW
+	 * <b> pre </b> La lista de empleados debe estar inicializada(no es null). <br>
+	 * <b>post</b> Se ha borrado un empleado de bosqueSw <br>
 	 * 
-	 * @param cedula
-	 * @return
+	 * @param cedula Esta es la cedula del empleado a eliminar.
+	 * 
+	 * @return String con la respuesta si se elimino el empleado
 	 */
 	public String borrarPersona(long cedula) {
 
