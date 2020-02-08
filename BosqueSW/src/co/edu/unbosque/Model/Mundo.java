@@ -11,70 +11,97 @@ public class Mundo {
 		empleados = new ArrayList<>();
 	}
 
-//	
+	/**
+	 * Este método registra un empleado a bosqueSW <b> pre</b> La lista de empleados
+	 * está inicializada(no es null). <br>
+	 * <b> post </b> Se ha registrado un nuevo empleado a bosqueSw
+	 * 
+	 * @param nombre        Es el nombre del empleado.
+	 * @param apellido      Es el apellido del empleado.
+	 * @param genero        Es el genero del empleado.
+	 * @param telefono      Es el telefono del empleado.
+	 * @param correo        Es el correo del empleado.
+	 * @param direccion     Es el direccion del empleado.
+	 * @param tipoIngeniero Es el tipoIngeniero del empleado.
+	 * @param anoIngreso    Es el anoIngreso del empleado.
+	 * @param cedula        Es el cedula del empleado.
+	 * @param salario       Es el salario del empleado.
+	 * @param variable      Es una variable que cambiara de estado.
+	 * @param salarios      Son los salarios de los clientes.
+	 * @return String con la respuesta si se agrego el empleado
+	 * @throws Exception si existe mas de una arroba en el correo, dispara la
+	 *                   excepcion indicando que el correo no es valido. Si existe
+	 *                   una arroba en la primera posicion del correo, dispara la
+	 *                   excepcion indicando que el correo no es valido. Si existe
+	 *                   una arroba en la ultima posicion del correo, dispara la
+	 *                   excepcion indicando que el correo no es valido.
+	 * 
+	 */
+
 	public String registrarPersonal(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int variable,
 			double[] salarios) throws Exception {
-			
-			int contaArroba = 0;
 
-			for (int i = 0; i < correo.length(); i++) {
+		int contaArroba = 0;
+
+		for (int i = 0; i < correo.length(); i++) {
 
 			if (correo.charAt(i) == '@') {
 
-			contaArroba++;
+				contaArroba++;
 
 			}
-			}
-			if (contaArroba != 1) {
+		}
+		if (contaArroba != 1) {
 
 			throw new Exception("El correo que ingreso no es valido");
 
-			}
+		}
 
-			if (correo.charAt(0) == '@') {
-
-			throw new Exception("El correo que ingreso no es valido");
-
-			}
-
-			if(correo.charAt(correo.length()-1) == '@') {
+		if (correo.charAt(0) == '@') {
 
 			throw new Exception("El correo que ingreso no es valido");
 
-			}
+		}
 
+		if (correo.charAt(correo.length() - 1) == '@') {
 
-			String ag = "";
+			throw new Exception("El correo que ingreso no es valido");
 
-			try {
+		}
+
+		String ag = "";
+
+		try {
 
 			if (existePersonal(cedula) == false) {
 				if (tipoIngeniero.equalsIgnoreCase("Ingeniero Junior")) {
-			IngenieroJunior junior = new IngenieroJunior(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario, (short)variable);
-			empleados.add(junior);
-			ag = "Registrado, bienvenido a BosqueSW";
-			}else if(tipoIngeniero.equalsIgnoreCase("Ingeniero Senior")) {
-				IngenieroSenior senior = new IngenieroSenior(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario, variable);
-				empleados.add(senior);
-				ag = "Registrado, bienvenido a BosqueSW";
-			}else if(tipoIngeniero.equalsIgnoreCase("Ingeniero Comision")){
-				PersonalComision comision = new PersonalComision(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario, variable, salarios);
-				empleados.add(comision);
-				ag = "Registrado, bienvenido a BosqueSW";
-			}
+					IngenieroJunior junior = new IngenieroJunior(nombre, apellido, genero, telefono, correo, direccion,
+							tipoIngeniero, anoIngreso, cedula, salario, (short) variable);
+					empleados.add(junior);
+					ag = "Registrado, bienvenido a BosqueSW";
+				} else if (tipoIngeniero.equalsIgnoreCase("Ingeniero Senior")) {
+					IngenieroSenior senior = new IngenieroSenior(nombre, apellido, genero, telefono, correo, direccion,
+							tipoIngeniero, anoIngreso, cedula, salario, variable);
+					empleados.add(senior);
+					ag = "Registrado, bienvenido a BosqueSW";
+				} else if (tipoIngeniero.equalsIgnoreCase("Ingeniero Comision")) {
+					PersonalComision comision = new PersonalComision(nombre, apellido, genero, telefono, correo,
+							direccion, tipoIngeniero, anoIngreso, cedula, salario, variable, salarios);
+					empleados.add(comision);
+					ag = "Registrado, bienvenido a BosqueSW";
+				}
 			} else {
-			ag = "El usuario ya existe\n" + buscarPersona(cedula).toString();
+				ag = "El usuario ya existe\n" + buscarPersona(cedula).toString();
 			}
-			} catch (Exception e) {
+		} catch (Exception e) {
 			e = new Exception("Error al agregar la persona");
 			e.printStackTrace();
-			}
-			return ag;
+		}
+		return ag;
 
-			}
-	
-	
+	}
+
 	public String actualizarPersona(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String anoIngreso, long cedula) {
 
