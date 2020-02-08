@@ -241,13 +241,10 @@ public class Mundo {
 		if (existePersonal(cedula)) {
 			if (buscarPersona(cedula) != null) {
 				empleados.remove(buscarPersona(cedula));
-				oo = "Se eliminó a la persona correctamente ";
-			} else {
-				oo = "No se eliminó a la persona correctamente ";
-
-			}
-		} else {
-			oo = "No se encontró a la persona, por lo tanto no se eliminó ";
+				oo = "Se eliminó a la persona correctamente";
+		}
+		}else {
+			oo = "No se encontró a la persona, por lo tanto no se eliminó";
 
 		}
 		return oo;
@@ -300,9 +297,9 @@ public class Mundo {
 					clientesNuevos[i] = clientesViejos[i];
 
 				}
-				// MATH RANDOM!!!! FALTA
-				clientesNuevos[clientesViejos.length - 1] = 10000;
-
+				
+				clientesNuevos[clientesNuevos.length-1] = (int) (Math.floor(Math.random() * (2000000 - 500000) + 0));
+				comision.setClientes(comision.getClientes()+1);
 				comision.setSalarios(clientesNuevos);
 				comision.calcularSalario();
 				respuesta = "Nuevo cliente, felicitaciones ingeniero";

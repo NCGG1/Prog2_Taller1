@@ -25,19 +25,13 @@ public class VentanaActualizarPrincipal extends JFrame{
 
 	public void iniciarComponentes(Controlador control) {
 		
-		//Boton
-//		panelActualizarPrincipal.getVolverFlecha().addActionListener(control);
-//		panelActualizarPrincipal.getBotonRegistrar().addActionListener(control);
-//		//Texto
-//		panelActualizarPrincipal.getNombreJunior().addKeyListener(control);
-//		panelActualizarPrincipal.getApellidoJunior().addKeyListener(control);
-//		panelActualizarPrincipal.getTelefonoJunior().addKeyListener(control);
-//		panelActualizarPrincipal.getCorreoJunior().addKeyListener(control);
-//		panelActualizarPrincipal.getDireccionJunior().addKeyListener(control);
-//		panelActualizarPrincipal.getCedulaJunior().addKeyListener(control);
-//		panelActualizarPrincipal.getNumeroVentas().addKeyListener(control);
-//		
-//		
+		
 	}
+
+	public PanelActualizarPrincipal getPanelActualizarPrincipal() {
+		return panelActualizarPrincipal;
+	}
+	
+	
 	
 }

@@ -21,7 +21,7 @@ public class PanelPrincipal extends JPanel {
 	private JButton register, lista;
 	private Icon registrarIcon, ListaIcon;
 	public final String REGISTRAR = "REGISTRAR";
-	public final String LISTA = "LISTA";
+	public final String LISTA = "LISTA PRIN";
 
 	public PanelPrincipal() {
 

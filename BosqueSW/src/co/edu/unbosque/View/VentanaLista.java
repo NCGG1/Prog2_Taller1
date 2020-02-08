@@ -27,6 +27,10 @@ public class VentanaLista extends JFrame {
 	
 	public void iniciarComponentes(Controlador control) {
 	
+		panelLista.getListaEmpleados().addMouseListener(control);
+		panelLista.getEliminar().addActionListener(control);
+		panelLista.getBuscar().addActionListener(control);
+		panelLista.getActualizar().addActionListener(control);
 		
 	}
 

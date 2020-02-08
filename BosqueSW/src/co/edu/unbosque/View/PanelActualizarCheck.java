@@ -22,6 +22,7 @@ public class PanelActualizarCheck extends JPanel {
 	private JButton volverCheck, continuarCheck;
 	private Icon volverIcon;
 	public static final String VOLVER_CHECK = "VOLVER CHECK";
+	public static final String CONTINUAR_CHECK = "CONTINUAR CHECK";
 
 	public PanelActualizarCheck() {
 		// TODO Auto-generated constructor stub
@@ -102,7 +103,7 @@ public class PanelActualizarCheck extends JPanel {
 		volverCheck.setBorderPainted(false);
 
 		continuarCheck = new JButton("Continuar");
-		continuarCheck.setActionCommand(VOLVER_CHECK);
+		continuarCheck.setActionCommand(CONTINUAR_CHECK);
 		continuarCheck.setOpaque(false);
 		continuarCheck.setContentAreaFilled(false);
 		continuarCheck.setBorderPainted(false);
@@ -123,14 +124,13 @@ public class PanelActualizarCheck extends JPanel {
 		direccionCheck.setCursor(cursor);
 		generoCheck.setCursor(cursor);
 		añoCheck.setCursor(cursor);
-		
-		nombreCheck.setBounds(10, 60, 80, 20);
-		apellidoCheck.setBounds(100, 60, 100, 20);
-		telefonoCheck.setBounds(10, 86, 100, 20);
-		correoCheck.setBounds(100, 86, 100, 20);
-		generoCheck.setBounds(10, 112, 100, 20);
-		añoCheck.setBounds(100, 112, 100, 20);
-		direccionCheck.setBounds(50, 140, 100, 20);
+		nombreCheck.setBounds(10, 60, 82, 22);
+		apellidoCheck.setBounds(110, 60, 100, 22);
+		telefonoCheck.setBounds(10, 88, 100, 22);
+		correoCheck.setBounds(110, 88, 100, 22);
+		generoCheck.setBounds(10, 114, 100, 22);
+		añoCheck.setBounds(110, 114, 100, 22);
+		direccionCheck.setBounds(50, 142, 100, 22);
 		continuarCheck.setBounds(26, 170, 140, 22);
 		volverCheck.setBounds(180, 160, 40,40);
 		add(nombreCheck);
@@ -165,7 +165,7 @@ public class PanelActualizarCheck extends JPanel {
 
 		g2.setColor(Color.BLACK);
 
-		g2.drawString("Datos que desea actualizar", 22, 50);
+		g2.drawString("Datos que desea actualizar", 22, 46);
 	
 		super.paintComponent(g);
 
@@ -178,4 +178,41 @@ public class PanelActualizarCheck extends JPanel {
 		repaint();
 	}
 
+	public JCheckBox getNombreCheck() {
+		return nombreCheck;
+	}
+
+	public JCheckBox getApellidoCheck() {
+		return apellidoCheck;
+	}
+
+	public JCheckBox getTelefonoCheck() {
+		return telefonoCheck;
+	}
+
+	public JCheckBox getCorreoCheck() {
+		return correoCheck;
+	}
+
+	public JCheckBox getDireccionCheck() {
+		return direccionCheck;
+	}
+
+	public JCheckBox getGeneroCheck() {
+		return generoCheck;
+	}
+
+	public JCheckBox getAñoCheck() {
+		return añoCheck;
+	}
+
+	public JButton getVolverCheck() {
+		return volverCheck;
+	}
+
+	public JButton getContinuarCheck() {
+		return continuarCheck;
+	}
+
+	
 }

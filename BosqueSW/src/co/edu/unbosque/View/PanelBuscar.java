@@ -27,56 +27,52 @@ public class PanelBuscar extends JPanel {
 	private String ruta;
 	private Image fondo;
 	private JButton botonIncrementar, volverFlecha;
-	private JLabel  cedulaBuscar, nombreBuscar, apellidoBuscar, telefonoBuscar, correoBuscar, direccionBuscar, variable, lblVariable, genero, fechaingreso, salarioBuscar;
+	private JLabel cedulaBuscar, nombreBuscar, apellidoBuscar, telefonoBuscar, correoBuscar, direccionBuscar, variable,
+			lblVariable, genero, fechaingreso, salarioBuscar;
 
 	public static final String INCREMENTAR = "BUSCAR INCREMENTAR";
 
-	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
+	public static final String VOLVER_BUSCAR = "VOLVER BUSCAR";
 
 	private Icon iconVolver;
-	
-	
+
 	public PanelBuscar() {
-	
+
 		TitledBorder border = new TitledBorder("Buscar Empleado");
 		setBorder(border);
 		border.setTitleJustification(TitledBorder.CENTER);
 		border.setTitleColor(Color.BLACK);
 		setLayout(null);
-		//RUTA DE LA IMAGEN DEL FONDO DEL PANEL
-		
-		ruta = "src/co/edu/unbosque/Util/fondo.jpg";   
+		// RUTA DE LA IMAGEN DEL FONDO DEL PANEL
 
-		
-		//BOTON CON TEXTO
+		ruta = "src/co/edu/unbosque/Util/fondo.jpg";
+
+		// BOTON CON TEXTO
 		botonIncrementar = new JButton("Incrementar");
-		botonIncrementar.setActionCommand("INCREMENTAR");
+		botonIncrementar.setActionCommand(INCREMENTAR);
 		botonIncrementar.setOpaque(false);
 		botonIncrementar.setContentAreaFilled(false);
 		botonIncrementar.setBorderPainted(false);
-		 
-		//ICON DESCARGADO DE ICONFINDER
-		iconVolver = new ImageIcon(
-			new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		//BOTON CON EL ICON
+
+		// ICON DESCARGADO DE ICONFINDER
+		iconVolver = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		// BOTON CON EL ICON
 		volverFlecha = new JButton(iconVolver);
-		volverFlecha.setActionCommand(VOLVER_PRINCIPAL);
+		volverFlecha.setActionCommand(VOLVER_BUSCAR);
 		volverFlecha.setOpaque(false);
 		volverFlecha.setContentAreaFilled(false);
 		volverFlecha.setBorderPainted(false);
-		
 
-		//CURSOR
+		// CURSOR
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
 
+		Font Fuente_Boton = new Font("ARIAL", Font.BOLD, 22);
 
-		Font Fuente_Boton = new Font("ARIAL",Font.BOLD,22);
-		
 		botonIncrementar.setFont(Fuente_Boton);
 		botonIncrementar.setForeground(Color.BLACK);
 
-		
-		//Panel captar datos ________________________________
+		// Panel captar datos ________________________________
 		nombreBuscar = new JLabel("----------");
 		apellidoBuscar = new JLabel("----------");
 		telefonoBuscar = new JLabel("----------");
@@ -88,45 +84,67 @@ public class PanelBuscar extends JPanel {
 		genero = new JLabel("----------");
 		fechaingreso = new JLabel("----------");
 		salarioBuscar = new JLabel("----------");
-		
-		//CAMBIAR CURSO DE FLECHA POR MANO
+
+		Font Fuente_Boton2 = new Font("ARIAL", Font.BOLD, 16);
+
+		nombreBuscar.setForeground(Color.BLACK);
+		nombreBuscar.setFont(Fuente_Boton2);
+		apellidoBuscar.setForeground(Color.BLACK);
+		apellidoBuscar.setFont(Fuente_Boton2);
+		telefonoBuscar.setForeground(Color.BLACK);
+		telefonoBuscar.setFont(Fuente_Boton2);
+		correoBuscar.setForeground(Color.BLACK);
+		correoBuscar.setFont(Fuente_Boton2);
+		direccionBuscar.setForeground(Color.BLACK);
+		direccionBuscar.setFont(Fuente_Boton2);
+		cedulaBuscar.setForeground(Color.BLACK);
+		cedulaBuscar.setFont(Fuente_Boton2);
+		variable.setForeground(Color.BLACK);
+		variable.setFont(Fuente_Boton2);
+		genero.setForeground(Color.BLACK);
+		genero.setFont(Fuente_Boton2);
+		fechaingreso.setForeground(Color.BLACK);
+		fechaingreso.setFont(Fuente_Boton2);
+		salarioBuscar.setForeground(Color.BLACK);
+		salarioBuscar.setFont(Fuente_Boton2);
+
+		// CAMBIAR CURSO DE FLECHA POR MANO
 		botonIncrementar.setCursor(cursor);
 		volverFlecha.setCursor(cursor);
- 
-		//MENSAJE SOBRE EL BOTON
-				botonIncrementar.setToolTipText("Incrementar");
-				volverFlecha.setToolTipText("Regresar al menu principal");
-		cedulaBuscar.setBounds(230, 30, 220, 25);
-				cedulaBuscar.setToolTipText("Cedula del empleado.");
-		nombreBuscar.setBounds(230, 65, 220, 25);
-				nombreBuscar.setToolTipText("Nombre del empleado.");
-		apellidoBuscar.setBounds(230, 100, 220, 25);
-				apellidoBuscar.setToolTipText("Apellido del empleado.");
-		telefonoBuscar.setBounds(230, 135, 220, 25);
-				telefonoBuscar.setToolTipText("Telefono del empleado.");
-		correoBuscar.setBounds(230, 170, 220, 25);
-				correoBuscar.setToolTipText("Correo del empleado.");
-		direccionBuscar.setBounds(230, 205, 220, 25);
-				direccionBuscar.setToolTipText("Direccion del empleado.");
-		variable.setBounds(230, 240, 220, 25);
-			//	variable.setToolTipText("Variable");
-		genero.setBounds(230, 275, 220, 25);
-				genero.setToolTipText("Genero.");
-		fechaingreso.setBounds(230, 310, 220, 25);
-				fechaingreso.setToolTipText("Fecha Ingreso.");
-		salarioBuscar.setBounds(230, 345, 220, 25);
-				salarioBuscar.setToolTipText("Fecha Ingreso.");
 
-		
-		volverFlecha.setBounds(320, 365, 40, 45);
-		
+		// MENSAJE SOBRE EL BOTON
+		botonIncrementar.setToolTipText("Incrementar");
+		volverFlecha.setToolTipText("Regresar al menu principal");
+		cedulaBuscar.setBounds(230, 30, 220, 25);
+		cedulaBuscar.setToolTipText("Cedula del empleado.");
+		nombreBuscar.setBounds(230, 65, 220, 25);
+		nombreBuscar.setToolTipText("Nombre del empleado.");
+		apellidoBuscar.setBounds(230, 100, 220, 25);
+		apellidoBuscar.setToolTipText("Apellido del empleado.");
+		telefonoBuscar.setBounds(230, 135, 220, 25);
+		telefonoBuscar.setToolTipText("Telefono del empleado.");
+		correoBuscar.setBounds(230, 170, 220, 25);
+		correoBuscar.setToolTipText("Correo del empleado.");
+		direccionBuscar.setBounds(230, 205, 220, 25);
+		direccionBuscar.setToolTipText("Direccion del empleado.");
+		variable.setBounds(230, 240, 220, 25);
+		// variable.setToolTipText("Variable");
+		genero.setBounds(230, 275, 220, 25);
+		genero.setToolTipText("Genero.");
+		fechaingreso.setBounds(230, 310, 220, 25);
+		fechaingreso.setToolTipText("Fecha Ingreso.");
+		salarioBuscar.setBounds(230, 345, 220, 25);
+		salarioBuscar.setToolTipText("Fecha Ingreso.");
+
+		volverFlecha.setBounds(320, 365, 40, 40);
+
 		botonIncrementar.setBounds(100, 385, 180, 24);
 
 		Font miFuente7 = new Font("Arial", Font.BOLD, 20);
 		lblVariable.setForeground(Color.BLACK);
-		
+
 		lblVariable.setFont(miFuente7);
-		//TextFields
+		// TextFields
 		add(cedulaBuscar);
 		add(nombreBuscar);
 		add(apellidoBuscar);
@@ -137,16 +155,15 @@ public class PanelBuscar extends JPanel {
 		add(genero);
 		add(fechaingreso);
 		add(salarioBuscar);
-		//Botones
+		// Botones
 		add(botonIncrementar);
 		add(volverFlecha);
-		
+
 	}
-	 
+
 //METODO 1 NECESARIO
 	public void paintComponent(Graphics g) {
 
-		
 		int width = this.getSize().width;
 		int height = this.getSize().height;
 
@@ -156,9 +173,8 @@ public class PanelBuscar extends JPanel {
 			g.drawImage(this.fondo, 0, 0, width, height, null);
 		}
 
-		//CREAMOS NOSOTROS
-		Graphics2D g2 = (Graphics2D)g;
-
+		// CREAMOS NOSOTROS
+		Graphics2D g2 = (Graphics2D) g;
 
 		Font miFuente7 = new Font("Arial", Font.BOLD, 20);
 
@@ -180,8 +196,9 @@ public class PanelBuscar extends JPanel {
 		add(lblVariable);
 
 		super.paintComponent(g);
-	
+
 	}
+
 //METODO 2 NECESARIO
 	public void setBackground(String imagePath) {
 
@@ -194,104 +211,52 @@ public class PanelBuscar extends JPanel {
 		return botonIncrementar;
 	}
 
-	public void setBotonIncrementar(JButton botonIncrementar) {
-		this.botonIncrementar = botonIncrementar;
+	public JButton getVolverFlecha() {
+		return volverFlecha;
 	}
 
 	public JLabel getCedulaBuscar() {
 		return cedulaBuscar;
 	}
 
-	public void setCedulaBuscar(JLabel cedulaBuscar) {
-		this.cedulaBuscar = cedulaBuscar;
-	}
-
 	public JLabel getNombreBuscar() {
 		return nombreBuscar;
-	}
-
-	public void setNombreBuscar(JLabel nombreBuscar) {
-		this.nombreBuscar = nombreBuscar;
 	}
 
 	public JLabel getApellidoBuscar() {
 		return apellidoBuscar;
 	}
 
-	public void setApellidoBuscar(JLabel apellidoBuscar) {
-		this.apellidoBuscar = apellidoBuscar;
-	}
-
 	public JLabel getTelefonoBuscar() {
 		return telefonoBuscar;
-	}
-
-	public void setTelefonoBuscar(JLabel telefonoBuscar) {
-		this.telefonoBuscar = telefonoBuscar;
 	}
 
 	public JLabel getCorreoBuscar() {
 		return correoBuscar;
 	}
 
-	public void setCorreoBuscar(JLabel correoBuscar) {
-		this.correoBuscar = correoBuscar;
-	}
-
 	public JLabel getDireccionBuscar() {
 		return direccionBuscar;
-	}
-
-	public void setDireccionBuscar(JLabel direccionBuscar) {
-		this.direccionBuscar = direccionBuscar;
 	}
 
 	public JLabel getVariable() {
 		return variable;
 	}
 
-	public void setVariable(JLabel variable) {
-		this.variable = variable;
+	public JLabel getLblVariable() {
+		return lblVariable;
 	}
 
 	public JLabel getGenero() {
 		return genero;
 	}
 
-	public void setGenero(JLabel genero) {
-		this.genero = genero;
-	}
-
 	public JLabel getFechaingreso() {
 		return fechaingreso;
 	}
 
-	public void setFechaingreso(JLabel fechaingreso) {
-		this.fechaingreso = fechaingreso;
-	}
-
-	public JButton getVolverFlecha() {
-		return volverFlecha;
-	}
-
-	public void setVolverFlecha(JButton volverFlecha) {
-		this.volverFlecha = volverFlecha;
-	}
-
-	public JLabel getLblVariable() {
-		return lblVariable;
-	}
-
-	public void setLblVariable(JLabel lblVariable) {
-		this.lblVariable = lblVariable;
-	}
-
 	public JLabel getSalarioBuscar() {
 		return salarioBuscar;
-	}
-
-	public void setSalarioBuscar(JLabel salarioBuscar) {
-		this.salarioBuscar = salarioBuscar;
 	}
 
 }

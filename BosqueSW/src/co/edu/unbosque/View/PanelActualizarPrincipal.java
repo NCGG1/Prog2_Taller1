@@ -35,9 +35,9 @@ public class PanelActualizarPrincipal extends JPanel {
 	private JRadioButton rbtnHombre, rbtnMujer;
 	private ButtonGroup generos;
 
-	public static final String ACTUALIZAR = "ACTUALIZAR EMPLEADO";
+	public static final String ACTUALIZAR = "ACTUALIZAR PRINCI";
 
-	public static final String VOLVER_ACTU = "VOLVER ACTUALIZAR";
+	public static final String VOLVER_ACTU = "VOLVER ACTUALIZAR PRIN";
 
 	public PanelActualizarPrincipal() {
 		// TODO Auto-generated constructor stub
@@ -221,4 +221,55 @@ public class PanelActualizarPrincipal extends JPanel {
 		repaint();
 	}
 
+	public JButton getActualizar() {
+		return actualizar;
+	}
+
+	public JButton getVolverActualizar() {
+		return volverActualizar;
+	}
+
+	public JTextField getNombreTxt() {
+		return nombreTxt;
+	}
+
+	public JTextField getApellidoTxt() {
+		return apellidoTxt;
+	}
+
+	public JTextField getTelefonoTxt() {
+		return telefonoTxt;
+	}
+
+	public JTextField getCorreoTxt() {
+		return correoTxt;
+	}
+
+	public JTextField getDireccionTxt() {
+		return direccionTxt;
+	}
+
+	public JLabel getCedulaTxt() {
+		return cedulaTxt;
+	}
+
+	public JComboBox<String> getPrefijoTelefono() {
+		return prefijoTelefono;
+	}
+
+	public JDateChooser getAñoIngresoTxt() {
+		return añoIngresoTxt;
+	}
+
+	public JRadioButton getRbtnHombre() {
+		return rbtnHombre;
+	}
+
+	public JRadioButton getRbtnMujer() {
+		return rbtnMujer;
+	}
+
+	
+	
 }
+

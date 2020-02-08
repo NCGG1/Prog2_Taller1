@@ -24,19 +24,14 @@ public class VentanaBuscar extends JFrame {
 	}
 
 	public void iniciarComponentes(Controlador control) {
-		/*
-		//Boton
 		panelBuscar.getVolverFlecha().addActionListener(control);
-		panelBuscar.getBotonRegistrar().addActionListener(control);
-		//Texto
-		panelBuscar.getNombreComision().addKeyListener(control);
-		panelBuscar.getApellidoComision().addKeyListener(control);
-		panelBuscar.getTelefonoComision().addKeyListener(control);
-		panelBuscar.getCorreoComision().addKeyListener(control);
-		panelBuscar.getDireccionComision().addKeyListener(control);
-		panelBuscar.getCedulaComision().addKeyListener(control);
-		panelBuscar.getNumeroVentas().addKeyListener(control);
-	*/	
+		panelBuscar.getBotonIncrementar().addActionListener(control);
 		
 	}
+
+	public PanelBuscar getPanelBuscar() {
+		return panelBuscar;
+	}
+	
+	
 }

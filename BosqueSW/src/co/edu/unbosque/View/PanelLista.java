@@ -17,9 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+public class PanelLista extends JPanel {
 
-public class PanelLista extends JPanel{
-	
 	private String ruta;
 	private Image fondo;
 	private JButton volverLista, eliminar, actualizar, buscar;
@@ -30,12 +29,11 @@ public class PanelLista extends JPanel{
 	private JScrollPane barrita;
 	private String[] titulos;
 
-	public static final String BUSCAR_PRIN = "BUSCAR_PRIN";
+	public static final String BUSCAR_PRIN = "BUSCAR_PRIN_ABRIR";
 	public static final String ACTUALIZAR = "ACTUALIZAR PRIN";
 	public static final String VOLVER_LISTA = "VOLVER LISTA";
 	public static final String ELIMINAR = "ELIMINAR PRIN";
 
-	
 	public PanelLista() {
 		// TODO Auto-generated constructor stub
 
@@ -44,10 +42,9 @@ public class PanelLista extends JPanel{
 		border.setTitleJustification(TitledBorder.CENTER);
 		border.setTitleColor(Color.BLACK);
 		setLayout(null);
-		//FONDO FALTA
-		
-		 ruta = "src/co/edu/unbosque/Util/fondo.jpg";
+		// FONDO FALTA
 
+		ruta = "src/co/edu/unbosque/Util/fondo.jpg";
 
 		titulos = new String[13];
 		titulos[0] = "Cedula";
@@ -57,60 +54,63 @@ public class PanelLista extends JPanel{
 		titulos[4] = "Telefono";
 		titulos[5] = "Email";
 		titulos[6] = "Dirección";
-		titulos[7] = "Ingeniero";
+		titulos[7] = "Personal";
 		titulos[8] = "Año de ingreso";
 		titulos[9] = "Salario";
 		titulos[10] = "Clientes";
 		titulos[11] = "Ventas";
 		titulos[12] = "Nivel";
-		
-		dtm = new DefaultTableModel(null, titulos);
+
 		barrita = new JScrollPane();
 		listaEmpleados = new JTable();
+		dtm = new DefaultTableModel(null, titulos) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+		};
 		listaEmpleados.setModel(dtm);
 		barrita.setViewportView(listaEmpleados);
-		eliminarIcon = new ImageIcon(
-				new ImageIcon("src/co/edu/unbosque/Util/borrar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		
+		eliminarIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/borrar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+
 		eliminar = new JButton(eliminarIcon);
 		eliminar.setActionCommand(ELIMINAR);
 		eliminar.setOpaque(false);
 		eliminar.setContentAreaFilled(false);
 		eliminar.setBorderPainted(false);
-		
-		actualizarIcon = new ImageIcon(
-				new ImageIcon("src/co/edu/unbosque/Util/actualizar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		
+
+		actualizarIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/actualizar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+
 		actualizar = new JButton(actualizarIcon);
 		actualizar.setActionCommand(ACTUALIZAR);
 		actualizar.setOpaque(false);
 		actualizar.setContentAreaFilled(false);
 		actualizar.setBorderPainted(false);
-		
-		
-		buscarIcon = new ImageIcon(
-				new ImageIcon("src/co/edu/unbosque/Util/buscar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		
+
+		buscarIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/buscar.png").getImage().getScaledInstance(40,
+				40, Image.SCALE_SMOOTH));
+
 		buscar = new JButton(buscarIcon);
 		buscar.setActionCommand(BUSCAR_PRIN);
 		buscar.setOpaque(false);
 		buscar.setContentAreaFilled(false);
 		buscar.setBorderPainted(false);
-		
-		
-		volverListaIcon = new ImageIcon(
-				new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-		
+
+		volverListaIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+
 		volverLista = new JButton(volverListaIcon);
 		volverLista.setActionCommand(VOLVER_LISTA);
 		volverLista.setOpaque(false);
 		volverLista.setContentAreaFilled(false);
 		volverLista.setBorderPainted(false);
 
-		
-		
 		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
-		
+
 		seleccion = new JTextField();
 		seleccion.setEditable(false);
 		seleccion.setToolTipText("Cedula del empleado selecionado");
@@ -118,7 +118,7 @@ public class PanelLista extends JPanel{
 		buscar.setToolTipText("Buscar al empleado selecionado");
 		actualizar.setToolTipText("Actualizar al empleado selecionado");
 		eliminar.setToolTipText("ELiminar al empleado selecionado");
-		
+
 		buscar.setCursor(cursor);
 		eliminar.setCursor(cursor);
 		actualizar.setCursor(cursor);
@@ -130,7 +130,7 @@ public class PanelLista extends JPanel{
 		buscar.setBounds(620, 560, 40, 40);
 		eliminar.setBounds(670, 560, 40, 40);
 		actualizar.setBounds(720, 560, 40, 40);
-		
+
 		add(buscar);
 		add(eliminar);
 		add(actualizar);
@@ -139,7 +139,6 @@ public class PanelLista extends JPanel{
 		add(seleccion);
 
 	}
-	
 
 	public void paintComponent(Graphics g) {
 
@@ -152,15 +151,14 @@ public class PanelLista extends JPanel{
 			g.drawImage(this.fondo, 0, 0, width, height, null);
 		}
 
-			Font miFuente7 = new Font("Arial", Font.BOLD, 16);
-			
-			g2.setFont(miFuente7);
+		Font miFuente7 = new Font("Arial", Font.BOLD, 16);
 
-			g2.setColor(Color.BLACK);
+		g2.setFont(miFuente7);
 
-			g2.drawString("Usuario Selecionado:", 300, 586);
+		g2.setColor(Color.BLACK);
 
-		
+		g2.drawString("Usuario Selecionado:", 300, 586);
+
 		super.paintComponent(g);
 
 	}
@@ -172,40 +170,32 @@ public class PanelLista extends JPanel{
 		repaint();
 	}
 
-
 	public JButton getVolverLista() {
 		return volverLista;
 	}
-
 
 	public JButton getEliminar() {
 		return eliminar;
 	}
 
-
 	public JButton getActualizar() {
 		return actualizar;
 	}
-
 
 	public JButton getBuscar() {
 		return buscar;
 	}
 
-
 	public JTable getListaEmpleados() {
 		return listaEmpleados;
 	}
-
 
 	public DefaultTableModel getDtm() {
 		return dtm;
 	}
 
-
 	public JTextField getSeleccion() {
 		return seleccion;
 	}
 
-	
 }

@@ -102,7 +102,8 @@ public class PersonalComision extends Personal {
 			Suma_Salario += salarios[i];
 
 		}
-		if (salario < 1100000) {
+		
+		if (Suma_Salario < 1100000) {
 			setSalario(Suma_Salario + salario);
 		} else {
 

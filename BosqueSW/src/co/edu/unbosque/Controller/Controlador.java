@@ -1,5 +1,6 @@
 package co.edu.unbosque.Controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -64,7 +65,6 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 		ventanaPrincipal.setVisible(true);
 		persistencia = new Persistencia();
 		mundo.setEmpleados(persistencia.leerArchivo());
-		System.out.println(mundo.getEmpleados().size());
 	}
 
 	@Override
@@ -916,6 +916,266 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			ventanaLista.setVisible(true);
 		}
 
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaLista.getPanelLista().ELIMINAR)) {
+			ventanaLista.setVisible(false);
+			if (!ventanaLista.getPanelLista().getSeleccion().getText().trim().isEmpty()) {
+				if (mundo.existePersonal(Integer
+						.parseInt(String.valueOf(ventanaLista.getPanelLista().getSeleccion().getText().trim())))) {
+
+					Personal persona = mundo.buscarPersona(Integer
+							.parseInt(String.valueOf(ventanaLista.getPanelLista().getSeleccion().getText().trim())));
+
+					int i = JOptionPane.showConfirmDialog(null,
+							"¿Desea eliminar al empleado? \nDatos\nNombre: " + persona.getNombre() + "\nApellido: "
+									+ persona.getApellido() + "\nGenero: " + persona.getGenero() + "\nTelefono: "
+									+ persona.getTelefono() + "\nCorreo: " + persona.getCorreo() + "\nDireccion: "
+									+ persona.getDireccion() + "\nAño de ingreso: " + persona.getAnoIngreso()
+									+ "\nCedula: " + persona.getCedula(),
+							"Verificacion", JOptionPane.YES_NO_OPTION);
+
+					if (i == 0) {
+
+						String eliminar = mundo.borrarPersona(Integer.parseInt(
+								String.valueOf(ventanaLista.getPanelLista().getSeleccion().getText().trim())));
+
+						if (eliminar.equalsIgnoreCase("Se eliminó a la persona correctamente")) {
+
+							JOptionPane.showMessageDialog(null, eliminar);
+							ventanaLista.getPanelLista().getDtm().setRowCount(0);
+							actutabla(ventanaLista.getPanelLista().getDtm(),
+									ventanaLista.getPanelLista().getListaEmpleados(), mundo.getEmpleados());
+							persistencia.guardarArchivo(mundo.getEmpleados());
+						}
+
+					} else {
+
+						JOptionPane.showMessageDialog(null, "Se cancelo la eliminacion del empleado");
+					}
+
+				} else {
+
+					JOptionPane.showMessageDialog(null, "No existe el empleado a eliminar");
+
+				}
+			} else {
+
+				JOptionPane.showMessageDialog(null, "Debe selecionar una cedula");
+			}
+
+			ventanaLista.setVisible(true);
+
+		}
+
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaLista.getPanelLista().BUSCAR_PRIN)) {
+
+			if (!ventanaLista.getPanelLista().getSeleccion().getText().trim().isEmpty()) {
+
+				Personal persona = mundo
+						.buscarPersona(Long.parseLong(ventanaLista.getPanelLista().getSeleccion().getText().trim()));
+
+				if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Comision")) {
+
+					PersonalComision personal = (PersonalComision) persona;
+
+					ventanaBuscar.getPanelBuscar().getNombreBuscar().setText(String.valueOf(personal.getNombre()));
+					ventanaBuscar.getPanelBuscar().getCedulaBuscar().setText(String.valueOf(personal.getCedula()));
+					ventanaBuscar.getPanelBuscar().getApellidoBuscar().setText(personal.getApellido());
+					ventanaBuscar.getPanelBuscar().getTelefonoBuscar().setText(String.valueOf(personal.getTelefono()));
+					ventanaBuscar.getPanelBuscar().getCorreoBuscar().setText(personal.getCorreo());
+					ventanaBuscar.getPanelBuscar().getDireccionBuscar().setText(personal.getDireccion());
+					ventanaBuscar.getPanelBuscar().getVariable().setText(String.valueOf(personal.getClientes()));
+					ventanaBuscar.getPanelBuscar().getGenero().setText(personal.getGenero());
+					ventanaBuscar.getPanelBuscar().getFechaingreso().setText(personal.getAnoIngreso());
+					ventanaBuscar.getPanelBuscar().getSalarioBuscar().setText(String.valueOf(personal.getSalario()));
+					ventanaBuscar.getPanelBuscar().getLblVariable().setText("Clientes:");
+					ventanaBuscar.getPanelBuscar().getBotonIncrementar().setText("Añadir cliente");
+
+				} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Junior")) {
+
+					IngenieroJunior personal = (IngenieroJunior) persona;
+
+					ventanaBuscar.getPanelBuscar().getNombreBuscar().setText(String.valueOf(personal.getNombre()));
+					ventanaBuscar.getPanelBuscar().getCedulaBuscar().setText(String.valueOf(personal.getCedula()));
+					ventanaBuscar.getPanelBuscar().getApellidoBuscar().setText(personal.getApellido());
+					ventanaBuscar.getPanelBuscar().getTelefonoBuscar().setText(String.valueOf(personal.getTelefono()));
+					ventanaBuscar.getPanelBuscar().getCorreoBuscar().setText(personal.getCorreo());
+					ventanaBuscar.getPanelBuscar().getDireccionBuscar().setText(personal.getDireccion());
+					ventanaBuscar.getPanelBuscar().getVariable().setText(String.valueOf(personal.getNivel()));
+					ventanaBuscar.getPanelBuscar().getGenero().setText(personal.getGenero());
+					ventanaBuscar.getPanelBuscar().getFechaingreso().setText(personal.getAnoIngreso());
+					ventanaBuscar.getPanelBuscar().getSalarioBuscar().setText(String.valueOf(personal.getSalario()));
+					ventanaBuscar.getPanelBuscar().getLblVariable().setText("Nivel:");
+					ventanaBuscar.getPanelBuscar().getBotonIncrementar().setText("Subir nivel");
+				} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Senior")) {
+
+					IngenieroSenior personal = (IngenieroSenior) persona;
+
+					ventanaBuscar.getPanelBuscar().getNombreBuscar().setText(String.valueOf(personal.getNombre()));
+					ventanaBuscar.getPanelBuscar().getCedulaBuscar().setText(String.valueOf(personal.getCedula()));
+					ventanaBuscar.getPanelBuscar().getApellidoBuscar().setText(personal.getApellido());
+					ventanaBuscar.getPanelBuscar().getTelefonoBuscar().setText(String.valueOf(personal.getTelefono()));
+					ventanaBuscar.getPanelBuscar().getCorreoBuscar().setText(personal.getCorreo());
+					ventanaBuscar.getPanelBuscar().getDireccionBuscar().setText(personal.getDireccion());
+					ventanaBuscar.getPanelBuscar().getVariable().setText(String.valueOf(personal.getVentas()));
+					ventanaBuscar.getPanelBuscar().getGenero().setText(personal.getGenero());
+					ventanaBuscar.getPanelBuscar().getFechaingreso().setText(personal.getAnoIngreso());
+					ventanaBuscar.getPanelBuscar().getSalarioBuscar().setText(String.valueOf(personal.getSalario()));
+					ventanaBuscar.getPanelBuscar().getLblVariable().setText("Ventas:");
+					ventanaBuscar.getPanelBuscar().getBotonIncrementar().setText("Añadir venta");
+				}
+
+				ventanaLista.setVisible(false);
+				ventanaLista.dispose();
+				ventanaBuscar.setVisible(true);
+
+			} else {
+
+				JOptionPane.showMessageDialog(null, "Debe selecionar una cedula");
+			}
+		}
+
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaBuscar.getPanelBuscar().INCREMENTAR)) {
+
+			String respuesta = mundo.incrementarDatosVarios(
+					Long.parseLong(String.valueOf(ventanaBuscar.getPanelBuscar().getCedulaBuscar().getText().trim())));
+			persistencia.guardarArchivo(mundo.getEmpleados());
+			ventanaBuscar.setVisible(false);
+			Personal persona = mundo.buscarPersona(
+					Long.parseLong(String.valueOf(ventanaBuscar.getPanelBuscar().getCedulaBuscar().getText().trim())));
+
+			if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Comision")) {
+
+				PersonalComision personal = (PersonalComision) persona;
+
+				ventanaBuscar.getPanelBuscar().getNombreBuscar().setText(String.valueOf(personal.getNombre()));
+				ventanaBuscar.getPanelBuscar().getCedulaBuscar().setText(String.valueOf(personal.getCedula()));
+				ventanaBuscar.getPanelBuscar().getApellidoBuscar().setText(personal.getApellido());
+				ventanaBuscar.getPanelBuscar().getTelefonoBuscar().setText(String.valueOf(personal.getTelefono()));
+				ventanaBuscar.getPanelBuscar().getCorreoBuscar().setText(personal.getCorreo());
+				ventanaBuscar.getPanelBuscar().getDireccionBuscar().setText(personal.getDireccion());
+				ventanaBuscar.getPanelBuscar().getVariable().setText(String.valueOf(personal.getClientes()));
+				ventanaBuscar.getPanelBuscar().getGenero().setText(personal.getGenero());
+				ventanaBuscar.getPanelBuscar().getFechaingreso().setText(personal.getAnoIngreso());
+				ventanaBuscar.getPanelBuscar().getSalarioBuscar().setText(String.valueOf(personal.getSalario()));
+				ventanaBuscar.getPanelBuscar().getLblVariable().setText("Clientes:");
+				ventanaBuscar.getPanelBuscar().getBotonIncrementar().setText("Añadir cliente");
+
+			} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Junior")) {
+
+				IngenieroJunior personal = (IngenieroJunior) persona;
+
+				ventanaBuscar.getPanelBuscar().getNombreBuscar().setText(String.valueOf(personal.getNombre()));
+				ventanaBuscar.getPanelBuscar().getCedulaBuscar().setText(String.valueOf(personal.getCedula()));
+				ventanaBuscar.getPanelBuscar().getApellidoBuscar().setText(personal.getApellido());
+				ventanaBuscar.getPanelBuscar().getTelefonoBuscar().setText(String.valueOf(personal.getTelefono()));
+				ventanaBuscar.getPanelBuscar().getCorreoBuscar().setText(personal.getCorreo());
+				ventanaBuscar.getPanelBuscar().getDireccionBuscar().setText(personal.getDireccion());
+				ventanaBuscar.getPanelBuscar().getVariable().setText(String.valueOf(personal.getNivel()));
+				ventanaBuscar.getPanelBuscar().getGenero().setText(personal.getGenero());
+				ventanaBuscar.getPanelBuscar().getFechaingreso().setText(personal.getAnoIngreso());
+				ventanaBuscar.getPanelBuscar().getSalarioBuscar().setText(String.valueOf(personal.getSalario()));
+				ventanaBuscar.getPanelBuscar().getLblVariable().setText("Nivel:");
+				ventanaBuscar.getPanelBuscar().getBotonIncrementar().setText("Subir nivel");
+			} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Senior")) {
+
+				IngenieroSenior personal = (IngenieroSenior) persona;
+
+				ventanaBuscar.getPanelBuscar().getNombreBuscar().setText(String.valueOf(personal.getNombre()));
+				ventanaBuscar.getPanelBuscar().getCedulaBuscar().setText(String.valueOf(personal.getCedula()));
+				ventanaBuscar.getPanelBuscar().getApellidoBuscar().setText(personal.getApellido());
+				ventanaBuscar.getPanelBuscar().getTelefonoBuscar().setText(String.valueOf(personal.getTelefono()));
+				ventanaBuscar.getPanelBuscar().getCorreoBuscar().setText(personal.getCorreo());
+				ventanaBuscar.getPanelBuscar().getDireccionBuscar().setText(personal.getDireccion());
+				ventanaBuscar.getPanelBuscar().getVariable().setText(String.valueOf(personal.getVentas()));
+				ventanaBuscar.getPanelBuscar().getGenero().setText(personal.getGenero());
+				ventanaBuscar.getPanelBuscar().getFechaingreso().setText(personal.getAnoIngreso());
+				ventanaBuscar.getPanelBuscar().getSalarioBuscar().setText(String.valueOf(personal.getSalario()));
+				ventanaBuscar.getPanelBuscar().getLblVariable().setText("Ventas:");
+				ventanaBuscar.getPanelBuscar().getBotonIncrementar().setText("Añadir venta");
+			}
+
+			JOptionPane.showMessageDialog(null, respuesta);
+			ventanaBuscar.setVisible(true);
+		}
+
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaBuscar.getPanelBuscar().VOLVER_BUSCAR)) {
+			ventanaLista.getPanelLista().getSeleccion().setText("");
+			ventanaLista.getPanelLista().getDtm().setRowCount(0);
+			actutabla(ventanaLista.getPanelLista().getDtm(), ventanaLista.getPanelLista().getListaEmpleados(),
+					mundo.getEmpleados());
+
+			ventanaBuscar.setVisible(false);
+			ventanaBuscar.dispose();
+			ventanaLista.setVisible(true);
+
+		}
+
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaLista.getPanelLista().ACTUALIZAR)) {
+			if (!ventanaLista.getPanelLista().getSeleccion().getText().trim().isEmpty()) {
+				ventanaLista.setVisible(false);
+
+				ventanaActualizarCheck.setVisible(true);
+
+			} else {
+
+				JOptionPane.showMessageDialog(null, "Debe selecionar una cedula");
+			}
+		}
+
+		if (Command.getActionCommand()
+				.equalsIgnoreCase(ventanaActualizarCheck.getPanelActualizarCheck().VOLVER_CHECK)) {
+
+			ventanaLista.setVisible(true);
+			ventanaActualizarCheck.setVisible(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().setSelected(false);
+			
+		}
+		
+		if(Command.getActionCommand().equalsIgnoreCase(ventanaActualizarCheck.getPanelActualizarCheck().CONTINUAR_CHECK)) {
+			
+			ventanaActualizarCheck.setVisible(false);
+		String cedula = ventanaLista.getPanelLista().getSeleccion().getText().trim();
+				
+		Personal persona = mundo.buscarPersona(Long.parseLong(cedula));
+
+		if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Comision")) {
+
+			PersonalComision personal = (PersonalComision) persona;
+
+			ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCedulaTxt().setText(cedula);
+			if(ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().isSelected()) {
+				
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setText("");
+				
+			}else {
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setText(personal.getNombre());
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(false);
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setForeground(Color.BLACK);				
+				
+			}
+			
+			
+		} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Junior")) {
+
+			IngenieroJunior personal = (IngenieroJunior) persona;
+
+		} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Senior")) {
+
+			IngenieroSenior personal = (IngenieroSenior) persona;
+
+		}
+
+			
+			ventanaActualizarPrincipal.setVisible(true);
+			
+		}
+
 	}
 
 	@Override
@@ -927,6 +1187,10 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		int selecion = ventanaLista.getPanelLista().getListaEmpleados().rowAtPoint(e.getPoint());
+
+		ventanaLista.getPanelLista().getSeleccion()
+				.setText(String.valueOf(ventanaLista.getPanelLista().getListaEmpleados().getValueAt(selecion, 0)));
 
 	}
 
@@ -1117,7 +1381,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[4] = String.valueOf(personaC.getTelefono());
 					filas[5] = personaC.getCorreo();
 					filas[6] = personaC.getDireccion();
-					filas[7] = personaC.getTipoIngeniero();
+					filas[7] = "Comision";
 					filas[8] = personaC.getAnoIngreso();
 					filas[9] = String.valueOf(personaC.getSalario());
 					filas[10] = String.valueOf(personaC.getClientes());
@@ -1125,8 +1389,8 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[12] = "No aplica";
 
 					dtm.addRow(filas);
-				} 
-				
+				}
+
 				if (tipoInge.equalsIgnoreCase("Ingeniero Junior")) {
 
 					IngenieroJunior personaJ = (IngenieroJunior) personas.get(j);
@@ -1137,7 +1401,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[4] = String.valueOf(personaJ.getTelefono());
 					filas[5] = personaJ.getCorreo();
 					filas[6] = personaJ.getDireccion();
-					filas[7] = personaJ.getTipoIngeniero();
+					filas[7] = "Junior";
 					filas[8] = personaJ.getAnoIngreso();
 					filas[9] = String.valueOf(personaJ.getSalario());
 					filas[10] = "No aplica";
@@ -1145,7 +1409,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[12] = String.valueOf(personaJ.getNivel());
 
 					dtm.addRow(filas);
-				} 
+				}
 				if (tipoInge.equalsIgnoreCase("Ingeniero Senior")) {
 
 					IngenieroSenior personaS = (IngenieroSenior) personas.get(j);
@@ -1156,7 +1420,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[4] = String.valueOf(personaS.getTelefono());
 					filas[5] = personaS.getCorreo();
 					filas[6] = personaS.getDireccion();
-					filas[7] = personaS.getTipoIngeniero();
+					filas[7] = "Senior";
 					filas[8] = personaS.getAnoIngreso();
 					filas[9] = String.valueOf(personaS.getSalario());
 					filas[10] = "No aplica";
