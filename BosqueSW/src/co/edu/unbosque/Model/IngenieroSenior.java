@@ -7,7 +7,23 @@ import java.time.format.DateTimeFormatter;
 public class IngenieroSenior extends PersonalFijo {
 
 	private int ventas;
-
+/**
+ * Este es el constructor del Ingeniero Senior
+ * <b> pre</b> Los atributos ya han sido creados. <br>
+ * <b> post </b> Se inicializaron los parametros. <br>
+ *   
+ * @param nombre			Es el nombre del Personal
+ * @param apellido			Es el apellido del Personal
+ * @param genero			Es el genero del Personal
+ * @param telefono			Es el telefono del Personal
+ * @param correo			Es el correo del Personal
+ * @param direccion			Es el direccion del Personal
+ * @param tipoIngeniero		Es el tipo de ingeniero del Personal
+ * @param anoIngreso		Es el año de ingreso del Personal
+ * @param cedula			Es el cedula del Personal
+ * @param salario			Es el salario del Personal
+ * @param ventas			Es el ventas del Personal
+ */
 	public IngenieroSenior(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, int ventas) {
 		super(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario);
@@ -15,20 +31,44 @@ public class IngenieroSenior extends PersonalFijo {
 		this.ventas = ventas;
 
 	}
-
+	/**
+ 	 * Este metodo devuelve el valor ventas del Personal
+	 * <b> pre </b> El atributo ya ha sido creado. <br>
+	 * <b> post </b> Se obtiene el valor ventas del Personal. <br>
+	 *  
+	 * @return int con las ventas del Personal
+ */
 	public int getVentas() {
 		return ventas;
 	}
-
+	/**
+  	 * Este metodo edita las ventas del Personal
+	 * <b> pre </b> El atributo ya ha sido creado. <br>
+	 * <b> post </b> Se edita las ventas del Personal. <br>
+	 *  
+	 * @param ventas 	Son las ventas del Personal
+ */
 	public void setVentas(int ventas) {
 		this.ventas = ventas;
 	}
-
+	/**
+	 * Este metodo pasa la informacion del toString de personal y sus ventas.
+	 * <b> pre </b> Los atributos ya han sido creados. <br>
+	 * <b> post </b> Se obtiene el String con toda la informacion mas las ventas. <br>
+	 * 
+	 *  @return String con toda la info del toString de Personal mas las ventas del Personal.
+	 */
 	@Override
 	public String toString() {
 		return "Ventas: " + ventas;
 	}
-
+	/**
+	 /**
+	 	 * Este metodo calcula el salario con sus respectivos incrementos
+		 * <b> pre </b> El atributo salario ya ha sido creado. <br>
+		 * <b> post </b> Se obtiene el salario completo del Personal. <br>
+		 *  
+	 */ 
 	@Override
 	public void calcularSalario() {
 		// TODO Auto-generated method stub
