@@ -31,7 +31,8 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 	public Controlador() {
 		
 		// TODO Auto-generated constructor stub
-		
+		ventanaEmpleados = new VentanaEmpleados(this);
+		ventanaEmpleados.setVisible(true);
 		ventanaActualizarPrincipal = new VentanaActualizarPrincipal(this);
 		ventanaActualizarPrincipal.setVisible(true);
 		ventanaLista = new VentanaLista(this);
