@@ -201,20 +201,21 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 
 					if (!telefono.isEmpty()) {
 
-						if (telefono.length() != 7) {
+						if (telefono.length() == 7) {
 
 							if (!correo.isEmpty()) {
 
 								if (!año_ingreso.isEmpty()) {
 									double[] salarios = new double[clientes];
+									
 									try {
 										String registro = mundo.registrarPersonal(nombre, apellido, genero,
-												Long.parseLong(String.valueOf(telefono)), correo, direccion,
+												Long.parseLong(String.valueOf(prefijoTel + telefono)), correo, direccion,
 												"Ingeniero Comision", año_ingreso, cedula,
 												Double.parseDouble(String.valueOf(1100000)), clientes, salarios);
-										
+												System.out.println(mundo.buscarPersona(cedula).toString());
 										if (registro.equalsIgnoreCase("Registrado, bienvenido a bosqueSW")) {
-
+											ventanaComision.setVisible(false);
 											JOptionPane.showMessageDialog(null, registro);
 											ventanaComision.getPanelregistrarComision().getNombreComision().setText("");
 											ventanaComision.getPanelregistrarComision().getApellidoComision()
@@ -231,12 +232,12 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 													.setSelected(true);
 											ventanaComision.getPanelregistrarComision().getClientesComision()
 													.setValue(1);
-
+											ventanaComision.setVisible(true);
 										} else {
-
+											ventanaComision.setVisible(false);
 											JOptionPane.showMessageDialog(null, registro);
 											ventanaComision.getPanelregistrarComision().getCedulaComision().setText("");
-
+											ventanaComision.setVisible(true);
 										}
 									} catch (Exception e) {
 										// TODO Auto-generated catch block
