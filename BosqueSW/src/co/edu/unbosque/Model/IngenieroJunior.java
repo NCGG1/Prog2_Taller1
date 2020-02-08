@@ -5,7 +5,23 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class IngenieroJunior extends PersonalFijo {
-
+/**
+ * Este es el constructor del Ingeniero Junior
+ * <b> pre</b> Los atributos ya han sido creados. <br>
+ * <b> post </b> Se inicializaron los parametros. <br>
+ *  
+ * @param nombre			Es el nombre del Personal
+ * @param apellido			Es el apellido del Personal
+ * @param genero			Es el genero del Personal
+ * @param telefono			Es el telefono del Personal
+ * @param correo			Es el correo del Personal
+ * @param direccion			Es el direccion del Personal
+ * @param tipoIngeniero		Es el tipo de Ingeniero del Personal
+ * @param anoIngreso		Es el año de Ingreso del Personal
+ * @param cedula			Es el cedula del Personal
+ * @param salario			Es el salario del Personal
+ * @param nivel				Es el nivel del Personal
+ */
 	public IngenieroJunior(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, short nivel) {
 		super(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario);
