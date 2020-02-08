@@ -6,7 +6,7 @@ import co.edu.unbosque.Controller.Controlador;
 
 public class VentanaBuscar extends JFrame {
 	
-	private PanelComision panelBuscar;
+	private PanelBuscar panelBuscar;
 
 	public VentanaBuscar(Controlador control) {
 		
@@ -17,14 +17,14 @@ public class VentanaBuscar extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		panelBuscar = new PanelComision();
+		panelBuscar = new PanelBuscar();
 		//Agrega el panel al frame
 		getContentPane().add(panelBuscar);
 		iniciarComponentes(control);
 	}
 
 	public void iniciarComponentes(Controlador control) {
-		
+		/*
 		//Boton
 		panelBuscar.getVolverFlecha().addActionListener(control);
 		panelBuscar.getBotonRegistrar().addActionListener(control);
@@ -37,6 +37,6 @@ public class VentanaBuscar extends JFrame {
 		panelBuscar.getCedulaComision().addKeyListener(control);
 		panelBuscar.getNumeroVentas().addKeyListener(control);
 		
-		
+		*/
 	}
 }
