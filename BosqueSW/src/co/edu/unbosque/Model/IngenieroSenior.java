@@ -40,7 +40,7 @@ public class IngenieroSenior extends PersonalFijo {
 		double porcentajeVentas = 0;
 
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate fechaNac = LocalDate.parse("0" + año_ingreso[0] + "/0" + año_ingreso[1] + "/" + año_ingreso[2], fmt);
+		LocalDate fechaNac = LocalDate.parse(año_ingreso[0] + "/" + año_ingreso[1] + "/" + año_ingreso[2], fmt);
 		LocalDate ahora = LocalDate.now();
 
 		Period periodo = Period.between(fechaNac, ahora);

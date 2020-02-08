@@ -38,7 +38,7 @@ public class PanelEmpleados extends JPanel {
 		// BOTON CON EL ICON
 
 		comisionE = new JButton(comisionIcon);
-		comisionE.setActionCommand(FIJO);
+		comisionE.setActionCommand(COMISION);
 		comisionE.setOpaque(false);
 		comisionE.setContentAreaFilled(false);
 		comisionE.setBorderPainted(false);
@@ -77,6 +77,8 @@ public class PanelEmpleados extends JPanel {
 		volverEmpleados.setOpaque(false);
 		volverEmpleados.setContentAreaFilled(false);
 		volverEmpleados.setBorderPainted(false);
+		volverEmpleados.setCursor(cursor);
+		volverEmpleados.setToolTipText("Volver principal");
 
 		// x,y, lados,alto
 		volverEmpleados.setBounds(5, 10, 47, 40);
@@ -117,4 +119,18 @@ public class PanelEmpleados extends JPanel {
 		this.fondo = new ImageIcon(imagePath).getImage();
 		repaint();
 	}
+
+	public JButton getFijoE() {
+		return fijoE;
+	}
+
+	public JButton getComisionE() {
+		return comisionE;
+	}
+
+	public JButton getVolverEmpleados() {
+		return volverEmpleados;
+	}
+	
+	
 }

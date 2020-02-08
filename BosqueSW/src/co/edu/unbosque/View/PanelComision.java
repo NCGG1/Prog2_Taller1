@@ -35,7 +35,7 @@ public class PanelComision extends JPanel {
 
 	public static final String REGISTRARCOMISION = "REGISTRAR COMISION";
 
-	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
+	public static final String VOLVER_COMISION = "VOLVER COMISION";
 
 	private Icon iconVolver;
 	
@@ -63,7 +63,7 @@ public class PanelComision extends JPanel {
 			new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		//BOTON CON EL ICON
 		volverFlecha = new JButton(iconVolver);
-		volverFlecha.setActionCommand(VOLVER_PRINCIPAL);
+		volverFlecha.setActionCommand(VOLVER_COMISION);
 		volverFlecha.setOpaque(false);
 		volverFlecha.setContentAreaFilled(false);
 		volverFlecha.setBorderPainted(false);
@@ -105,7 +105,7 @@ public class PanelComision extends JPanel {
 		correoComision = new JTextField();
 		direccionComision = new JTextField();
 		cedulaComision = new JTextField();
-		clientesComision = new JSpinner(new SpinnerNumberModel(1, 1, 5, 1));
+		clientesComision = new JSpinner(new SpinnerNumberModel(1, 1, 1000, 1));
 		prefijoTelefonoComision = new JComboBox();
 		
 		prefijoTelefonoComision.addItem("300");
@@ -218,8 +218,9 @@ public class PanelComision extends JPanel {
 		g2.drawString("Direccion:", 20, 190);
 		g2.drawString("Cedula:", 20, 225);
 		g2.drawString("Genero:", 20, 260);
-		g2.drawString("Numero de Clientes", 20, 295);
-		g2.drawString("Nivel de Jerarquia:", 20, 330);
+		
+		g2.drawString("Año de ingreso:", 20, 295);		
+		g2.drawString("Numero de Clientes", 20, 330);
 
 
 		super.paintComponent(g);
@@ -316,6 +317,23 @@ public class PanelComision extends JPanel {
 		this.prefijoTelefonoComision = prefijoTelefonoComision;
 	}
 
+	public JRadioButton getRbtnHombre() {
+		return rbtnHombre;
+	}
 
+	public JRadioButton getRbtnMujer() {
+		return rbtnMujer;
+	}
+
+	public JDateChooser getChoser() {
+		return choser;
+	}
+
+	public JSpinner getClientesComision() {
+		return clientesComision;
+	}
+
+	
+	
 
 }

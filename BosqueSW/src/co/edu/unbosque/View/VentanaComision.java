@@ -39,4 +39,9 @@ public class VentanaComision extends JFrame {
 		
 		
 	}
+
+	public PanelComision getPanelregistrarComision() {
+		return panelregistrarComision;
+	}
+	
 }

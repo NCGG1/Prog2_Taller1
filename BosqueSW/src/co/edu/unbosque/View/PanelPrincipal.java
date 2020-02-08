@@ -102,4 +102,13 @@ public class PanelPrincipal extends JPanel {
 		repaint();
 	}
 
+	public JButton getRegister() {
+		return register;
+	}
+
+	public JButton getLista() {
+		return lista;
+	}
+
+	
 }
