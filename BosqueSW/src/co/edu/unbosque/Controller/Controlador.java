@@ -249,7 +249,6 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 														Double.parseDouble(String.valueOf(1100000)), clientes,
 														salarios);
 												persistencia.guardarArchivo(mundo.getEmpleados());
-												System.out.println(mundo.getEmpleados().size());
 
 												if (registro.equalsIgnoreCase("Registrado, bienvenido a bosqueSW")) {
 													ventanaComision.setVisible(false);
@@ -520,7 +519,6 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 															Long.parseLong(String.valueOf(cedula)), 3500000, ventas,
 															null);
 													persistencia.guardarArchivo(mundo.getEmpleados());
-													System.out.println(mundo.getEmpleados().size());
 
 													if (registro
 															.equalsIgnoreCase("Registrado, bienvenido a bosqueSW")) {
@@ -794,11 +792,6 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 															Long.parseLong(cedula), 3500000, nivel, null);
 
 													persistencia.guardarArchivo(mundo.getEmpleados());
-													System.out.println(mundo.getEmpleados().size());
-
-													persistencia.guardarArchivo(mundo.getEmpleados());
-													System.out.println(mundo.getEmpleados().size());
-
 													if (registro
 															.equalsIgnoreCase("Registrado, bienvenido a bosqueSW")) {
 
@@ -933,12 +926,12 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 									+ persona.getDireccion() + "\nAño de ingreso: " + persona.getAnoIngreso()
 									+ "\nCedula: " + persona.getCedula(),
 							"Verificacion", JOptionPane.YES_NO_OPTION);
-
+					
 					if (i == 0) {
 
 						String eliminar = mundo.borrarPersona(Integer.parseInt(
 								String.valueOf(ventanaLista.getPanelLista().getSeleccion().getText().trim())));
-
+							
 						if (eliminar.equalsIgnoreCase("Se eliminó a la persona correctamente")) {
 
 							JOptionPane.showMessageDialog(null, eliminar);
@@ -946,6 +939,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 							actutabla(ventanaLista.getPanelLista().getDtm(),
 									ventanaLista.getPanelLista().getListaEmpleados(), mundo.getEmpleados());
 							persistencia.guardarArchivo(mundo.getEmpleados());
+							ventanaLista.getPanelLista().getSeleccion().setText("");
 						}
 
 					} else {
@@ -1451,7 +1445,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setSelected(true);
 					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(true);
 					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(true);
-			
+
 				} else {
 
 					if (persona.getGenero().equalsIgnoreCase("Mujer")) {
@@ -1471,7 +1465,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 				if (ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().isSelected()) {
 
 					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setEnabled(true);
-					
+
 				} else {
 
 					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setDate(new Date());
@@ -1651,17 +1645,25 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 												ventanaActualizarPrincipal.setVisible(false);
 
 												ventanaActualizarPrincipal.setVisible(false);
-												ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().setSelected(false);
-												ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().setSelected(false);
-												ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().setSelected(false);
-												ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck().setSelected(false);
-												ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().setSelected(false);
-												ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().setSelected(false);
-												ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck()
+														.setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck()
+														.setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck()
+														.setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck()
+														.setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck()
+														.setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck()
+														.setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck()
+														.setSelected(false);
 
 												ventanaLista.getPanelLista().getSeleccion().setText("");
 												ventanaLista.getPanelLista().getDtm().setRowCount(0);
-												actutabla(ventanaLista.getPanelLista().getDtm(), ventanaLista.getPanelLista().getListaEmpleados(),
+												actutabla(ventanaLista.getPanelLista().getDtm(),
+														ventanaLista.getPanelLista().getListaEmpleados(),
 														mundo.getEmpleados());
 												ventanaActualizarPrincipal.dispose();
 
@@ -1731,10 +1733,11 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			ventanaLista.setVisible(true);
 
 		}
-		
-		if(Command.getActionCommand().equalsIgnoreCase(ventanaLista.getPanelLista().VOLVER_LISTA)) {
-			
+
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaLista.getPanelLista().VOLVER_LISTA)) {
+
 			ventanaLista.setVisible(false);
+			ventanaLista.getPanelLista().getSeleccion().setText("");
 			ventanaLista.dispose();
 			ventanaPrincipal.setVisible(true);
 		}
@@ -1905,7 +1908,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			}
 
 		}
-		
+
 		if (e.getSource() == ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()) {
 
 			if (letra != '0' && letra != '1' && letra != '2' && letra != '3' && letra != '4' && letra != '5'
@@ -1916,7 +1919,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			}
 
 		}
-		
+
 		if (e.getSource() == ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt()) {
 
 			if (letra == '0' || letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5'
@@ -1926,7 +1929,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 
 			}
 		}
-		
+
 		if (e.getSource() == ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()) {
 
 			if (letra == '0' || letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5'
