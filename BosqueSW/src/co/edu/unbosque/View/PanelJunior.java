@@ -33,9 +33,9 @@ public class PanelJunior extends JPanel {
 	private ButtonGroup generos;
 	private JDateChooser choser;
 
-	public static final String REGISTRARSENIOR = "REGISTRAR JUNIOR";
+	public static final String REGISTRARJUNIOR = "REGISTRAR JUNIOR";
 
-	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
+	public static final String VOLVER_JUNIOR = "VOLVER JUNIOR";
 
 	private Icon iconVolver;
 	
@@ -53,7 +53,7 @@ public class PanelJunior extends JPanel {
 		
 		//BOTON CON TEXTO
 		botonRegistrar = new JButton("Registrar");
-		botonRegistrar.setActionCommand(REGISTRARSENIOR);
+		botonRegistrar.setActionCommand(REGISTRARJUNIOR);
 		botonRegistrar.setOpaque(false);
 		botonRegistrar.setContentAreaFilled(false);
 		botonRegistrar.setBorderPainted(false);
@@ -63,7 +63,7 @@ public class PanelJunior extends JPanel {
 			new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		//BOTON CON EL ICON
 		volverFlecha = new JButton(iconVolver);
-		volverFlecha.setActionCommand(VOLVER_PRINCIPAL);
+		volverFlecha.setActionCommand(VOLVER_JUNIOR);
 		volverFlecha.setOpaque(false);
 		volverFlecha.setContentAreaFilled(false);
 		volverFlecha.setBorderPainted(false);
@@ -300,20 +300,28 @@ public class PanelJunior extends JPanel {
 		this.cedulaJunior = cedulaJunior;
 	}
 
-	public JSpinner getnivelJunior() {
-		return nivelJunior;
-	}
-
-	public void setnivelJunior(JSpinner nivelJunior) {
-		this.nivelJunior = nivelJunior;
-	}
-
 	public JComboBox getPrefijoTelefonoJunior() {
 		return prefijoTelefonoJunior;
 	}
 
 	public void setPrefijoTelefonoJunior(JComboBox prefijoTelefonoJunior) {
 		this.prefijoTelefonoJunior = prefijoTelefonoJunior;
+	}
+
+	public JSpinner getNivelJunior() {
+		return nivelJunior;
+	}
+
+	public JRadioButton getRbtnHombre() {
+		return rbtnHombre;
+	}
+
+	public JRadioButton getRbtnMujer() {
+		return rbtnMujer;
+	}
+
+	public JDateChooser getChoser() {
+		return choser;
 	}
 
 

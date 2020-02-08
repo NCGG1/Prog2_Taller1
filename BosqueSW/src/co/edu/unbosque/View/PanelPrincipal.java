@@ -43,7 +43,7 @@ public class PanelPrincipal extends JPanel {
 		register.setBorderPainted(false);
 
 			//x,y, lados,alto
-		register.setBounds(20, 90, 100, 40);
+		register.setBounds(50, 90, 40, 40);
 		add(register);
 		
 		ListaIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/lista.png").getImage()

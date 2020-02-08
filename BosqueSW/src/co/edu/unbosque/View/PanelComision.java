@@ -301,13 +301,6 @@ public class PanelComision extends JPanel {
 		this.cedulaComision = cedulaComision;
 	}
 
-	public JSpinner getNumeroVentas() {
-		return clientesComision;
-	}
-
-	public void setNumeroVentas(JSpinner numeroVentas) {
-		this.clientesComision = numeroVentas;
-	}
 
 	public JComboBox getPrefijoTelefonoComision() {
 		return prefijoTelefonoComision;

@@ -1,6 +1,8 @@
 package co.edu.unbosque.Model;
 
-public abstract class Personal {
+import java.io.Serializable;
+
+public abstract class Personal implements Serializable{
 
 	private String nombre;
 	private String apellido;

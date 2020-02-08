@@ -35,8 +35,14 @@ public class VentanaJunior extends JFrame {
 		panelregistrarJunior.getCorreoJunior().addKeyListener(control);
 		panelregistrarJunior.getDireccionJunior().addKeyListener(control);
 		panelregistrarJunior.getCedulaJunior().addKeyListener(control);
-		panelregistrarJunior.getnivelJunior().addKeyListener(control);
+		panelregistrarJunior.getNivelJunior().addKeyListener(control);
 		
 		
 	}
+
+	public PanelJunior getPanelregistrarJunior() {
+		return panelregistrarJunior;
+	}
+	
+	
 }

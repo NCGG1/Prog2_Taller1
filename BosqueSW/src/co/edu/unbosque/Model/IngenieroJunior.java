@@ -5,7 +5,9 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class IngenieroJunior extends PersonalFijo {
+	
 /**
+ * 
  * Este es el constructor del Ingeniero Junior
  * <b> pre</b> Los atributos ya han sido creados. <br>
  * <b> post </b> Se inicializaron los parametros. <br>
@@ -22,12 +24,14 @@ public class IngenieroJunior extends PersonalFijo {
  * @param salario			Es el salario del Personal
  * @param nivel				Es el nivel del Personal
  */
+	
 	public IngenieroJunior(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String tipoIngeniero, String anoIngreso, long cedula, double salario, short nivel) {
 		super(nombre, apellido, genero, telefono, correo, direccion, tipoIngeniero, anoIngreso, cedula, salario);
 		// TODO Auto-generated constructor stub
 		this.nivel = nivel;
 	}
+
 
 	private short nivel;
 	/**
@@ -80,7 +84,7 @@ public class IngenieroJunior extends PersonalFijo {
 		double porcentajeNivel = 0;
 
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate fechaNac = LocalDate.parse("0" + año_ingreso[0] + "/0" + año_ingreso[1] + "/" + año_ingreso[2], fmt);
+		LocalDate fechaNac = LocalDate.parse( año_ingreso[0] + "/"+ año_ingreso[1] + "/" + año_ingreso[2], fmt);
 		LocalDate ahora = LocalDate.now();
 
 		Period periodo = Period.between(fechaNac, ahora);

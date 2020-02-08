@@ -81,7 +81,7 @@ public class PanelEmpleados extends JPanel {
 		volverEmpleados.setToolTipText("Volver principal");
 
 		// x,y, lados,alto
-		volverEmpleados.setBounds(5, 10, 47, 40);
+		volverEmpleados.setBounds(5, 10, 40, 40);
 		add(volverEmpleados);
 	}
 

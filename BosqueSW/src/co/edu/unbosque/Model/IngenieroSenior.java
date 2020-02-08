@@ -60,7 +60,7 @@ public class IngenieroSenior extends PersonalFijo {
 	 */
 	@Override
 	public String toString() {
-		return "Ventas: " + ventas;
+		return super.toString() + "Ventas: " + ventas;
 	}
 	/**
 	 /**

@@ -18,7 +18,7 @@ public class Persistencia {
 
 	public Persistencia() {
 
-		ruta = new File("src/co.edu.unbosque.Persistence/Apostadores.dat");
+		ruta = new File("src/co/edu/unbosque/Util/Empleados.dat");
 
 	}
 
@@ -65,7 +65,7 @@ public class Persistencia {
 			try {
 				
 			ObjectInputStream leyendoFichero = new ObjectInputStream(new FileInputStream(ruta));
-			empleados = (ArrayList<Personal>)leyendoFichero.readObject();
+			empleados = (ArrayList<Personal>) leyendoFichero.readObject();
 			leyendoFichero.close();
 			}catch (Exception e) {
 				// TODO: handle exception
@@ -74,6 +74,7 @@ public class Persistencia {
 			
 			return empleados;
 		}
+
 
 		
 	

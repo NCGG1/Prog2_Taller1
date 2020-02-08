@@ -35,8 +35,7 @@ public class VentanaComision extends JFrame {
 		panelregistrarComision.getCorreoComision().addKeyListener(control);
 		panelregistrarComision.getDireccionComision().addKeyListener(control);
 		panelregistrarComision.getCedulaComision().addKeyListener(control);
-		panelregistrarComision.getNumeroVentas().addKeyListener(control);
-		
+		panelregistrarComision.getClientesComision().addKeyListener(control);
 		
 	}
 
