@@ -109,7 +109,7 @@ public class IngenieroSenior extends PersonalFijo {
 
 			porcentaje = salario * 0.2;
 
-			setSalario(getSalario() + porcentaje);
+			setSalario(salario + porcentaje);
 
 		}
 
@@ -119,25 +119,25 @@ public class IngenieroSenior extends PersonalFijo {
 
 			porcentajeVentas = salario * 0.1;
 
-			setSalario(getSalario() + porcentajeVentas);
+			setSalario(salario + porcentajeVentas);
 
 		} else if (ventas >= 6 && ventas <= 10) {
 
 			porcentajeVentas = salario * 0.15;
 
-			setSalario(getSalario() + porcentajeVentas);
+			setSalario(salario + porcentajeVentas);
 
 		} else if (ventas >= 11 && ventas <= 20) {
 
 			porcentajeVentas = salario * 0.2;
 
-			setSalario(getSalario() + porcentajeVentas);
+			setSalario(salario + porcentajeVentas);
 
 		} else if (ventas > 20) {
 
 			porcentajeVentas = salario * 0.3;
 
-			setSalario(getSalario() + porcentajeVentas);
+			setSalario(salario + porcentajeVentas);
 
 		}
 

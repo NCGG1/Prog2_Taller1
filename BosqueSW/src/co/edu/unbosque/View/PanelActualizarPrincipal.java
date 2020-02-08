@@ -55,7 +55,7 @@ public class PanelActualizarPrincipal extends JPanel {
 		
 		// BOTON CON EL ICON
 		actualizar = new JButton("Actualizar");
-		actualizar.setActionCommand(VOLVER_ACTU);
+		actualizar.setActionCommand(ACTUALIZAR);
 		actualizar.setOpaque(false);
 		actualizar.setContentAreaFilled(false);
 		actualizar.setBorderPainted(false);

@@ -77,7 +77,7 @@ public class IngenieroJunior extends PersonalFijo {
 	public void calcularSalario() {
 		// TODO Auto-generated method stub
 
-		double salario = getSalario();
+		double salario = 3500000;
 		String año_ingreso[] = getAnoIngreso().split("/");
 		int años = 0;
 		double porcentaje = 0;
@@ -113,7 +113,7 @@ public class IngenieroJunior extends PersonalFijo {
 
 			porcentaje = salario * 0.2;
 
-			setSalario(getSalario() + porcentaje);
+			setSalario(salario + porcentaje);
 
 		}
 		
@@ -123,14 +123,14 @@ public class IngenieroJunior extends PersonalFijo {
 			
 			porcentajeNivel = salario * 0.05;
 			
-			setSalario(getSalario() + porcentajeNivel);
+			setSalario(salario + porcentajeNivel);
 
 			
 		}else if(nivel == 4 || nivel == 5) {
 			
 			porcentajeNivel = salario * 0.08;
 			
-			setSalario(getSalario() + porcentajeNivel);
+			setSalario(salario + porcentajeNivel);
 
 		}
 

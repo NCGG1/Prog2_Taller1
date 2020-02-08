@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -1134,46 +1135,601 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().setSelected(false);
 			ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().setSelected(false);
 			ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().setSelected(false);
-			
+
 		}
-		
-		if(Command.getActionCommand().equalsIgnoreCase(ventanaActualizarCheck.getPanelActualizarCheck().CONTINUAR_CHECK)) {
-			
+
+		if (Command.getActionCommand()
+				.equalsIgnoreCase(ventanaActualizarCheck.getPanelActualizarCheck().CONTINUAR_CHECK)) {
+
 			ventanaActualizarCheck.setVisible(false);
-		String cedula = ventanaLista.getPanelLista().getSeleccion().getText().trim();
-				
-		Personal persona = mundo.buscarPersona(Long.parseLong(cedula));
+			String cedula = ventanaLista.getPanelLista().getSeleccion().getText().trim();
 
-		if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Comision")) {
+			Personal persona = mundo.buscarPersona(Long.parseLong(cedula));
 
-			PersonalComision personal = (PersonalComision) persona;
+			if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Comision")) {
 
-			ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCedulaTxt().setText(cedula);
-			if(ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().isSelected()) {
-				
-				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setText("");
-				
-			}else {
-				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setText(personal.getNombre());
-				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(false);
-				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setForeground(Color.BLACK);				
-				
+				PersonalComision personal = (PersonalComision) persona;
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(true);
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCedulaTxt().setText(cedula);
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setText("");
+
+				} else {
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt()
+							.setText(personal.getNombre());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setForeground(Color.BLACK);
+
+				}
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setEditable(true);
+
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()
+							.setText(personal.getApellido());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()
+							.setForeground(Color.BLACK);
+
+				}
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setSelectedIndex(0);
+					ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setEnabled(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt().setEditable(true);
+
+				} else {
+
+					String telefono = String.valueOf(personal.getTelefono());
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono()
+							.setSelectedItem(telefono.charAt(0) + telefono.charAt(1) + telefono.charAt(2));
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()
+							.setText(String.valueOf(telefono.charAt(3)) + String.valueOf(telefono.charAt(4))
+									+ String.valueOf(telefono.charAt(5)) + telefono.charAt(6) + telefono.charAt(7)
+									+ telefono.charAt(8) + telefono.charAt(9));
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setEnabled(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono()
+							.setForeground(Color.BLACK);
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()
+							.setForeground(Color.BLACK);
+
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck().isSelected()) {
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setEditable(true);
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt()
+							.setText(personal.getCorreo());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setForeground(Color.BLACK);
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setSelected(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(true);
+
+				} else {
+
+					if (persona.getGenero().equalsIgnoreCase("Mujer")) {
+
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setSelected(true);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(false);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(false);
+					} else {
+
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setSelected(true);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(false);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(false);
+					}
+
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setEnabled(true);
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setDate(new Date());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setEnabled(false);
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setText("");
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setEditable(true);
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt()
+							.setText(personal.getDireccion());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt()
+							.setForeground(Color.BLACK);
+
+				}
+
+			} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Junior")) {
+
+				IngenieroJunior personal = (IngenieroJunior) persona;
+
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCedulaTxt().setText(cedula);
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(true);
+
+				} else {
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt()
+							.setText(personal.getNombre());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setForeground(Color.BLACK);
+
+				}
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setEditable(true);
+
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()
+							.setText(personal.getApellido());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()
+							.setForeground(Color.BLACK);
+
+				}
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setSelectedIndex(0);
+					ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setEnabled(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt().setEditable(true);
+
+				} else {
+
+					String telefono = String.valueOf(personal.getTelefono());
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono()
+							.setSelectedItem(telefono.charAt(0) + telefono.charAt(1) + telefono.charAt(2));
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()
+							.setText(String.valueOf(telefono.charAt(3)) + String.valueOf(telefono.charAt(4))
+									+ String.valueOf(telefono.charAt(5)) + telefono.charAt(6) + telefono.charAt(7)
+									+ telefono.charAt(8) + telefono.charAt(9));
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setEnabled(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono()
+							.setForeground(Color.BLACK);
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()
+							.setForeground(Color.BLACK);
+
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck().isSelected()) {
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setEditable(true);
+
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt()
+							.setText(personal.getCorreo());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setForeground(Color.BLACK);
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setSelected(true);
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(true);
+				} else {
+
+					if (persona.getGenero().equalsIgnoreCase("Mujer")) {
+
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setSelected(true);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(false);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(false);
+					} else {
+
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setSelected(true);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(false);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(false);
+					}
+
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().isSelected()) {
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setEnabled(true);
+
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setDate(new Date());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setEnabled(false);
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setEditable(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setText("");
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt()
+							.setText(personal.getDireccion());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt()
+							.setForeground(Color.BLACK);
+
+				}
+
+			} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Senior")) {
+
+				IngenieroSenior personal = (IngenieroSenior) persona;
+
+				ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCedulaTxt().setText(cedula);
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setText("");
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(true);
+
+				} else {
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt()
+							.setText(personal.getNombre());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().setForeground(Color.BLACK);
+
+				}
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setEditable(true);
+
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()
+							.setText(personal.getApellido());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()
+							.setForeground(Color.BLACK);
+
+				}
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setSelectedIndex(0);
+					ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().setText("");
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setEnabled(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt().setEditable(true);
+
+				} else {
+
+					String telefono = String.valueOf(personal.getTelefono());
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono()
+							.setSelectedItem(telefono.charAt(0) + telefono.charAt(1) + telefono.charAt(2));
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()
+							.setText(String.valueOf(telefono.charAt(3)) + String.valueOf(telefono.charAt(4))
+									+ String.valueOf(telefono.charAt(5)) + telefono.charAt(6) + telefono.charAt(7)
+									+ telefono.charAt(8) + telefono.charAt(9));
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().setEnabled(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono()
+							.setForeground(Color.BLACK);
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()
+							.setForeground(Color.BLACK);
+
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck().isSelected()) {
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setText("");
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setEditable(true);
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt()
+							.setText(personal.getCorreo());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().setForeground(Color.BLACK);
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setSelected(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(true);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(true);
+			
+				} else {
+
+					if (persona.getGenero().equalsIgnoreCase("Mujer")) {
+
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setSelected(true);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(false);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(false);
+					} else {
+
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setSelected(true);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().setEnabled(false);
+						ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnMujer().setEnabled(false);
+					}
+
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setEnabled(true);
+					
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setDate(new Date());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().setEnabled(false);
+				}
+
+				if (ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().isSelected()) {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setText("");
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setEditable(true);
+				} else {
+
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt()
+							.setText(personal.getDireccion());
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().setEditable(false);
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt()
+							.setForeground(Color.BLACK);
+
+				}
+
 			}
-			
-			
-		} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Junior")) {
 
-			IngenieroJunior personal = (IngenieroJunior) persona;
-
-		} else if (persona.getTipoIngeniero().equalsIgnoreCase("Ingeniero Senior")) {
-
-			IngenieroSenior personal = (IngenieroSenior) persona;
+			ventanaActualizarPrincipal.setVisible(true);
 
 		}
 
-			
-			ventanaActualizarPrincipal.setVisible(true);
-			
+		if (Command.getActionCommand()
+				.equalsIgnoreCase(ventanaActualizarPrincipal.getPanelActualizarPrincipal().ACTUALIZAR)) {
+
+			String cedula = ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCedulaTxt().getText().trim();
+			String nombre = ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt().getText().trim();
+			String apellido = ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt().getText()
+					.trim();
+			String prefijo = String.valueOf(
+					ventanaActualizarPrincipal.getPanelActualizarPrincipal().getPrefijoTelefono().getSelectedItem());
+			String telefono = ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt().getText()
+					.trim();
+			String correo = ventanaActualizarPrincipal.getPanelActualizarPrincipal().getCorreoTxt().getText().trim();
+			String direccion = ventanaActualizarPrincipal.getPanelActualizarPrincipal().getDireccionTxt().getText()
+					.trim();
+			String genero = "";
+
+			if (ventanaActualizarPrincipal.getPanelActualizarPrincipal().getRbtnHombre().isSelected()) {
+
+				genero = "Hombre";
+			} else {
+				genero = "Mujer";
+			}
+
+			Object date = ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().getDate();
+			String año_ingreso = "";
+			Date actual = new Date();
+			if (date != actual) {
+				if (date != null) {
+
+					String date2 = String.valueOf(
+							ventanaActualizarPrincipal.getPanelActualizarPrincipal().getAñoIngresoTxt().getDate());
+
+					String[] fechas = date2.split("\\s");
+
+					int dia = Integer.parseInt(fechas[2]);
+					int año = Integer.parseInt(fechas[5]);
+					int mes = 0;
+
+					if (fechas[1].equalsIgnoreCase("Jan")) {
+
+						mes = 1;
+
+					} else if (fechas[1].equalsIgnoreCase("Feb")) {
+
+						mes = 2;
+
+					} else if (fechas[1].equalsIgnoreCase("Mar")) {
+
+						mes = 3;
+
+					} else if (fechas[1].equalsIgnoreCase("Apr")) {
+
+						mes = 4;
+
+					} else if (fechas[1].equalsIgnoreCase("May")) {
+
+						mes = 5;
+
+					} else if (fechas[1].equalsIgnoreCase("Jun")) {
+
+						mes = 6;
+
+					} else if (fechas[1].equalsIgnoreCase("Jul")) {
+
+						mes = 7;
+
+					} else if (fechas[1].equalsIgnoreCase("Aug")) {
+
+						mes = 8;
+
+					} else if (fechas[1].equalsIgnoreCase("Sep")) {
+
+						mes = 9;
+
+					} else if (fechas[1].equalsIgnoreCase("Oct")) {
+
+						mes = 10;
+
+					} else if (fechas[1].equalsIgnoreCase("Nov")) {
+
+						mes = 11;
+
+					} else if (fechas[1].equalsIgnoreCase("Dec")) {
+
+						mes = 12;
+
+					}
+
+					año_ingreso = dia + "/" + mes + "/" + año;
+
+					String cantidad_DeDias = String.valueOf(dia);
+					String cantidad_Mes = String.valueOf(mes);
+
+					if (cantidad_DeDias.length() == 1) {
+
+						if (cantidad_Mes.length() == 1) {
+
+							año_ingreso = "0" + dia + "/0" + mes + "/" + año;
+
+						}
+
+						if (cantidad_Mes.length() == 2) {
+
+							año_ingreso = "0" + dia + "/" + mes + "/" + año;
+
+						}
+
+					}
+
+					if (cantidad_DeDias.length() == 2) {
+
+						if (cantidad_Mes.length() == 1) {
+
+							año_ingreso = dia + "/0" + mes + "/" + año;
+
+						}
+
+						if (cantidad_Mes.length() == 2) {
+							año_ingreso = dia + "/" + mes + "/" + año;
+
+						}
+					}
+				} else {
+					año_ingreso = "";
+				}
+			} else {
+				Personal personal2 = mundo.buscarPersona(Long.parseLong(String.valueOf(cedula)));
+				año_ingreso = personal2.getAnoIngreso();
+			}
+			if (!nombre.isEmpty()) {
+				if (!apellido.isEmpty()) {
+
+					if (!telefono.isEmpty()) {
+
+						if (telefono.length() == 7) {
+
+							if (!correo.isEmpty()) {
+
+								if (!direccion.isEmpty()) {
+
+									if (!año_ingreso.isEmpty()) {
+
+										try {
+											String respuesta = mundo.actualizarPersona(nombre, apellido, genero,
+													Long.parseLong(String.valueOf(prefijo + telefono)), correo,
+													direccion, año_ingreso, Long.parseLong(String.valueOf(cedula)));
+											JOptionPane.showMessageDialog(null, respuesta);
+											persistencia.guardarArchivo(mundo.getEmpleados());
+											if (respuesta.equalsIgnoreCase("Se actualizo el personal")) {
+												ventanaActualizarPrincipal.setVisible(false);
+
+												ventanaActualizarPrincipal.setVisible(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck().setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().setSelected(false);
+												ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().setSelected(false);
+
+												ventanaLista.getPanelLista().getSeleccion().setText("");
+												ventanaLista.getPanelLista().getDtm().setRowCount(0);
+												actutabla(ventanaLista.getPanelLista().getDtm(), ventanaLista.getPanelLista().getListaEmpleados(),
+														mundo.getEmpleados());
+												ventanaActualizarPrincipal.dispose();
+
+												ventanaLista.setVisible(true);
+
+											}
+
+										} catch (Exception e) {
+											// TODO Auto-generated catch block
+											JOptionPane.showMessageDialog(null, e.getMessage());
+										}
+
+									} else {
+										JOptionPane.showMessageDialog(null, "Debe ingresar una fecha de ingreso");
+
+									}
+
+								} else {
+									JOptionPane.showMessageDialog(null, "Debe ingresar una direccion");
+
+								}
+
+							} else {
+								JOptionPane.showMessageDialog(null, "Debe ingresar un correo");
+
+							}
+
+						} else {
+							JOptionPane.showMessageDialog(null,
+									"Debe ingresar 7 numeros en el complemento del telefono");
+
+						}
+
+					} else {
+						JOptionPane.showMessageDialog(null, "Debe ingresar el complemento del telefono");
+
+					}
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un nombre");
+
+				}
+
+			} else {
+				JOptionPane.showMessageDialog(null, "Debe ingresar un nombre");
+
+			}
+		}
+
+		if (Command.getActionCommand()
+				.equalsIgnoreCase(ventanaActualizarPrincipal.getPanelActualizarPrincipal().VOLVER_ACTU)) {
+
+			ventanaActualizarPrincipal.setVisible(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getTelefonoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getCorreoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getGeneroCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getAñoCheck().setSelected(false);
+			ventanaActualizarCheck.getPanelActualizarCheck().getDireccionCheck().setSelected(false);
+
+			ventanaLista.getPanelLista().getSeleccion().setText("");
+			ventanaLista.getPanelLista().getDtm().setRowCount(0);
+			actutabla(ventanaLista.getPanelLista().getDtm(), ventanaLista.getPanelLista().getListaEmpleados(),
+					mundo.getEmpleados());
+			ventanaActualizarPrincipal.dispose();
+			ventanaLista.setVisible(true);
+
 		}
 
 	}
@@ -1341,6 +1897,37 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 
 			}
 
+		}
+		
+		if (e.getSource() == ventanaActualizarPrincipal.getPanelActualizarPrincipal().getTelefonoTxt()) {
+
+			if (letra != '0' && letra != '1' && letra != '2' && letra != '3' && letra != '4' && letra != '5'
+					&& letra != '6' && letra != '7' && letra != '8' && letra != '9') {
+
+				e.consume();
+
+			}
+
+		}
+		
+		if (e.getSource() == ventanaActualizarPrincipal.getPanelActualizarPrincipal().getNombreTxt()) {
+
+			if (letra == '0' || letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5'
+					|| letra == '6' || letra == '7' || letra == '8' || letra == '9') {
+
+				e.consume();
+
+			}
+		}
+		
+		if (e.getSource() == ventanaActualizarPrincipal.getPanelActualizarPrincipal().getApellidoTxt()) {
+
+			if (letra == '0' || letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5'
+					|| letra == '6' || letra == '7' || letra == '8' || letra == '9') {
+
+				e.consume();
+
+			}
 		}
 
 	}

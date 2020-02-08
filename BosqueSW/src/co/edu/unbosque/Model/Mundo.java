@@ -120,11 +120,42 @@ public class Mundo {
 	 * @param anoIngreso Es el año de Ingreso del Empleado
 	 * @param cedula     Es la cedula del Empleado
 	 * @return String con la respuesta si se agrego el empleado
+	 * @throws Exception
 	 */
 	public String actualizarPersona(String nombre, String apellido, String genero, long telefono, String correo,
-			String direccion, String anoIngreso, long cedula) {
+			String direccion, String anoIngreso, long cedula) throws Exception{
 
-		String actualizar = "";
+		String actualizar = "No se actualizo el personal";
+		
+		int contaArroba = 0;
+
+		for (int i = 0; i < correo.length(); i++) {
+
+			if (correo.charAt(i) == '@') {
+
+				contaArroba++;
+
+			}
+		}
+		if (contaArroba != 1) {
+
+			throw new Exception("El correo que ingreso no es valido");
+
+		}
+
+		if (correo.charAt(0) == '@') {
+
+			throw new Exception("El correo que ingreso no es valido");
+
+		}
+
+		if (correo.charAt(correo.length() - 1) == '@') {
+
+			throw new Exception("El correo que ingreso no es valido");
+
+		}
+
+		
 		if (existePersonal(cedula) == true) {
 
 			Personal personal = buscarPersona(cedula);
@@ -155,20 +186,40 @@ public class Mundo {
 
 			}
 
-			if (correo.equalsIgnoreCase(personal.getCorreo())) {
+			if (!correo.equalsIgnoreCase(personal.getCorreo())) {
 				personal.setCorreo(correo);
 				actualizar = "Se actualizo el personal";
 
 			}
 
-			if (anoIngreso.equalsIgnoreCase(personal.getAnoIngreso())) {
+			if (!anoIngreso.equalsIgnoreCase(personal.getAnoIngreso())) {
 
-				personal.getAnoIngreso();
-				actualizar = "Se actualizo el personal";
-
+				if(personal.getTipoIngeniero().equalsIgnoreCase("Ingeniero Comision")) {
+					
+					PersonalComision persona = (PersonalComision)personal;
+					persona.setAnoIngreso(anoIngreso);
+					persona.calcularSalario();
+					actualizar = "Se actualizo el personal";	
+										
+				}else if(personal.getTipoIngeniero().equalsIgnoreCase("Ingeniero Junior")) {
+					
+					IngenieroJunior persona = (IngenieroJunior)personal;
+					persona.setAnoIngreso(anoIngreso);
+					persona.calcularSalario();
+					actualizar = "Se actualizo el personal";	
+					
+				}else if(personal.getTipoIngeniero().equalsIgnoreCase("Ingeniero Senior")) {
+					
+					IngenieroSenior persona = (IngenieroSenior)personal;
+					persona.setAnoIngreso(anoIngreso);
+					persona.calcularSalario();
+					actualizar = "Se actualizo el personal";	
+					
+				}
+				
 			}
 
-			if (direccion.equalsIgnoreCase(personal.getDireccion())) {
+			if (!direccion.equalsIgnoreCase(personal.getDireccion())) {
 
 				personal.setDireccion(direccion);
 				actualizar = "Se actualizo el personal";
