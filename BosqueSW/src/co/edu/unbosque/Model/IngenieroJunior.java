@@ -30,21 +30,45 @@ public class IngenieroJunior extends PersonalFijo {
 	}
 
 	private short nivel;
-
+	/**
+ 	 * Este metodo devuelve el valor nivel del Personal
+	 * <b> pre </b> El atributo ya ha sido creado. <br>
+	 * <b> post </b> Se obtiene el valor nivel del Personal. <br>
+	 *  
+	 * @return short con el nivel del Personal
+ */
 	public short getNivel() {
 		return nivel;
 	}
-
+	/**
+  	 * Este metodo edita el nivel del Personal
+	 * <b> pre </b> El atributo ya ha sido creado. <br>
+	 * <b> post </b> Se edita el nivel del Personal. <br>
+	 *  
+	 * @param nivel 	Es el nivel del Personal
+ */
 	public void setNivel(short nivel) {
 		this.nivel = nivel;
 	}
-
+	/**
+	 * Este metodo pasa la informacion del toString de personal y su nivel.
+	 * <b> pre </b> Los atributos ya han sido creados. <br>
+	 * <b> post </b> Se obtiene el String con toda la informacion mas el nivel. <br>
+	 * 
+	 *  @return String con toda la info del toString de Personal mas el nivel del Personal.
+	 */
 	@Override
 	public String toString() {
 
 		return super.toString() + "Nivel: " + nivel;
 	}
-
+/**
+ /**
+ 	 * Este metodo calcula el salario con sus respectivos incrementos
+	 * <b> pre </b> El atributo salario ya ha sido creado. <br>
+	 * <b> post </b> Se obtiene el salario completo del Personal. <br>
+	 *  
+ */ 
 	@Override
 	public void calcularSalario() {
 		// TODO Auto-generated method stub
