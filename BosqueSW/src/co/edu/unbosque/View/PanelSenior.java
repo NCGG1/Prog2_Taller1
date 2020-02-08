@@ -35,7 +35,7 @@ public class PanelSenior extends JPanel {
 
 	public static final String REGISTRARSENIOR = "REGISTRAR SENIOR";
 
-	public static final String VOLVER_PRINCIPAL = "VOLVER PRINCIPAL";
+	public static final String VOLVER_SENIOR = "VOLVER SENIOR";
 
 	private Icon iconVolver;
 
@@ -65,7 +65,7 @@ public class PanelSenior extends JPanel {
 				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 		// BOTON CON EL ICON
 		volverFlecha = new JButton(iconVolver);
-		volverFlecha.setActionCommand(VOLVER_PRINCIPAL);
+		volverFlecha.setActionCommand(VOLVER_SENIOR);
 		volverFlecha.setOpaque(false);
 		volverFlecha.setContentAreaFilled(false);
 		volverFlecha.setBorderPainted(false);
@@ -305,6 +305,18 @@ public class PanelSenior extends JPanel {
 
 	public void setPrefijoTelefonoSenior(JComboBox prefijoTelefonoSenior) {
 		this.prefijoTelefonoSenior = prefijoTelefonoSenior;
+	}
+
+	public JRadioButton getRbtnHombre() {
+		return rbtnHombre;
+	}
+
+	public JRadioButton getRbtnMujer() {
+		return rbtnMujer;
+	}
+
+	public JDateChooser getChoser() {
+		return choser;
 	}
 
 }

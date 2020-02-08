@@ -41,5 +41,9 @@ public class VentanaSenior extends JFrame {
 		
 		
 	}
+
+	public PanelSenior getPanelregistrarSenior() {
+		return panelregistrarSenior;
+	}
 	
 }

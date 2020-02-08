@@ -25,5 +25,16 @@ public class VentanaEmpleadosFijos extends JFrame{
 	}
 
 	public void iniciarComponentes(Controlador control) {
+		
+		panelEmpleadosFijos.getSenior().addActionListener(control);
+		panelEmpleadosFijos.getJunior().addActionListener(control);
+		panelEmpleadosFijos.getVolverFijos().addActionListener(control);
+		
 	}
+
+	public PanelEmpleadosFijos getPanelEmpleadosFijos() {
+		return panelEmpleadosFijos;
+	}
+	
+	
 }

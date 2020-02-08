@@ -88,8 +88,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			String telefono = ventanaComision.getPanelregistrarComision().getTelefonoComision().getText().trim();
 			String correo = ventanaComision.getPanelregistrarComision().getCorreoComision().getText().trim();
 			String direccion = ventanaComision.getPanelregistrarComision().getDireccionComision().getText().trim();
-			long cedula = Long.parseLong(
-					String.valueOf(ventanaComision.getPanelregistrarComision().getCedulaComision().getText().trim()));
+			String cedula = ventanaComision.getPanelregistrarComision().getCedulaComision().getText().trim();
 
 			String genero = "";
 
@@ -99,13 +98,18 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 				genero = "Mujer";
 			}
 
-			String date = String.valueOf(ventanaComision.getPanelregistrarComision().getChoser().getDate());
-			String[] fechas = date.split("\\s");
+			Object date = ventanaComision.getPanelregistrarComision().getChoser().getDate();
+			String año_ingreso = "";
+			
+			if(date != null) {
+				
+			String date2 = String.valueOf(ventanaComision.getPanelregistrarComision().getChoser().getDate());
+				
+			String[] fechas = date2.split("\\s");
 
 			int dia = Integer.parseInt(fechas[2]);
 			int año = Integer.parseInt(fechas[5]);
 			int mes = 0;
-			String año_ingreso = "";
 
 			if (fechas[1].equalsIgnoreCase("Jan")) {
 
@@ -191,7 +195,9 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 
 				}
 			}
-
+			}else {
+				año_ingreso = "";
+			}
 			int clientes = Integer.parseInt(
 					String.valueOf(ventanaComision.getPanelregistrarComision().getClientesComision().getValue()));
 
@@ -206,44 +212,56 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 							if (!correo.isEmpty()) {
 
 								if (!año_ingreso.isEmpty()) {
-									double[] salarios = new double[clientes];
-									
-									try {
-										String registro = mundo.registrarPersonal(nombre, apellido, genero,
-												Long.parseLong(String.valueOf(prefijoTel + telefono)), correo, direccion,
-												"Ingeniero Comision", año_ingreso, cedula,
-												Double.parseDouble(String.valueOf(1100000)), clientes, salarios);
-												System.out.println(mundo.buscarPersona(cedula).toString());
-										if (registro.equalsIgnoreCase("Registrado, bienvenido a bosqueSW")) {
-											ventanaComision.setVisible(false);
-											JOptionPane.showMessageDialog(null, registro);
-											ventanaComision.getPanelregistrarComision().getNombreComision().setText("");
-											ventanaComision.getPanelregistrarComision().getApellidoComision()
-													.setText("");
-											ventanaComision.getPanelregistrarComision().getTelefonoComision()
-													.setText("");
-											ventanaComision.getPanelregistrarComision().getCorreoComision().setText("");
-											ventanaComision.getPanelregistrarComision().getPrefijoTelefonoComision()
-													.setSelectedIndex(0);
-											ventanaComision.getPanelregistrarComision().getDireccionComision()
-													.setText("");
-											ventanaComision.getPanelregistrarComision().getCedulaComision().setText("");
-											ventanaComision.getPanelregistrarComision().getRbtnHombre()
-													.setSelected(true);
-											ventanaComision.getPanelregistrarComision().getClientesComision()
-													.setValue(1);
-											ventanaComision.setVisible(true);
-										} else {
-											ventanaComision.setVisible(false);
-											JOptionPane.showMessageDialog(null, registro);
-											ventanaComision.getPanelregistrarComision().getCedulaComision().setText("");
-											ventanaComision.setVisible(true);
-										}
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										JOptionPane.showMessageDialog(null, e.getMessage());
-									}
+									if (!cedula.isEmpty() && !cedula.equalsIgnoreCase("0")) {
+										double[] salarios = new double[clientes];
 
+										for (int i = 0; i < salarios.length; i++) {
+
+											salarios[i] = (int) (Math.floor(Math.random() * (2000000 - 500000) + 0));
+										}
+
+										try {
+											String registro = mundo.registrarPersonal(nombre, apellido, genero,
+													Long.parseLong(String.valueOf(prefijoTel + telefono)), correo,
+													direccion, "Ingeniero Comision", año_ingreso,
+													Long.parseLong(String.valueOf(cedula)),
+													Double.parseDouble(String.valueOf(1100000)), clientes, salarios);
+											if (registro.equalsIgnoreCase("Registrado, bienvenido a bosqueSW")) {
+												ventanaComision.setVisible(false);
+												JOptionPane.showMessageDialog(null, registro);
+												ventanaComision.getPanelregistrarComision().getNombreComision()
+														.setText("");
+												ventanaComision.getPanelregistrarComision().getApellidoComision()
+														.setText("");
+												ventanaComision.getPanelregistrarComision().getTelefonoComision()
+														.setText("");
+												ventanaComision.getPanelregistrarComision().getCorreoComision()
+														.setText("");
+												ventanaComision.getPanelregistrarComision().getPrefijoTelefonoComision()
+														.setSelectedIndex(0);
+												ventanaComision.getPanelregistrarComision().getDireccionComision()
+														.setText("");
+												ventanaComision.getPanelregistrarComision().getCedulaComision()
+														.setText("");
+												ventanaComision.getPanelregistrarComision().getRbtnHombre()
+														.setSelected(true);
+												ventanaComision.getPanelregistrarComision().getClientesComision()
+														.setValue(1);
+												ventanaComision.setVisible(true);
+											} else {
+												ventanaComision.setVisible(false);
+												JOptionPane.showMessageDialog(null, registro);
+												ventanaComision.getPanelregistrarComision().getCedulaComision()
+														.setText("");
+												ventanaComision.setVisible(true);
+											}
+										} catch (Exception e) {
+											// TODO Auto-generated catch block
+											JOptionPane.showMessageDialog(null, e.getMessage());
+										}
+									} else {
+										JOptionPane.showMessageDialog(null, "Debe ingresar una cedula valida");
+									}
 								} else {
 									JOptionPane.showMessageDialog(null, "Debe ingresar una fecha de ingreso");
 
@@ -254,7 +272,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 
 						} else {
 							JOptionPane.showMessageDialog(null,
-									"No puede ingresar mas de 7 numeros en el complemento del telefono");
+									"Debe ingresar 7 numeros en el complemento del telefono");
 
 						}
 
@@ -292,15 +310,266 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			ventanaComision.dispose();
 		}
 
-		
-		
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaEmpleados.getPanelEmpleados().FIJO)) {
 
-//		if(Command.getActionCommand().equalsIgnoreCase(ventanaEmpleados.getPanelEmpleados().FIJO)) {
-//			
-//
-//			ventanaEmpleados.setVisible(false);
-//			ventanaEmpleadosFijos.setVisible(true);
-//		}
+			ventanaEmpleados.setVisible(false);
+			ventanaEmpleadosFijos.setVisible(true);
+			ventanaEmpleados.dispose();
+		}
+
+		if (Command.getActionCommand()
+				.equalsIgnoreCase(ventanaEmpleadosFijos.getPanelEmpleadosFijos().VOLVER_EMPLEADO_FIJOS)) {
+
+			ventanaEmpleados.setVisible(true);
+			ventanaEmpleadosFijos.setVisible(false);
+			ventanaEmpleadosFijos.dispose();
+		}
+
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaEmpleadosFijos.getPanelEmpleadosFijos().SENIOR)) {
+
+			ventanaEmpleadosFijos.setVisible(false);
+			ventanaEmpleadosFijos.dispose();
+			ventanaSenior.setVisible(true);
+		}
+
+		if (Command.getActionCommand().equalsIgnoreCase(ventanaSenior.getPanelregistrarSenior().REGISTRARSENIOR)) {
+
+			String nombre = ventanaSenior.getPanelregistrarSenior().getNombreSenior().getText().trim();
+			String apellido = ventanaSenior.getPanelregistrarSenior().getApellidoSenior().getText().trim();
+			
+			String prefijoTel = String
+					.valueOf(ventanaSenior.getPanelregistrarSenior().getPrefijoTelefonoSenior().getSelectedItem());
+			String telefono = ventanaSenior.getPanelregistrarSenior().getTelefonoSenior().getText().trim();
+			String correo = ventanaSenior.getPanelregistrarSenior().getCorreoSenior().getText().trim();
+			String direccion = ventanaSenior.getPanelregistrarSenior().getDireccionSenior().getText().trim();
+			String cedula = ventanaSenior.getPanelregistrarSenior().getCedulaSenior().getText().trim();
+
+			String genero = "";
+
+			if (ventanaSenior.getPanelregistrarSenior().getRbtnHombre().isSelected()) {
+				genero = "Hombre";
+			} else {
+				genero = "Mujer";
+			}
+
+			Object date = ventanaSenior.getPanelregistrarSenior().getChoser().getDate();
+			String año_ingreso = "";
+			
+			if(date != null) {
+				
+			String date2 = String.valueOf(ventanaSenior.getPanelregistrarSenior().getChoser().getDate());
+				
+			String[] fechas = date2.split("\\s");
+			
+			int dia = Integer.parseInt(fechas[2]);
+			int año = Integer.parseInt(fechas[5]);
+			int mes = 0;
+
+			if (fechas[1].equalsIgnoreCase("Jan")) {
+
+				mes = 1;
+
+			} else if (fechas[1].equalsIgnoreCase("Feb")) {
+
+				mes = 2;
+
+			} else if (fechas[1].equalsIgnoreCase("Mar")) {
+
+				mes = 3;
+
+			} else if (fechas[1].equalsIgnoreCase("Apr")) {
+
+				mes = 4;
+
+			} else if (fechas[1].equalsIgnoreCase("May")) {
+
+				mes = 5;
+
+			} else if (fechas[1].equalsIgnoreCase("Jun")) {
+
+				mes = 6;
+
+			} else if (fechas[1].equalsIgnoreCase("Jul")) {
+
+				mes = 7;
+
+			} else if (fechas[1].equalsIgnoreCase("Aug")) {
+
+				mes = 8;
+
+			} else if (fechas[1].equalsIgnoreCase("Sep")) {
+
+				mes = 9;
+
+			} else if (fechas[1].equalsIgnoreCase("Oct")) {
+
+				mes = 10;
+
+			} else if (fechas[1].equalsIgnoreCase("Nov")) {
+
+				mes = 11;
+
+			} else if (fechas[1].equalsIgnoreCase("Dec")) {
+
+				mes = 12;
+
+			}
+
+			
+			
+			año_ingreso = dia + "/" + mes + "/" + año;
+
+			String cantidad_DeDias = String.valueOf(dia);
+			String cantidad_Mes = String.valueOf(mes);
+
+			if (cantidad_DeDias.length() == 1) {
+
+				if (cantidad_Mes.length() == 1) {
+
+					año_ingreso = "0" + dia + "/0" + mes + "/" + año;
+
+				}
+
+				if (cantidad_Mes.length() == 2) {
+
+					año_ingreso = "0" + dia + "/" + mes + "/" + año;
+
+				}
+
+			}
+
+			if (cantidad_DeDias.length() == 2) {
+
+				if (cantidad_Mes.length() == 1) {
+
+					año_ingreso = dia + "/0" + mes + "/" + año;
+
+				}
+
+				if (cantidad_Mes.length() == 2) {
+					año_ingreso = dia + "/" + mes + "/" + año;
+
+				}
+			}
+			}else {
+				año_ingreso = "";
+			}
+
+			int ventas = Integer
+					.parseInt(String.valueOf(ventanaSenior.getPanelregistrarSenior().getNumeroVentas().getValue()));
+
+			if (!nombre.isEmpty()) {
+
+				if (!apellido.isEmpty()) {
+
+					if (!telefono.isEmpty()) {
+
+						if (telefono.length() == 7) {
+
+							if (!correo.isEmpty()) {
+
+								if (!direccion.isEmpty()) {
+
+									if (!cedula.isEmpty() && !cedula.equalsIgnoreCase("0")) {
+
+										if (!año_ingreso.isEmpty()) {
+
+											try {
+												String registro = mundo.registrarPersonal(nombre, apellido, genero,
+														Long.parseLong(String.valueOf(prefijoTel+telefono)), correo, direccion, "Ingeniero Senior", año_ingreso,
+														Long.parseLong(String.valueOf(cedula)), 3500000, ventas, null);
+													
+												if(registro.equalsIgnoreCase("Registrado, bienvenido a bosqueSW")) {
+													
+													ventanaSenior.setVisible(false);
+													JOptionPane.showMessageDialog(null, registro);
+													
+													ventanaSenior.getPanelregistrarSenior().getNombreSenior().setText("");
+													ventanaSenior.getPanelregistrarSenior().getApellidoSenior().setText("");
+													ventanaSenior.getPanelregistrarSenior().getPrefijoTelefonoSenior().setSelectedIndex(0);
+													ventanaSenior.getPanelregistrarSenior().getTelefonoSenior().setText("");
+													ventanaSenior.getPanelregistrarSenior().getCorreoSenior().setText("");
+													ventanaSenior.getPanelregistrarSenior().getDireccionSenior().setText("");
+													ventanaSenior.getPanelregistrarSenior().getRbtnHombre().setSelected(true);
+													ventanaSenior.getPanelregistrarSenior().getNumeroVentas().setValue(1);
+													ventanaSenior.getPanelregistrarSenior().getCedulaSenior().setText("");
+													ventanaSenior.setVisible(true);
+												}else{
+												
+													ventanaSenior.setVisible(false);
+													JOptionPane.showMessageDialog(null, registro);
+													ventanaSenior.getPanelregistrarSenior().getCedulaSenior().setText("");
+													ventanaSenior.setVisible(true);
+													
+												}
+												
+											} catch (NumberFormatException e) {
+												// TODO Auto-generated catch block
+												JOptionPane.showMessageDialog(null, "Debe ingresar un valor numerico");
+											} catch (Exception e) {
+												// TODO Auto-generated catch block
+												JOptionPane.showMessageDialog(null, e.getMessage());
+												
+											}
+
+										} else {
+
+											JOptionPane.showMessageDialog(null, "Debe ingresar una fecha de ingreso");
+
+										}
+									} else {
+										JOptionPane.showMessageDialog(null, "Debe ingresar una cedula valida");
+
+									}
+
+								} else {
+
+									JOptionPane.showMessageDialog(null, "Debe ingresar una direccion");
+
+								}
+
+							} else {
+								JOptionPane.showMessageDialog(null, "Debe ingresar un correo");
+
+							}
+
+						} else {
+
+							JOptionPane.showMessageDialog(null, "Debe ingresar 7 numeros del complemento del telefono");
+
+						}
+
+					} else {
+
+						JOptionPane.showMessageDialog(null, "Debe el complemento del telefono");
+
+					}
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Debe ingresar un apellido");
+				}
+
+			} else {
+
+				JOptionPane.showMessageDialog(null, "Debe ingresar un nombre");
+			}
+		}
+		
+		if(Command.getActionCommand().equalsIgnoreCase(ventanaSenior.getPanelregistrarSenior().VOLVER_SENIOR)){
+			ventanaSenior.setVisible(false);
+			ventanaSenior.getPanelregistrarSenior().getNombreSenior().setText("");
+			ventanaSenior.getPanelregistrarSenior().getApellidoSenior().setText("");
+			ventanaSenior.getPanelregistrarSenior().getPrefijoTelefonoSenior().setSelectedIndex(0);
+			ventanaSenior.getPanelregistrarSenior().getTelefonoSenior().setText("");
+			ventanaSenior.getPanelregistrarSenior().getCorreoSenior().setText("");
+			ventanaSenior.getPanelregistrarSenior().getDireccionSenior().setText("");
+			ventanaSenior.getPanelregistrarSenior().getRbtnHombre().setSelected(true);
+			ventanaSenior.getPanelregistrarSenior().getNumeroVentas().setValue(1);
+			ventanaSenior.getPanelregistrarSenior().getCedulaSenior().setText("");
+			ventanaSenior.dispose();
+			ventanaEmpleados.setVisible(true);
+			
+		}
 
 	}
 

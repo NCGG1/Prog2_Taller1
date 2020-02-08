@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class PanelEmpleadosFijos extends JPanel{
+public class PanelEmpleadosFijos extends JPanel {
 
 	private String ruta;
 	private Image fondo;
@@ -24,98 +24,112 @@ public class PanelEmpleadosFijos extends JPanel{
 	public static final String JUNIOR = "JUNIOR";
 
 	public PanelEmpleadosFijos() {
+
+		TitledBorder border = new TitledBorder("Empleados fijos");
+		setBorder(border);
+		border.setTitleJustification(TitledBorder.CENTER);
+		border.setTitleColor(Color.BLACK);
+		setLayout(null);
+
+		ruta = "src/co/edu/unbosque/Util/fondo.jpg";
+
+		seniorIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/senior.png").getImage().getScaledInstance(40,
+				40, Image.SCALE_SMOOTH));
+		// BOTON CON EL ICON
+
+		senior = new JButton(seniorIcon);
+		senior.setActionCommand(SENIOR);
+		senior.setOpaque(false);
+		senior.setContentAreaFilled(false);
+		senior.setBorderPainted(false);
+
+		// x,y, lados,alto
+		senior.setBounds(20, 45, 100, 40);
+		add(senior);
+
+		junioIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/junior.png").getImage().getScaledInstance(40,
+				40, Image.SCALE_SMOOTH));
+
+		junior = new JButton(junioIcon);
+		junior.setActionCommand(JUNIOR);
+		junior.setOpaque(false);
+		junior.setContentAreaFilled(false);
+		junior.setBorderPainted(false);
+
+		Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+		junior.setCursor(cursor);
+		junior.setToolTipText("Ingeniero junior");
+
+		senior.setCursor(cursor);
+		senior.setToolTipText("Ingeniero senior");
 		
-	
-	TitledBorder border = new TitledBorder("Empleados fijos");
-	setBorder(border);
-	border.setTitleJustification(TitledBorder.CENTER);
-	border.setTitleColor(Color.BLACK);
-	setLayout(null);
+		// x,y, lados,alto
+		junior.setBounds(160, 45, 100, 40);
+		add(junior);
 
-	ruta = "src/co/edu/unbosque/Util/fondo.jpg";
+		volverFijosIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
+				.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+		// BOTON CON EL ICON
 
-	seniorIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/senior.png").getImage()
-			.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-	// BOTON CON EL ICON
+		volverFijos = new JButton(volverFijosIcon);
+		volverFijos.setActionCommand(VOLVER_EMPLEADO_FIJOS);
+		volverFijos.setOpaque(false);
+		volverFijos.setContentAreaFilled(false);
+		volverFijos.setBorderPainted(false);
 
-	senior = new JButton(seniorIcon);
-	senior.setActionCommand(SENIOR);
-	senior.setOpaque(false);
-	senior.setContentAreaFilled(false);
-	senior.setBorderPainted(false);
-
-	// x,y, lados,alto
-	senior.setBounds(20, 45, 100, 40);
-	add(senior);
-
-	junioIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/junior.png").getImage().getScaledInstance(40, 40,
-			Image.SCALE_SMOOTH));
-
-	junior = new JButton(junioIcon);
-	junior.setActionCommand(JUNIOR);
-	junior.setOpaque(false);
-	junior.setContentAreaFilled(false);
-	junior.setBorderPainted(false);
-
-	Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
-	junior.setCursor(cursor);
-	junior.setToolTipText("Ingeniero junior");
-
-	senior.setCursor(cursor);
-	senior.setToolTipText("Ingeniero senior");
-
-	// x,y, lados,alto
-	junior.setBounds(160, 45, 100, 40);
-	add(junior);
-
-
-	volverFijosIcon = new ImageIcon(new ImageIcon("src/co/edu/unbosque/Util/regresar.png").getImage()
-			.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
-	// BOTON CON EL ICON
-
-	volverFijos = new JButton(volverFijosIcon);
-	volverFijos.setActionCommand(VOLVER_EMPLEADO_FIJOS);
-	volverFijos.setOpaque(false);
-	volverFijos.setContentAreaFilled(false);
-	volverFijos.setBorderPainted(false);
-
-	// x,y, lados,alto
-	volverFijos.setBounds(5, 10, 47, 40);
-	add(volverFijos);
-}
-
-public void paintComponent(Graphics g) {
-
-	int width = this.getSize().width;
-	int height = this.getSize().height;
-
-	setBackground(ruta);
-
-	if (this.fondo != null) {
-		g.drawImage(this.fondo, 0, 0, width, height, null);
+		volverFijos.setCursor(cursor);
+		volverFijos.setToolTipText("Volver filtro empleados");
+		
+		// x,y, lados,alto
+		volverFijos.setBounds(5, 10, 40, 40);
+		add(volverFijos);
 	}
 
-	// CREAMOS NOSOTROS
-	Graphics2D g2 = (Graphics2D) g;
+	public void paintComponent(Graphics g) {
 
-	Font miFuente7 = new Font("Arial", Font.BOLD, 20);
+		int width = this.getSize().width;
+		int height = this.getSize().height;
 
-	g2.setFont(miFuente7);
+		setBackground(ruta);
 
-	g2.setColor(Color.BLACK);
+		if (this.fondo != null) {
+			g.drawImage(this.fondo, 0, 0, width, height, null);
+		}
 
-	g2.drawString("S: Ingeniero Senior", 50, 160);
-	g2.drawString("J: Ingeniero Junior", 50, 200);
+		// CREAMOS NOSOTROS
+		Graphics2D g2 = (Graphics2D) g;
 
-	super.paintComponent(g);
+		Font miFuente7 = new Font("Arial", Font.BOLD, 20);
 
-}
+		g2.setFont(miFuente7);
+
+		g2.setColor(Color.BLACK);
+
+		g2.drawString("S: Ingeniero Senior", 50, 160);
+		g2.drawString("J: Ingeniero Junior", 50, 200);
+
+		super.paintComponent(g);
+
+	}
 
 //METODO 2 NECESARIO
-public void setBackground(String imagePath) {
+	public void setBackground(String imagePath) {
 
-	this.setOpaque(false);
-	this.fondo = new ImageIcon(imagePath).getImage();
-	repaint();
-}
+		this.setOpaque(false);
+		this.fondo = new ImageIcon(imagePath).getImage();
+		repaint();
+	}
+
+	public JButton getJunior() {
+		return junior;
+	}
+
+	public JButton getSenior() {
+		return senior;
+	}
+
+	public JButton getVolverFijos() {
+		return volverFijos;
+	}
+
 }
