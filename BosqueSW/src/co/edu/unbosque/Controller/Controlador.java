@@ -18,13 +18,8 @@ import co.edu.unbosque.View.VentanaPrincipal;
 import co.edu.unbosque.View.VentanaSenior;
 
 public class Controlador implements ActionListener, KeyListener, MouseListener{
-<<<<<<< HEAD
-	
-	
-=======
 
 	private VentanaEmpleados ventanaEmpleados;
->>>>>>> a5cc3d70ff25d2c609149544a5893ef61c840ac7
 	private VentanaLista ventanaLista;
 	private VentanaSenior ventanaSenior;
 	private VentanaJunior ventanaJunior;
