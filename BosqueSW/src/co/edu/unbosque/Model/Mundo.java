@@ -120,7 +120,12 @@ public class Mundo {
 	 * @param anoIngreso Es el año de Ingreso del Empleado
 	 * @param cedula     Es la cedula del Empleado
 	 * @return String con la respuesta si se agrego el empleado
-	 * @throws Exception
+	 * @throws Exception si existe mas de una arroba en el correo, dispara la
+	 *                   excepcion indicando que el correo no es valido. Si existe
+	 *                   una arroba en la primera posicion del correo, dispara la
+	 *                   excepcion indicando que el correo no es valido. Si existe
+	 *                   una arroba en la ultima posicion del correo, dispara la
+	 *                   excepcion indicando que el correo no es valido.
 	 */
 	public String actualizarPersona(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String anoIngreso, long cedula) throws Exception{

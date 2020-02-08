@@ -24,9 +24,12 @@ public class Persistencia {
 
 	/**
 	 * 
+	 * Este metodo crear y guarda el archivo .dat <b> pre </b> La lista de empleados
+	 * está inicializada(no es null). <br>
+	 * <b> post </b> Se crea el archivio .dat. <br>
 	 * 
-	 * @param empleados
-	 * @return
+	 * @param empleados Es la lista de empleados que se va a guardar
+	 * @return String con la respuesta si se guardo el archivo
 	 */
 	public String guardarArchivo(ArrayList<Personal> empleados) {
 
@@ -57,25 +60,25 @@ public class Persistencia {
 
 	/**
 	 * 
-	 * @return
+	 * Lee un archivo .dat <b> pre </b> Debe existir un archivo.dat. <br>
+	 * <b> post </b> Lee los empleados guardados. <br>
+	 * 
+	 * @return ArrayList con los empleados guardados en el archivo
 	 */
-	public ArrayList<Personal> leerArchivo(){
-		
-			ArrayList<Personal> empleados = new ArrayList<>();
-			try {
-				
+	public ArrayList<Personal> leerArchivo() {
+
+		ArrayList<Personal> empleados = new ArrayList<>();
+		try {
+
 			ObjectInputStream leyendoFichero = new ObjectInputStream(new FileInputStream(ruta));
 			empleados = (ArrayList<Personal>) leyendoFichero.readObject();
 			leyendoFichero.close();
-			}catch (Exception e) {
-				// TODO: handle exception
-				e.getMessage();	
-			}
-			
-			return empleados;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
 		}
 
+		return empleados;
+	}
 
-		
-	
 }

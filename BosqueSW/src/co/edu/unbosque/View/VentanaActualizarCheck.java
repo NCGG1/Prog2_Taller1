@@ -22,7 +22,15 @@ public class VentanaActualizarCheck extends JFrame{
 		getContentPane().add(panelActualizarCheck);
 		iniciarComponentes(control);
 	}
-
+	
+	/**
+	 * Conecta los eventos del controlador con los elementos de vista
+	 *	<b> pre </b> El controlador debe implementar los diferente eventos listener <br>
+	 * <b> post </b> El controlador escucha los elementos de vista<br>
+	 * 
+	 * @param control A cual controlador va asociado los eventos
+	 * 
+	 */
 	public void iniciarComponentes(Controlador control) {
 	
 		panelActualizarCheck.getContinuarCheck().addActionListener(control);

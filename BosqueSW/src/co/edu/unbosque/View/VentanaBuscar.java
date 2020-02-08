@@ -23,6 +23,14 @@ public class VentanaBuscar extends JFrame {
 		iniciarComponentes(control);
 	}
 
+	/**
+	 * Conecta los eventos del controlador con los elementos de vista
+	 *	<b> pre </b> El controlador debe implementar los diferente eventos listener <br>
+	 * <b> post </b> El controlador escucha los elementos de vista<br>
+	 * 
+	 * @param control A cual controlador va asociado los eventos
+	 * 
+	 */
 	public void iniciarComponentes(Controlador control) {
 		panelBuscar.getVolverFlecha().addActionListener(control);
 		panelBuscar.getBotonIncrementar().addActionListener(control);

@@ -67,7 +67,6 @@ public class PanelPrincipal extends JPanel {
 		add(lista);
 	}
 
-	// METODO 1 NECESARIO
 	public void paintComponent(Graphics g) {
 
 		int width = this.getSize().width;
@@ -94,7 +93,15 @@ public class PanelPrincipal extends JPanel {
 
 	}
 
-	// METODO 2 NECESARIO
+	/**
+	 * Este pinta el panel con la imagen selecionada <b> pre </b> Debe existir el metodo
+	 * paintComponent. <br>
+	 * <b> post </b> Pinta el panel <br>
+	 * 
+	 * 
+	 * @param imagePath ruta donde se encuentra la imagen de fondo
+	 */
+
 	public void setBackground(String imagePath) {
 
 		this.setOpaque(false);

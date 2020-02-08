@@ -24,7 +24,15 @@ public class VentanaLista extends JFrame {
 		getContentPane().add(panelLista);
 		iniciarComponentes(control);
 	}
-	
+
+	/**
+	 * Conecta los eventos del controlador con los elementos de vista
+	 *	<b> pre </b> El controlador debe implementar los diferente eventos listener <br>
+	 * <b> post </b> El controlador escucha los elementos de vista<br>
+	 * 
+	 * @param control A cual controlador va asociado los eventos
+	 * 
+	 */
 	public void iniciarComponentes(Controlador control) {
 	
 		panelLista.getListaEmpleados().addMouseListener(control);

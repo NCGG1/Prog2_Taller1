@@ -213,6 +213,14 @@ public class PanelActualizarPrincipal extends JPanel {
 		super.paintComponent(g);
 
 	}
+	/**
+	 * Este pinta el panel con la imagen selecionada <b> pre </b> Debe existir el metodo
+	 * paintComponent. <br>
+	 * <b> post </b> Pinta el panel <br>
+	 * 
+	 * 
+	 * @param imagePath ruta donde se encuentra la imagen de fondo
+	 */
 
 	public void setBackground(String imagePath) {
 

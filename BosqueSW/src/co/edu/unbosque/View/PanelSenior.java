@@ -184,7 +184,7 @@ public class PanelSenior extends JPanel {
 
 	}
 
-//METODO 1 NECESARIO
+
 	public void paintComponent(Graphics g) {
 
 		int width = this.getSize().width;
@@ -196,7 +196,6 @@ public class PanelSenior extends JPanel {
 			g.drawImage(this.fondo, 0, 0, width, height, null);
 		}
 
-		// CREAMOS NOSOTROS
 		Graphics2D g2 = (Graphics2D) g;
 
 		Font miFuente7 = new Font("Arial", Font.BOLD, 20);
@@ -218,8 +217,16 @@ public class PanelSenior extends JPanel {
 		super.paintComponent(g);
 
 	}
+	
+	/**
+	 * Este pinta el panel con la imagen selecionada <b> pre </b> Debe existir el metodo
+	 * paintComponent. <br>
+	 * <b> post </b> Pinta el panel <br>
+	 * 
+	 * 
+	 * @param imagePath ruta donde se encuentra la imagen de fondo
+	 */
 
-//METODO 2 NECESARIO
 	public void setBackground(String imagePath) {
 
 		this.setOpaque(false);

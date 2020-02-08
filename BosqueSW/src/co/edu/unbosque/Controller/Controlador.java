@@ -224,6 +224,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 							if (!correo.isEmpty()) {
 
 								if (!año_ingreso.isEmpty()) {
+									if(!direccion.isEmpty()) {
 									if (!cedula.isEmpty() && !cedula.equalsIgnoreCase("0")) {
 										double[] salarios = new double[clientes];
 
@@ -292,6 +293,10 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 										}
 									} else {
 										JOptionPane.showMessageDialog(null, "Debe ingresar una cedula valida");
+									}
+									}else {
+										JOptionPane.showMessageDialog(null, "Debe ingresar una direccion");
+										
 									}
 								} else {
 									JOptionPane.showMessageDialog(null, "Debe ingresar una fecha de ingreso");
@@ -1121,6 +1126,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 				.equalsIgnoreCase(ventanaActualizarCheck.getPanelActualizarCheck().VOLVER_CHECK)) {
 
 			ventanaLista.setVisible(true);
+			ventanaActualizarCheck.dispose();
 			ventanaActualizarCheck.setVisible(false);
 			ventanaActualizarCheck.getPanelActualizarCheck().getNombreCheck().setSelected(false);
 			ventanaActualizarCheck.getPanelActualizarCheck().getApellidoCheck().setSelected(false);
@@ -1729,6 +1735,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 			ventanaLista.getPanelLista().getDtm().setRowCount(0);
 			actutabla(ventanaLista.getPanelLista().getDtm(), ventanaLista.getPanelLista().getListaEmpleados(),
 					mundo.getEmpleados());
+			ventanaActualizarCheck.dispose();
 			ventanaActualizarPrincipal.dispose();
 			ventanaLista.setVisible(true);
 
