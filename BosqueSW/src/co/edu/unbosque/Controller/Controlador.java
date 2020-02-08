@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 
 import co.edu.unbosque.View.VentanaActualizarCheck;
 import co.edu.unbosque.View.VentanaActualizarPrincipal;
+import co.edu.unbosque.View.VentanaBuscar;
 import co.edu.unbosque.View.VentanaComision;
 import co.edu.unbosque.View.VentanaEmpleados;
 import co.edu.unbosque.View.VentanaJunior;
@@ -17,25 +18,33 @@ import co.edu.unbosque.View.VentanaPrincipal;
 import co.edu.unbosque.View.VentanaSenior;
 
 public class Controlador implements ActionListener, KeyListener, MouseListener{
+<<<<<<< HEAD
+	
+	
+=======
 
 	private VentanaEmpleados ventanaEmpleados;
+>>>>>>> a5cc3d70ff25d2c609149544a5893ef61c840ac7
 	private VentanaLista ventanaLista;
 	private VentanaSenior ventanaSenior;
 	private VentanaJunior ventanaJunior;
 	private VentanaComision ventanaComision;
+	private VentanaBuscar ventanaBuscar;
 	private VentanaActualizarPrincipal ventanaActualizarPrincipal;
 	private VentanaActualizarCheck ventanaActualizarCheck;
 	private VentanaPrincipal ventanaPrincipal;
 	public Controlador() {
+		
 		// TODO Auto-generated constructor stub
 		ventanaEmpleados = new VentanaEmpleados(this);
 		ventanaEmpleados.setVisible(true);
 		ventanaActualizarPrincipal = new VentanaActualizarPrincipal(this);
-		//ventanaActualizarPrincipal.setVisible(true);
+		ventanaActualizarPrincipal.setVisible(true);
 		ventanaLista = new VentanaLista(this);
 		ventanaActualizarCheck = new VentanaActualizarCheck(this);
 		ventanaJunior = new VentanaJunior(this);
 		ventanaSenior = new VentanaSenior(this);
+		ventanaSenior.setVisible(true);
 		
 		ventanaActualizarCheck.setVisible(true);
 		ventanaLista.setVisible(true);
@@ -43,6 +52,9 @@ public class Controlador implements ActionListener, KeyListener, MouseListener{
 		ventanaComision.setVisible(true);
 		ventanaPrincipal = new VentanaPrincipal(this);
 		ventanaPrincipal.setVisible(true);
+		
+		ventanaBuscar = new VentanaBuscar(this);
+		ventanaBuscar.setVisible(true);
 	//	ventanaActualizarCheck.setVisible(true);
 	//	ventanaLista.setVisible(true);
 		
