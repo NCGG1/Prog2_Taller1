@@ -36,7 +36,7 @@ public class VentanaBuscar extends JFrame {
 		panelBuscar.getDireccionComision().addKeyListener(control);
 		panelBuscar.getCedulaComision().addKeyListener(control);
 		panelBuscar.getNumeroVentas().addKeyListener(control);
+	*/	
 		
-		*/
 	}
 }
