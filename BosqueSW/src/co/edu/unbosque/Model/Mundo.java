@@ -80,15 +80,18 @@ public class Mundo {
 							tipoIngeniero, anoIngreso, cedula, salario, (short) variable);
 					empleados.add(junior);
 					ag = "Registrado, bienvenido a BosqueSW";
+					junior.calcularSalario();
 				} else if (tipoIngeniero.equalsIgnoreCase("Ingeniero Senior")) {
 					IngenieroSenior senior = new IngenieroSenior(nombre, apellido, genero, telefono, correo, direccion,
 							tipoIngeniero, anoIngreso, cedula, salario, variable);
 					empleados.add(senior);
+					senior.calcularSalario();
 					ag = "Registrado, bienvenido a BosqueSW";
 				} else if (tipoIngeniero.equalsIgnoreCase("Ingeniero Comision")) {
 					PersonalComision comision = new PersonalComision(nombre, apellido, genero, telefono, correo,
 							direccion, tipoIngeniero, anoIngreso, cedula, salario, variable, salarios);
 					empleados.add(comision);
+					comision.calcularSalario();
 					ag = "Registrado, bienvenido a BosqueSW";
 				}
 			} else {
@@ -312,5 +315,15 @@ public class Mundo {
 		return respuesta;
 
 	}
+
+	public ArrayList<Personal> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(ArrayList<Personal> empleados) {
+		this.empleados = empleados;
+	}
+	
+	
 
 }

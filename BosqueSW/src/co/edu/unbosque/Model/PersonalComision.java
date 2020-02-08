@@ -32,7 +32,7 @@ public class PersonalComision extends Personal {
 
 	@Override
 	public String toString() {
-		return "Clientes: " + clientes;
+		return super.toString() + "Clientes: " + clientes;
 	}
 
 	@Override

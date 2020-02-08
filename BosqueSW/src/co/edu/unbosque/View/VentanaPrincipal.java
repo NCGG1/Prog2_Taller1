@@ -27,5 +27,14 @@ public class VentanaPrincipal extends JFrame {
 
 	public void iniciarComponentes(Controlador control) {
 		
+		panelPrincipal.getRegister().addActionListener(control);
+		panelPrincipal.getLista().addActionListener(control);
+		
 	}
+
+	public PanelPrincipal getPanelPrincipal() {
+		return panelPrincipal;
+	}
+	
+	
 }

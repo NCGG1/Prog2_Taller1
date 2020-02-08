@@ -25,5 +25,14 @@ public class VentanaEmpleados extends JFrame{
 	}
 
 	public void iniciarComponentes(Controlador control) {
+		panelEmpleados.getFijoE().addActionListener(control);
+		panelEmpleados.getComisionE().addActionListener(control);
+		panelEmpleados.getVolverEmpleados().addActionListener(control);
 	}
+
+	public PanelEmpleados getPanelEmpleados() {
+		return panelEmpleados;
+	}
+	
+	
 }
