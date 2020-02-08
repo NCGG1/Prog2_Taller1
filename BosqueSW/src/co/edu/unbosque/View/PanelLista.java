@@ -172,5 +172,40 @@ public class PanelLista extends JPanel{
 		repaint();
 	}
 
+
+	public JButton getVolverLista() {
+		return volverLista;
+	}
+
+
+	public JButton getEliminar() {
+		return eliminar;
+	}
+
+
+	public JButton getActualizar() {
+		return actualizar;
+	}
+
+
+	public JButton getBuscar() {
+		return buscar;
+	}
+
+
+	public JTable getListaEmpleados() {
+		return listaEmpleados;
+	}
+
+
+	public DefaultTableModel getDtm() {
+		return dtm;
+	}
+
+
+	public JTextField getSeleccion() {
+		return seleccion;
+	}
+
 	
 }

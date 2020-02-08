@@ -909,6 +909,10 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 		if (Command.getActionCommand().equalsIgnoreCase(ventanaPrincipal.getPanelPrincipal().LISTA)) {
 
 			ventanaPrincipal.setVisible(false);
+			ventanaLista.getPanelLista().getDtm().setRowCount(0);
+			actutabla(ventanaLista.getPanelLista().getDtm(), ventanaLista.getPanelLista().getListaEmpleados(),
+					mundo.getEmpleados());
+
 			ventanaLista.setVisible(true);
 		}
 
@@ -1102,10 +1106,10 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 		for (int j = 0; j < personas.size(); j++) {
 			try {
 
-				tipoInge = personas.get(i).getTipoIngeniero();
+				tipoInge = personas.get(j).getTipoIngeniero();
 
 				if (tipoInge.equalsIgnoreCase("Ingeniero Comision")) {
-					PersonalComision personaC = (PersonalComision) personas.get(i);
+					PersonalComision personaC = (PersonalComision) personas.get(j);
 					filas[0] = String.valueOf(personaC.getCedula());
 					filas[1] = personaC.getNombre();
 					filas[2] = personaC.getApellido();
@@ -1121,9 +1125,11 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[12] = "No aplica";
 
 					dtm.addRow(filas);
-				} else if (tipoInge.equalsIgnoreCase("Ingeniero Junior")) {
+				} 
+				
+				if (tipoInge.equalsIgnoreCase("Ingeniero Junior")) {
 
-					IngenieroJunior personaJ = (IngenieroJunior) personas.get(i);
+					IngenieroJunior personaJ = (IngenieroJunior) personas.get(j);
 					filas[0] = String.valueOf(personaJ.getCedula());
 					filas[1] = personaJ.getNombre();
 					filas[2] = personaJ.getApellido();
@@ -1138,9 +1144,11 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[11] = "No aplica";
 					filas[12] = String.valueOf(personaJ.getNivel());
 
-				} else if (tipoInge.equalsIgnoreCase("Ingeniero Senior")) {
+					dtm.addRow(filas);
+				} 
+				if (tipoInge.equalsIgnoreCase("Ingeniero Senior")) {
 
-					IngenieroSenior personaS = (IngenieroSenior) personas.get(i);
+					IngenieroSenior personaS = (IngenieroSenior) personas.get(j);
 					filas[0] = String.valueOf(personaS.getCedula());
 					filas[1] = personaS.getNombre();
 					filas[2] = personaS.getApellido();
@@ -1155,6 +1163,7 @@ public class Controlador implements ActionListener, KeyListener, MouseListener {
 					filas[11] = String.valueOf(personaS.getVentas());
 					filas[12] = "No aplica";
 
+					dtm.addRow(filas);
 				}
 
 			} catch (Exception e) {

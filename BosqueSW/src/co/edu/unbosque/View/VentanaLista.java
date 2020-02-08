@@ -29,6 +29,12 @@ public class VentanaLista extends JFrame {
 	
 		
 	}
+
+	public PanelLista getPanelLista() {
+		return panelLista;
+	}
+	
+	
 }
 
 
