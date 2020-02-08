@@ -12,9 +12,9 @@ public class Mundo {
 	}
 
 	/**
-	 * Este método registra un empleado a bosqueSW <b> pre</b> La lista de empleados
-	 * está inicializada(no es null). <br>
-	 * <b> post </b> Se ha registrado un nuevo empleado a bosqueSw
+	 * Este método registra un empleado a bosqueSW
+	 * <b> pre</b> La lista de empleados está inicializada(no es null). <br>
+	 * <b> post </b> Se ha registrado un nuevo empleado a bosqueSw. <br>
 	 * 
 	 * @param nombre        Es el nombre del empleado.
 	 * @param apellido      Es el apellido del empleado.
@@ -101,7 +101,21 @@ public class Mundo {
 		return ag;
 
 	}
-
+/**
+ * Este método actualiza un empleado de bosqueSW
+ * <b> pre </b> La lista de empleados está inicializada(no es null). <br>
+ * <b> post </b> Se ha actualizado un nempleado de bosqueSw. <br>
+ * 
+ * @param nombre		Es el nombre del Empleado
+ * @param apellido		Es el apellido del Empleado
+ * @param genero		Es el genero del Empleado
+ * @param telefono		Es el telefono del Empleado
+ * @param correo		Es el correo del Empleado
+ * @param direccion		Es la direccion del Empleado
+ * @param anoIngreso	Es el año de Ingreso del Empleado
+ * @param cedula		Es la cedula del Empleado
+ * @return String con la respuesta si se agrego el empleado
+ */
 	public String actualizarPersona(String nombre, String apellido, String genero, long telefono, String correo,
 			String direccion, String anoIngreso, long cedula) {
 
@@ -164,7 +178,14 @@ public class Mundo {
 
 		return actualizar;
 	}
-
+/**
+ * Este metodo busca un empleado en bosqueSW
+	 * <b> pre </b> La lista de empleados debe estar inicializada(no es null). <br>
+	 * <b>post</b> Se encuentra la persona buscada. <br>
+	 *  
+ * @param cedula	Esta es la cedula del empleado a buscar.
+ * @return Personal retorna una persona de tipo personal
+ */
 	public Personal buscarPersona(long cedula) {
 
 		Personal persona1 = null;
@@ -179,14 +200,14 @@ public class Mundo {
 	}
 
 
-	/**NO SE A TERMINADO
+	/**
 	 * Este metodo comprueba si existe un empleado en bosqueSW
 	 * <b> pre </b> La lista de empleados debe estar inicializada(no es null). <br>
-	 * <b>post</b> Se ha <br>
+	 * <b>post</b> Se verifica la existencia de la persona. <br>
 	 * 
-	 * @param cedula Esta es la cedula del empleado a eliminar.
+	 * @param cedula 	Esta es la cedula del empleado a eliminar.
 	 * 
-	 * @return String con la respuesta si se elimino el empleado
+	 * @return Boolean 	con true si existe y false si no existe
 	 */
 	public boolean existePersonal(long cedula) {
 
@@ -202,11 +223,11 @@ public class Mundo {
 	/**
 	 * Este metodo borrar a un empleado de bosqueSW
 	 * <b> pre </b> La lista de empleados debe estar inicializada(no es null). <br>
-	 * <b>post</b> Se ha borrado un empleado de bosqueSw <br>
+	 * <b>post</b> Se ha borrado un empleado de bosqueSw. <br>
 	 * 
-	 * @param cedula Esta es la cedula del empleado a eliminar.
+	 * @param cedula 	Esta es la cedula del empleado a eliminar.
 	 * 
-	 * @return String con la respuesta si se elimino el empleado
+	 * @return String 	con la respuesta si se elimino (o no) el empleado
 	 */
 	public String borrarPersona(long cedula) {
 
@@ -228,10 +249,12 @@ public class Mundo {
 	}
 
 	/**
+	 * Este metodo borrar a un empleado de bosqueSW
+	 * <b> pre </b> La lista de empleados debe estar inicializada(no es null). <br>
+	 * <b>post</b> Se ha borrado un empleado de bosqueSw. <br>
 	 * 
-	 * 
-	 * @param cedula
-	 * @return
+	 * @param cedula	Esta es la cedula del Empleado
+	 * @return String 	con el resultado del incremento al valor especifico
 	 */
 	public String incrementarDatosVarios(long cedula) {
 
